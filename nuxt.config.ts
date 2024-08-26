@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   future:{
     typescriptBundlerResolution:false
   },
+  nitro:{
+    preset:'vercel'
+  },
   ssr:true,
   css: ['~/assets/css/main.css'],
   postcss: {
