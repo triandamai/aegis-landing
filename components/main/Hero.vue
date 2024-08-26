@@ -126,7 +126,7 @@
 }
 
 .image-mobile{
-  background-image: url("/images/main/m/bg-hero.png");
+  background-image: url("/images/main/m/bg-hero.webp");
   background-size: cover;
   background-repeat: no-repeat;
   @apply w-full h-[20vh] mb-2 rounded-b-2xl;

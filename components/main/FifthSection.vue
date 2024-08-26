@@ -3,35 +3,35 @@ let data: Array<{ name: string, web: string, avatar: string, message: string, po
   {
     name: "Michelle",
     web: "aegis.com",
-    avatar: "/images/main/dummy-avatar.png",
+    avatar: "/images/main/dummy-avatar.webp",
     message: "AEGIS sangat membantu kami dalam mengelola anggaran dan memprediksi pertumbuhan bisnis. Tim mereka sangat profesional dan responsif.”",
     position: 'top'
   },
   {
     name: "Michelle",
     web: "aegis.com",
-    avatar: "/images/main/dummy-avatar.png",
+    avatar: "/images/main/dummy-avatar.webp",
     message: "AEGIS sangat membantu kami dalam mengelola anggaran dan memprediksi pertumbuhan bisnis. Tim mereka sangat profesional dan responsif.”",
     position: 'bottom'
   },
   {
     name: "Michelle",
     web: "aegis.com",
-    avatar: "/images/main/dummy-avatar.png",
+    avatar: "/images/main/dummy-avatar.webp",
     message: "AEGIS sangat membantu kami dalam mengelola anggaran dan memprediksi pertumbuhan bisnis. Tim mereka sangat profesional dan responsif.”",
     position: 'top'
   },
   {
     name: "Michelle",
     web: "aegis.com",
-    avatar: "/images/main/dummy-avatar.png",
+    avatar: "/images/main/dummy-avatar.webp",
     message: "AEGIS sangat membantu kami dalam mengelola anggaran dan memprediksi pertumbuhan bisnis. Tim mereka sangat profesional dan responsif.”",
     position: 'bottom'
   },
   {
     name: "Michelle",
     web: "aegis.com",
-    avatar: "/images/main/dummy-avatar.png",
+    avatar: "/images/main/dummy-avatar.webp",
     message: "AEGIS sangat membantu kami dalam mengelola anggaran dan memprediksi pertumbuhan bisnis. Tim mereka sangat profesional dan responsif.”",
     position: 'top'
   }

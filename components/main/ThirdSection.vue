@@ -123,28 +123,28 @@
 <style scoped>
 
 .image-left {
-  background-image: url("/images/main/jokowi.png");
+  background-image: url("/images/main/jokowi.webp");
   background-repeat: no-repeat;
   background-size: cover;
   @apply w-[44vw] h-[30vh] rounded-b-2xl flex flex-row justify-start items-center mr-[2vw] pt-8;
 }
 
 .image-right {
-  background-image: url("/images/main/sri-mulyani.png");
+  background-image: url("/images/main/sri-mulyani.webp");
   background-repeat: no-repeat;
   background-size: cover;
   @apply w-[44vw] h-[30vh] rounded-b-2xl flex flex-row justify-end items-center ml-[2vw] pt-8;
 }
 
 .image-left-mobile {
-  background-image: url("/images/main/jokowi.png");
+  background-image: url("/images/main/jokowi.webp");
   background-repeat: no-repeat;
   background-size: cover;
   @apply w-full h-full   flex flex-row justify-start items-center;
 }
 
 .image-right-mobile {
-  background-image: url("/images/main/sri-mulyani.png");
+  background-image: url("/images/main/sri-mulyani.webp");
   background-repeat: no-repeat;
   background-size: cover;
   @apply w-full h-full flex flex-row justify-end items-center;

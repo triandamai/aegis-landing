@@ -26,7 +26,7 @@
             <NuxtLink to="/" class="bg-primary rounded-lg text-white py-4 px-6 mt-10">Kembali ke hompage</NuxtLink>
           </div>
         </div>
-        <img src="/images/bg-contact-sent.png" class="w-[20vw] h-[50vh] absolute bottom-0">
+        <img src="/images/bg-contact-sent.webp" class="w-[20vw] h-[50vh] absolute bottom-0">
         <img src="/images/ic-check.svg" class="absolute top-0 left-0 w-[4vw] h-[4vw]"/>
       </div>
     </section>

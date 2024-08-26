@@ -37,7 +37,7 @@ onMounted(() => {
 }
 
 .image-left {
-  background-image: url("/images/bg-login.png");
+  background-image: url("/images/bg-login.webp");
   background-repeat: no-repeat;
   background-size: cover;
   @apply w-[40vw] h-[35vw] rounded-b-2xl;
