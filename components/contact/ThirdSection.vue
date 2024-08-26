@@ -23,10 +23,8 @@
           class="w-full h-[50vh]"
           style="border:0"
           loading="lazy"
-          allowfullscreen
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0t0Nfe8NBl2BZA_jqH6eTcmDYp4uYus8
-    &q=Space+Needle,Seattle+WA">
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0t0Nfe8NBl2BZA_jqH6eTcmDYp4uYus8&q=Space+Needle,Seattle+WA">
       </iframe>
     </div>
   </section>

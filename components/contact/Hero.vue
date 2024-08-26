@@ -4,7 +4,7 @@
 
 <template>
 <section id="hero" class="w-svw px-[6vw]">
-  <div class="w-[88vw] h-full flex felx-row justify-between">
+  <div class="w-[88vw] h-full flex flex-row justify-between">
     <div class="w-[40vw] h-[70vh] relative">
       <div class="w-full h-[65vh] relative">
         <div class="w-full h-[8vh] flex flex-row justify-start">

@@ -356,6 +356,27 @@
     nuxt "3.8.1"
     scule "^1.0.0"
 
+"@iconify-json/material-symbols@^1.1.89":
+  version "1.1.89"
+  resolved "https://registry.npmjs.org/@iconify-json/material-symbols/-/material-symbols-1.1.89.tgz"
+  integrity sha512-lG/eoYGbXduksHNirl4eQ3Yh0mWX85WwmQgBjz4ebHp1g5QVfEK0W+0K83p9F0itiDXlCHcPwhFz4GHsPiCbiA==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/mdi@^1.1.68":
+  version "1.1.68"
+  resolved "https://registry.npmjs.org/@iconify-json/mdi/-/mdi-1.1.68.tgz"
+  integrity sha512-7//TKCiXLU6kNWeOJRTBbisofVO7rF1sD1TZTL4/V9nqlmVNczQ5IOY0GgKOTsitkcTnX9GXgrgbjw3OI5B69w==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/uil@^1.1.9":
+  version "1.1.9"
+  resolved "https://registry.npmjs.org/@iconify-json/uil/-/uil-1.1.9.tgz"
+  integrity sha512-NZkqwKfG2TsJClxzVjYi2a3Mam/3ZrNjzxHNniqqwrSiAQ6QYx9VlFmazQUXQF5xu9v1z1wIeQo3vYClvanrnw==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/collections@^1.0.443":
   version "1.0.451"
   resolved "https://registry.npmjs.org/@iconify/collections/-/collections-1.0.451.tgz"

@@ -19,7 +19,7 @@
         <img src="/images/img-six-section.png">
         <div class="h-full">
           <div class="w-full flex flex-row justify-between px-6 mb-10">
-            <div class="w-1/2 px-10">
+            <div class="w-1/2 px-10 cursor-pointer">
               <img src="/images/ic-videos.svg">
               <h2 class="text-2xl my-2">200+ Modul & Video</h2>
               <p>Akses lebih dari 200 modul dan video yang mencakup berbagai topik penting dalam bisnis</p>

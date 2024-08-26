@@ -8,7 +8,7 @@ import ItemContact from "~/components/contact/ItemContact.vue";
     <div class="w-[88vw] h-[50vh] flex flex-row justify-between items-center">
       <ItemContact
           name="Hubungi sales kami"
-          description="Masih bingung memilih paket yang tepat? Hubungi tim kami membantu Anda menemukan pilihan terbaik untuk pertumbuhan bisnis Anda.",
+          description="Masih bingung memilih paket yang tepat? Hubungi tim kami membantu Anda menemukan pilihan terbaik untuk pertumbuhan bisnis Anda."
           icon="/images/ic-wa.svg"
       />
       <ItemContact

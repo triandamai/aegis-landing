@@ -35,7 +35,7 @@
             <div class="text-white flex flex-col justify-between">
               <NuxtLink to="/terms">Syarat dan ketentuan</NuxtLink>
               <NuxtLink to="/privacy-policy">Kebijakan Privasi</NuxtLink>
-              <NuxtLink to="/cotact">Hubungi Kami</NuxtLink>
+              <NuxtLink to="/contact">Hubungi Kami</NuxtLink>
             </div>
           </div>
           <div class="mt-10 w-full flex flex-row justify-between items-center text-white">

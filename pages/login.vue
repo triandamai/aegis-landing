@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import HeaderMain from "~/components/HeaderMain.vue";
-
-
+const login = useLogin()
 </script>
 
 <template>
@@ -27,12 +25,18 @@ import HeaderMain from "~/components/HeaderMain.vue";
         <h1 class="w-full text-5xl text-center">Login</h1>
         <div>
           <div class="input-group">
-            <p class="input-label">Email</p>
-            <input type="email" class="input" placeholder="tes@gmail.com"/>
+            <label for="email" class="input-label">Email</label>
+            <input id="email" v-model="login.email" type="email" class="input" placeholder="tes@gmail.com"/>
           </div>
           <div class="input-group">
-            <p class="input-label">Password</p>
-            <input type="password" class="input" placeholder="password"/>
+            <label for="password">Password:</label>
+            <div class="w-full flex flex-row justify-between relative">
+              <input :type="login.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
+              <span @click="login.showPassword = !login.showPassword" class="toggle-password">
+                <Icon v-show="login.showPassword" name="material-symbols:visibility-outline-rounded"></Icon>
+                <Icon v-show="!login.showPassword" name="material-symbols:visibility-off-outline-rounded"></Icon>
+            </span>
+            </div>
           </div>
           <div class="my-4 flex flex-row justify-end">
             <NuxtLink to="/forgot-password" class="text-blue-500">Lupa password?</NuxtLink>
@@ -46,7 +50,9 @@ import HeaderMain from "~/components/HeaderMain.vue";
             <button><img src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
             <button><img src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
-          <button class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
+          <button @click="login.signIn" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
+            Kirim
+          </button>
         </div>
         <div class="w-full flex flex-row justify-center">
           <span>Belum punya akun?</span>
@@ -77,11 +83,20 @@ import HeaderMain from "~/components/HeaderMain.vue";
 }
 
 .input-group {
-  @apply my-4;
+  @apply my-4 flex flex-col;
 }
 
 .input-label {
   @apply text-gray-600 my-2;
+}
+
+.toggle-password {
+  position: absolute;
+  transform: translateY(-50%);
+  right: 0;
+  top: 50%;
+  cursor: pointer;
+  @apply px-2;
 }
 
 </style>
