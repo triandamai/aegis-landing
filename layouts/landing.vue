@@ -1,7 +1,7 @@
 <script setup lang="ts" xmlns="http://www.w3.org/1999/html">
 import HeaderMain from "~/components/HeaderMain.vue";
 import {useScroll} from "~/composables/useScroll";
-const {style,init,onScroll} = useScroll()
+const {style,styleParent,init,onScroll} = useScroll()
 
 useSeoMeta({
   title: 'My Amazing Site',
@@ -20,7 +20,7 @@ onMounted(()=>{
 
 <template>
   <main v-on:scroll="onScroll" class="w-screen h-screen overflow-x-hidden overflow-y-scroll">
-    <HeaderMain :style="style"/>
+    <HeaderMain :style="style" :parent="styleParent"/>
     <div  class="pt-[15vh]">
       <slot/>
     </div>

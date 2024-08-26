@@ -1,14 +1,14 @@
 <script setup lang="ts">
-defineProps(['style'])
+defineProps(['style','parent'])
 </script>
 
 <template>
-  <header class="w-full fixed z-10 hidden md:block lg:block xl:block">
+  <header class="w-full fixed z-10 hidden md:block lg:block xl:block" :class="parent">
     <div
         :class="style"
         class="h-[10vh] bg-white py-2 px-8 flex flex-row justify-between items-center">
       <NuxtLink to="/">
-        <img src="/images/logo.png">
+        <NuxtImg src="/images/logo.png" />
       </NuxtLink>
       <span class="flex flex-row">
         <NuxtLink to="/about" class="mx-4 hover:text-blue-800" :active-class="'text-blue-800'">Tentang kami</NuxtLink>
@@ -28,7 +28,7 @@ defineProps(['style'])
   <header class="w-full bg-white py-2 fixed z-10 block md:hidden lg:hidden xl:hidden">
     <div class="w-full flex flex-row justify-between px-[2vw] py-[1vw]">
       <NuxtLink to="/">
-        <img src="/images/logo.png">
+        <NuxtImg src="/images/logo.png"/>
       </NuxtLink>
       <button>
         <Icon name="material-symbols:menu" class="w-[10vw] h-[10vw]"/>
