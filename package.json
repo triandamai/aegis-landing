@@ -15,11 +15,6 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@hebilicious/form-actions-nuxt": "^0.3.0",
-    "@iconify-json/material-symbols": "^1.1.89",
-    "@iconify-json/mdi": "^1.1.68",
-    "@iconify-json/uil": "^1.1.9",
-    "@nuxt/icon": "^1.4.7",
     "@pinia/nuxt": "^0.5.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",

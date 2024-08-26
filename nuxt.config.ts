@@ -17,20 +17,11 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: [
-    '@nuxt/icon',
-    '@pinia/nuxt',
-    '@hebilicious/form-actions-nuxt'
+    '@pinia/nuxt'
   ],
   imports:{
     autoImport:true,
     dirs:['composables']
-  },
-  icon:{
-    provider: 'iconify',
-    serverBundle: false,
-    // serverBundle:{
-    //   collections:['uil','material-symbols']
-    // }
   },
   app:{
     head:{
