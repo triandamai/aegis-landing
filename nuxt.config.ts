@@ -20,9 +20,11 @@ export default defineNuxtConfig({
     dirs:['composables']
   },
   icon:{
-    serverBundle:{
-      collections:['uil','mdi','material-symbols']
-    }
+    provider: 'iconify',
+    serverBundle: false,
+    // serverBundle:{
+    //   collections:['uil','material-symbols']
+    // }
   },
   app:{
     head:{
