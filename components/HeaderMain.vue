@@ -7,7 +7,6 @@ const showMenuMobile = ref(false)
 onMounted(() => {
   client.auth.getSession()
       .then(data => {
-        console.log(data)
         if (data.error) {
           session.value = null
         } else {

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section id="hero" class="w-svw h-full md:h-screen lg:h-screen xl:h-screen px-[4vw] md:px-[6vw]">
+  <section id="hero" class="w-svw h-max md:h-screen lg:h-screen xl:h-screen px-[4vw] md:px-[6vw]">
     <!--  DESKTOP  -->
     <div class="hidden md:flex lg:flex xl:flex w-[88vw] h-[90vh] bg-white relative flex-row justify-center">
       <div class="left">
