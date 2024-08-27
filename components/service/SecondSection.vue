@@ -15,8 +15,8 @@ function onSelectedTab(pos: number) {
 
 <template>
   <!--  DESKTOP  -->
-  <section id="second" class="hidden sm:block md:block lg:block w-svw px-[6vw]">
-    <div class="w-full flex flex-row items-center justify-start my-4">
+  <section id="second" class="hidden sm:block md:block lg:block w-svw h-svh px-[6vw]">
+    <div class="w-full flex flex-row items-center justify-start">
       <span class="bg-primary rounded-2xl text-white text-6xl px-2 py-1">Layanan</span>
       <span class="text-6xl ml-2">Kami</span>
     </div>
@@ -49,16 +49,16 @@ function onSelectedTab(pos: number) {
         </div>
       </div>
       <div
-          class="w-full bg-gradient-to-br from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl flex flex-row justify-between px-10 py-10"
+          class="w-full h-[50vh] bg-gradient-to-br from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl flex flex-row justify-between px-10 py-10"
           :class="{'rounded-tl-2xl':selected > 0}">
         <div class="w-[40vw]">
-          <h1 class="text-3xl text-white mb-4">Business Development Services</h1>
-          <p class="text-lg text-white">Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang
+          <h1 class="text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold text-white mb-4">Business Development Services</h1>
+          <p class="text-lg md:text-lglg:text-2xl xl:text-2xl text-white">Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang
             baru, dan memperluas
             jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan</p>
         </div>
-        <div>
-          <NuxtImg src="/images/services/bg-bds.png"/>
+        <div class="w-[40vw]">
+          <NuxtImg src="/images/services/bg-bds.png" class="w-[40vw] h-[40vh]"/>
         </div>
       </div>
     </div>
@@ -73,13 +73,24 @@ function onSelectedTab(pos: number) {
           berkembang dan mencapai tujuan jangka panjang</p>
       </div>
       <div class="w-full px-8 flex flex-col items-center">
-        <button  @click="onSelectedTab(0)" :class="selected == 0 ? 'btn-active':'btn-inactive'">Business Development Services</button>
-        <button  @click="onSelectedTab(1)" :class="selected == 1 ? 'btn-active':'btn-inactive'">Operation Services</button>
-        <button  @click="onSelectedTab(2)" :class="selected == 2 ? 'btn-active':'btn-inactive'">Financial Services</button>
+        <button @click="onSelectedTab(0)" :class="selected == 0 ? 'btn-active':'btn-inactive'">Business Development
+          Services
+        </button>
+        <button @click="onSelectedTab(1)" :class="selected == 1 ? 'btn-active':'btn-inactive'">Operation Services
+        </button>
+        <button @click="onSelectedTab(2)" :class="selected == 2 ? 'btn-active':'btn-inactive'">Financial Services
+        </button>
       </div>
-      <div class="mt-2 w-full h-[50vh] bg-gradient-to-br from-blue-700 via-blue-400 to-blue-400 px-8 py-4">
+      <div class="mt-2 w-full h-[55vh] bg-gradient-to-br from-blue-700 via-blue-400 to-blue-400 px-8 py-4">
         <NuxtImg src="/images/services/bg-bds.png" class="w-full h-[30vh]"/>
-      </div>
+        <div class="w-full">
+          <h1 class="text-white text-3xl my-2 text-center">Business Development
+            Services</h1>
+          <p class="text-white text-center">Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas
+            jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan</p>
+
+        </div>
+        </div>
     </div>
   </section>
 </template>
@@ -97,13 +108,11 @@ function onSelectedTab(pos: number) {
   @apply bg-white rounded-t-2xl text-gray-950;
 }
 
-.btn-active{
+.btn-active {
   @apply bg-blue-800 text-white w-full border border-blue-800 rounded-lg my-2 py-3;
 }
 
-.btn-inactive{
- @apply bg-white text-blue-800 border border-blue-800 rounded-lg w-full my-2 py-3;
+.btn-inactive {
+  @apply bg-white text-blue-800 border border-blue-800 rounded-lg w-full my-2 py-3;
 }
-
-
 </style>

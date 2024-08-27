@@ -43,14 +43,11 @@ let data = [
 </script>
 
 <template>
-  <section id="third" class="w-svw h-full bg-gradient-to-t from-blue-300">
+  <section id="third" class="w-svw h-max bg-gradient-to-t from-blue-300">
     <!-- Head-->
     <div class="w-full flex flex-row justify-evenly my-10">
-      <div class="text-5xl">
-        <span class="bg-primary text-white rounded-2xl">
-          Harga Terjangkau
-        </span>
-        <span>Untuk</span>
+      <div class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl">
+        <span class="bg-primary text-white rounded-lg">Harga Terjangkau</span><span> Untuk</span>
         <div class="w-full flex flex-row justify-evenly">
           <span class="text-center">Semua Ukuran Bisnis</span>
         </div>
@@ -58,12 +55,12 @@ let data = [
     </div>
     <!--    Subtitle  -->
     <div class="w-full flex flex-row justify-center my-10">
-      <p class="w-[40vw] text-center">Kami menawarkan berbagai layanan yang dirancang untuk membantu bisnis dari skala
+      <p class="w-[92vw] sm:w-[40vw] md:w-[40vw] lg:w-[40vw] xl:w-[40vw] text-center">Kami menawarkan berbagai layanan yang dirancang untuk membantu bisnis dari skala
         mikro hingga menengah
         berkembang dengan cara yang efektif.</p>
     </div>
     <!-- Content-->
-    <div class="w-full flex flex-row justify-center">
+    <div class="w-full h-max flex flex-row flex-wrap justify-center">
       <ItemCategory v-for="(item,idx) in data" :name="item.title" :price="item.price" :description="item.description" :primary="item.primary" :items="item.items"/>
     </div>
   </section>
