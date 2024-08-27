@@ -23,7 +23,7 @@ onMounted(() => {
 <template>
   <main v-on:scroll="onScroll" class="w-screen h-screen relative overflow-x-hidden overflow-y-scroll">
     <HeaderMain :style="style" :parent="styleParent"/>
-    <div class="pt-[15vh]"></div>
+    <div class="pt-[10vh] sm:pt-[10vh] md:pt-[15vh] lg:pt-[15vh] xl:pt-[15vh]"></div>
     <slot/>
     <MainFooter/>
   </main>

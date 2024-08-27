@@ -25,13 +25,13 @@ defineProps(['style','parent'])
     </div>
   </header>
   <!-- MOBILE -->
-  <header class="w-full bg-white py-2 fixed z-10 block md:hidden lg:hidden xl:hidden">
+  <header class="w-full bg-white fixed z-10 block md:hidden lg:hidden xl:hidden">
     <div class="w-full flex flex-row justify-between px-[2vw] py-[1vw]">
       <NuxtLink to="/">
-        <NuxtImg src="/images/logo.png"/>
+        <NuxtImg src="/images/logo.png" class="h-[5vh] w-[15vh]" width="100%" height="50%"/>
       </NuxtLink>
       <button>
-        <IconMenu class="w-[10vw] h-[10vw]"/>
+        <IconMenu class="w-[5vw] h-[10vw]"/>
       </button>
     </div>
   </header>
