@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section id="third" class="w-svw h-full px-[6vw]">
+  <section id="third" class="w-svw h-full px-[6vw] mt-4">
     <div class="w-[88vw] p-10 h-[75vh] flex flex-row justify-between rounded-2xl border border-gray-300">
       <div class="w-[44vw]">
         <h1 class="text-6xl mb-10"><span class="bg-primary rounded-lg text-white">Tujuan</span> Kami</h1>
