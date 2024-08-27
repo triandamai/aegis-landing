@@ -43,22 +43,19 @@ let teams = [
 </script>
 
 <template>
-  <section id="third" class="w-svw h-svh relative">
+  <section id="six" class="w-svw h-max mb-8">
     <!-- Head-->
-    <div class="w-full flex flex-row justify-evenly">
-      <div class="text-5xl">
-        <span class="bg-primary text-white rounded-2xl">
-         Tim
-        </span>
-        <span>Kami</span>
+    <div class="w-full h-[10vh] flex flex-row justify-evenly">
+      <div class="text-3xl font-semibold md:text-5xl lg:text-5xl">
+        <span class="bg-primary text-white rounded-lg">Tim</span><span> Kami</span>
       </div>
     </div>
     <!--    Subtitle  -->
-    <div class="w-full flex flex-row justify-center my-2">
-      <p class="w-[20vw] text-center">Kenali lebih dekat tim yang bekerja keras untuk mewujudkan visi dan misi kami.</p>
+    <div class="w-full h-[10vh] flex flex-row justify-center">
+      <p class="w-[88vw] md:w-[20vw] lg:w-[20vw] text-center">Kenali lebih dekat tim yang bekerja keras untuk mewujudkan visi dan misi kami.</p>
     </div>
     <!-- Content-->
-    <div class="w-full h-[60vh] flex flex-row flex-wrap justify-center relative">
+    <div class="w-full h-max flex flex-row flex-wrap justify-center relative px-[4vw] md:px-0 lg:px-0">
       <ItemTeam
           v-for="(team) in teams"
           :title="team.title"

@@ -31,7 +31,7 @@ defineProps(['style','parent'])
         <NuxtImg src="/images/logo.png"/>
       </NuxtLink>
       <button>
-        <Icon name="material-symbols:menu" class="w-[10vw] h-[10vw]"/>
+        <IconMenu class="w-[10vw] h-[10vw]"/>
       </button>
     </div>
   </header>

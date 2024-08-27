@@ -1,7 +1,8 @@
 <script setup lang="ts" xmlns="http://www.w3.org/1999/html">
 import HeaderMain from "~/components/HeaderMain.vue";
 import {useScroll} from "~/composables/useScroll";
-const {style,styleParent,init,onScroll} = useScroll()
+
+const {style, styleParent, init, onScroll} = useScroll()
 
 useSeoMeta({
   title: 'My Amazing Site',
@@ -12,18 +13,17 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-onMounted(()=>{
-  window.scrollTo(0,0)
+onMounted(() => {
+  window.scrollTo(0, 0)
   init()
 })
 </script>
 
 <template>
-  <main v-on:scroll="onScroll" class="w-screen h-screen overflow-x-hidden overflow-y-scroll">
+  <main v-on:scroll="onScroll" class="w-screen h-screen relative overflow-x-hidden overflow-y-scroll">
     <HeaderMain :style="style" :parent="styleParent"/>
-    <div  class="pt-[15vh]">
-      <slot/>
-    </div>
+    <div class="pt-[15vh]"></div>
+    <slot/>
     <MainFooter/>
   </main>
 </template>

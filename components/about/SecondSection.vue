@@ -4,11 +4,11 @@ import ItemPricipal from "~/components/about/ItemPricipal.vue";
 </script>
 
 <template>
-  <section id="second" class="w-svw h-full">
+  <section id="second" class="w-svw h-max mb-20">
     <!-- Head-->
-    <div class="w-full flex flex-row justify-evenly my-10">
-      <div class="text-5xl">
-        <span class="bg-primary text-white rounded-2xl">
+    <div class="w-full flex flex-row justify-evenly my-2">
+      <div class="text-3xl md:text-5xl lg:text-5xl xl:text-5xl font-semibold">
+        <span class="bg-primary text-white rounded-md md:rounded-2xl">
          Prinsip
         </span>
         <span>Kami</span>
@@ -16,10 +16,10 @@ import ItemPricipal from "~/components/about/ItemPricipal.vue";
     </div>
     <!--    Subtitle  -->
     <div class="w-full flex flex-row justify-center my-10">
-      <p class="w-[40vw] text-center">Prinsip-prinsip ini membantu kami memberikan layanan terbaik untuk UMKM</p>
+      <p class="w-[80vw] md:w-[40vw] lg:w-[40vw] xl:w-[40vw] text-center">Prinsip-prinsip ini membantu kami memberikan layanan terbaik untuk UMKM</p>
     </div>
     <!-- Content-->
-    <div class="w-full flex flex-row justify-center">
+    <div class="w-full flex flex-row flex-wrap justify-center">
       <ItemPricipal
           body-style="from-yellow-200 to-yellow-50"
           footer-style="from-yellow-100 to-yellow-50"

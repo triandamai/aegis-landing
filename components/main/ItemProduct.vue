@@ -10,14 +10,14 @@
         <p class="text-3xl md:text-4xl mb-4 mt-2 md:mb-6 md:mt-4">Analisis Financial Planning</p>
         <p class="text-lg md:text-2xl">Rencanakan dan kelola keuangan Anda dengan strategi yang dirancang untuk kesuksesan jangka
           panjang.</p>
-        <div class="w-full text-lg md:text-2xl md:px-4 mt-6 md:mt-8">
-          <p class="my-1 md:my-2"><Icon name="uil:check"/> Perencanaan Anggaran</p>
-          <p class="my-1 md:my-2"><Icon name="uil:check"/> Perencanaan Anggaran</p>
-          <p class="my-1 md:my-2"><Icon name="uil:check"/> Perencanaan Anggaran</p>
+        <div class="w-full text-lg md:text-2xl mt-6 md:mt-8">
+          <p class="my-1 md:my-2 flex flex-row"><IconCheck class="mx-2" /> Perencanaan Anggaran</p>
+          <p class="my-1 md:my-2 flex flex-row"><IconCheck class="mx-2"/> Perencanaan Anggaran</p>
+          <p class="my-1 md:my-2 flex flex-row"><IconCheck class="mx-2"/> Perencanaan Anggaran</p>
         </div>
       </div>
       <div class="absolute bottom-0 right-0 mr-8 md:mr-2 md:pb-10">
-        <Icon name="uil:arrow-right" class="w-[4vh] h-[5vh] md:w-[6vh] md:h-[6vh]" />
+        <IconArrowRight class="w-[4vh] h-[5vh] md:w-[6vh] md:h-[6vh]" />
       </div>
     </div>
   </div>
