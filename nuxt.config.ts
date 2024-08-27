@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxt/image'],
+  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/supabase'],
   imports:{
     autoImport:true,
     dirs:['composables']
@@ -26,5 +26,10 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1'
     }
+  },
+  supabase:{
+    redirect:false,
+    serviceKey: process.env.SUPABASE_KEY,
+    url:process.env.SUPABASE_URL,
   }
 })
