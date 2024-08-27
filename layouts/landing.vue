@@ -15,6 +15,7 @@ useSeoMeta({
 
 onMounted(() => {
   window.scrollTo(0, 0)
+  document.documentElement.classList.add("light")
   init()
 })
 </script>
