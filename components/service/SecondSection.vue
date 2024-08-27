@@ -14,7 +14,8 @@ function onSelectedTab(pos: number) {
 </script>
 
 <template>
-  <section id="second" class="w-svw px-[6vw]">
+  <!--  DESKTOP  -->
+  <section id="second" class="hidden sm:block md:block lg:block w-svw px-[6vw]">
     <div class="w-full flex flex-row items-center justify-start my-4">
       <span class="bg-primary rounded-2xl text-white text-6xl px-2 py-1">Layanan</span>
       <span class="text-6xl ml-2">Kami</span>
@@ -47,8 +48,9 @@ function onSelectedTab(pos: number) {
           <div v-show="selected == 2" class="h-full w-[15px] bg-white absolute left-0 rounded-bl-2xl"></div>
         </div>
       </div>
-      <div class="w-full bg-gradient-to-br from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl flex flex-row justify-between px-10 py-10"
-           :class="{'rounded-tl-2xl':selected > 0}">
+      <div
+          class="w-full bg-gradient-to-br from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl flex flex-row justify-between px-10 py-10"
+          :class="{'rounded-tl-2xl':selected > 0}">
         <div class="w-[40vw]">
           <h1 class="text-3xl text-white mb-4">Business Development Services</h1>
           <p class="text-lg text-white">Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang
@@ -56,8 +58,27 @@ function onSelectedTab(pos: number) {
             jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan</p>
         </div>
         <div>
-          <img src="/images/services/bg-bds.png"/>
+          <NuxtImg src="/images/services/bg-bds.png"/>
         </div>
+      </div>
+    </div>
+  </section>
+  <!-- MOBILE -->
+  <section id="second-mobile" class="block sm:hidden md:hidden lg:hidden w-svw">
+    <div class="w-full">
+      <div class="mt-8 mb-8">
+        <h1 class="w-full text-3xl font-semibold text-center"><span
+            class="bg-primary rounded-lg text-white">Layanan</span> Kami</h1>
+        <p class="px-2 text-center my-2">AEGIS menawarkan berbagai layanan yang dirancang untuk membantu bisnis Anda
+          berkembang dan mencapai tujuan jangka panjang</p>
+      </div>
+      <div class="w-full px-8 flex flex-col items-center">
+        <button  @click="onSelectedTab(0)" :class="selected == 0 ? 'btn-active':'btn-inactive'">Business Development Services</button>
+        <button  @click="onSelectedTab(1)" :class="selected == 1 ? 'btn-active':'btn-inactive'">Operation Services</button>
+        <button  @click="onSelectedTab(2)" :class="selected == 2 ? 'btn-active':'btn-inactive'">Financial Services</button>
+      </div>
+      <div class="mt-2 w-full h-[50vh] bg-gradient-to-br from-blue-700 via-blue-400 to-blue-400 px-8 py-4">
+        <NuxtImg src="/images/services/bg-bds.png" class="w-full h-[30vh]"/>
       </div>
     </div>
   </section>
@@ -74,6 +95,14 @@ function onSelectedTab(pos: number) {
 
 .tab-inactive {
   @apply bg-white rounded-t-2xl text-gray-950;
+}
+
+.btn-active{
+  @apply bg-blue-800 text-white w-full border border-blue-800 rounded-lg my-2 py-3;
+}
+
+.btn-inactive{
+ @apply bg-white text-blue-800 border border-blue-800 rounded-lg w-full my-2 py-3;
 }
 
 
