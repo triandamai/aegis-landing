@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/supabase'],
   imports:{
     autoImport:true,
-    dirs:['composables']
+    dirs:['composables','schema']
   },
   app:{
     head:{

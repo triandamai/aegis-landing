@@ -50,7 +50,7 @@ const login = useLogin()
             <button><img src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
             <button><img src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
-          <button @click="login.signIn" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
+          <button @click="login.signInEmail" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
             Kirim
           </button>
         </div>

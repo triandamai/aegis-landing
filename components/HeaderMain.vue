@@ -1,5 +1,26 @@
 <script setup lang="ts">
-defineProps(['style','parent'])
+
+defineProps(['style', 'parent'])
+const client = useSupabaseClient()
+const session = ref<any | null>(null)
+const showMenuMobile = ref(false)
+onMounted(() => {
+  client.auth.getSession()
+      .then(data => {
+        console.log(data)
+        if (data.error) {
+          session.value = null
+        } else {
+          if (data.data.session == null) {
+            session.value = null
+          } else {
+            session.value = data;
+          }
+        }
+      }).catch(() => {
+    session.value = null
+  })
+})
 </script>
 
 <template>
@@ -8,7 +29,7 @@ defineProps(['style','parent'])
         :class="style"
         class="h-[10vh] bg-white py-2 px-8 flex flex-row justify-between items-center">
       <NuxtLink to="/">
-        <NuxtImg src="/images/logo.png" />
+        <NuxtImg src="/images/logo.png"/>
       </NuxtLink>
       <span class="flex flex-row">
         <NuxtLink to="/about" class="mx-4 hover:text-blue-800" :active-class="'text-blue-800'">Tentang kami</NuxtLink>
@@ -31,10 +52,33 @@ defineProps(['style','parent'])
         <NuxtImg src="/images/logo.png" class="h-[5vh] w-[15vh]" width="100%" height="50%"/>
       </NuxtLink>
       <button>
-        <IconMenu class="w-[5vw] h-[10vw]"/>
+        <IconMenu class="cursor-pointer w-[5vw] h-[10vw]" @click="()=>{showMenuMobile = !showMenuMobile}"/>
       </button>
     </div>
+    <!-- MENU MOBILE -->
+    <div v-show="showMenuMobile" class="fixed z-30 block h-screen w-screen bg-white flex-col">
+      <div class="w-full flex flex-col px-4 py-2">
+        <NuxtLink to="/about" class="border-b border-gray-200 py-4">Tentang Kami</NuxtLink>
+        <NuxtLink to="/services" class="border-b border-gray-200 py-4">Layanan</NuxtLink>
+        <NuxtLink to="/contact" class="border-b border-gray-200 py-4">Kontak</NuxtLink>
+        <div v-show="session === null" class="mt-10 w-full flex flex-col">
+          <NuxtLink to="/login"
+                    class="text-center my-2 px-4 py-3 bg-white border border-blue-800 rounded-lg text-blue-800">Masuk
+          </NuxtLink>
+          <NuxtLink to="/register"
+                    class="text-center my-2 px-4 py-3 bg-blue-800 border border-blue-800 rounded-lg text-white">Memulai
+          </NuxtLink>
+        </div>
+        <div v-show="session !== null" class="mt-10 w-full flex flex-col">
+          <div class="w-full flex flex-row justify-start items-center">
+            <NuxtImg src="/images/main/dummy-avatar.webp" class="rounded-full"/>
+            <h1 class="ml-4">Rimuru</h1>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
+
 </template>
 
 <style scoped>
