@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section id="third" class="w-svw  md:px-[6vw] lg:px-[6vw] xl:px-[6vw] mt-10 relative">
+  <section id="third" class="w-svw md:px-[6vw] lg:px-[6vw] xl:px-[6vw] mt-10 relative">
     <div class="w-full">
       <div class="w-full md:w-[84vw] flex justify-evenly">
         <div class="w-full text-2xl md:text-5xl lg:text-5xl font-semibold">
@@ -87,31 +87,31 @@
     </div>
     <!--  MOBILE  -->
     <div class="w-full block md:hidden lg:hidden xl:hidden mt-4">
-      <div class="w-full h-[45vh]">
-        <div class="w-full h-[43vh] bg-yellow-200 rounded-t-2xl rounded-br-2xl px-4 py-4">
+      <div class="w-full h-max">
+        <div class="w-full h-[45vh] bg-yellow-50 rounded-t-2xl rounded-br-2xl px-4 py-4">
           <h1 class="text-3xl text-gray-600">UMKM adalah Tulang Punggung Ekonomi</h1>
           <p class="my-2 font-normal text-gray-600">Kekuatan utama di perekonomian Indonesia dan ASEAN, menyerap hampir 97% tenaga kerja dan berkontribusi
             60% dari PDB. Peran mereka sangat penting dalam pertumbuhan ekonomi dan penciptaan lapangan kerja</p>
-          <img src="/images/third-box.png" class="rounded-lg h-[15vh] w-full" width="100%"/>
+          <NuxtImg src="/images/third-box.png" class="rounded-lg h-[20vh] w-full" width="100%"/>
         </div>
         <div class="w-full h-[2vh] flex flex-row justify-between">
-          <div class="w-[48vw]  bg-yellow-200 rounded-b-2xl"></div>
+          <div class="w-[48vw]  bg-yellow-50 rounded-b-2xl"></div>
           <div class="w-[52vw]  bg-white relative">
             <div class="absolute top-0 left-0 w-[2vh] h-[2vh] bg-yellow-200 "></div>
             <div class="absolute top-0 left-0 w-[2vh] h-[2vh] bg-white rounded-tl-lg"></div>
           </div>
         </div>
       </div>
-      <div class="w-full h-[40vh] ">
+      <div class="w-full h-[45vh] ">
         <div class="w-full h-[2vh] flex flex-row justify-between">
-          <div class="w-[52vw]  bg-white relative">
-            <div class="absolute bottom-0 right-0 w-[2vh] h-[2vh] bg-red-200 "></div>
+          <div class="w-[52vw] bg-white relative">
+            <div class="absolute bottom-0 right-0 w-[2vh] h-[2vh] bg-purple-50"></div>
             <div class="absolute bottom-0 right-0 w-[2vh] h-[2vh] bg-white rounded-br-lg"></div>
           </div>
-          <div class="w-[48vw]  bg-red-200 rounded-t-2xl"></div>
+          <div class="w-[48vw] bg-purple-50 rounded-t-2xl"></div>
         </div>
-        <div class="w-full h-[38vh] bg-red-200 rounded-b-2xl rounded-tl-2xl  px-4 py-4">
-          <img src="/images/second-box.png" class="rounded-lg h-[15vh] w-full" width="100%"/>
+        <div class="w-full h-[45vh] bg-purple-50 rounded-b-2xl rounded-tl-2xl  px-4 py-4">
+          <NuxtImg src="/images/second-box.png" class="rounded-lg h-[20vh] w-full mb-2" width="100%"/>
           <h1 class="text-3xl text-gray-600">64 Juta UMKM di Indonesia: 99% dari Total Kegiatan Bisnis</h1>
           <p class="my-2 text-gray-600">Indonesia memiliki 64 juta UMKM, yang mencakup 99% dari total kegiatan bisnis di negara ini. UMKM merupakan bagian integral dari ekonomi nasional dan sumber utama kegiatan usaha.</p>
         </div>
@@ -139,14 +139,14 @@
 .image-left-mobile {
   background-image: url("/images/main/jokowi.webp");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   @apply w-full h-full   flex flex-row justify-start items-center;
 }
 
 .image-right-mobile {
   background-image: url("/images/main/sri-mulyani.webp");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   @apply w-full h-full flex flex-row justify-end items-center;
 }
 
