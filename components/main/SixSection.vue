@@ -17,13 +17,13 @@
     <div class="bg-six">
       <div class="ornament"></div>
       <div class="w-full md:flex lg:flex xl:flex flex-wrap flex-row justify-between items-center">
-        <img src="/images/img-six-section.png" class="w-full md:w-[20vw]">
+        <NuxtImg src="/images/img-six-section.png" class="w-full md:w-[20vw]"/>
         <div class="w-full md:w-[60vw] flex flex-wrap flex-row justify-between px-6 mb-10">
           <div v-for="(item) in 4"
                class="w-full md:w-1/2 px-2 md:px-10 md:my-10 flex flex-col justify-start items-center md:items-start cursor-pointer">
-            <img src="/images/ic-videos.svg" class="w-[5vh] h-[5vh]">
-            <h2 class="text-2xl my-2">200+ Modul & Video</h2>
-            <p>Akses lebih dari 200 modul dan video yang mencakup berbagai topik penting dalam bisnis</p>
+            <NuxtImg src="/images/ic-videos.svg" class="w-[5vh] h-[5vh]"/>
+            <h2 class="text-2xl my-2 text-center sm:text-center md:text-start lg:text-start xl:text-start">200+ Modul & Video</h2>
+            <p class="text-center sm:text-center md:text-start lg:text-start xl:text-start">Akses lebih dari 200 modul dan video yang mencakup berbagai topik penting dalam bisnis</p>
           </div>
         </div>
       </div>
