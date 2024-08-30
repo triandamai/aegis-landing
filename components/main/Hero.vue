@@ -66,8 +66,8 @@
         </div>
       </div>
     </div>
-    <div class="w-[92vw] absolute top-0 right-0 flex flex-row justify-end">
-      <div class="mr-[2vw]">
+    <div class="w-[88vw] absolute top-0 right-0 flex flex-row justify-end items-start">
+      <div class="mr-[6vw]">
         <div class="image-right"></div>
       </div>
     </div>
@@ -104,14 +104,14 @@
 
 <style scoped>
 .text-hero {
-  @apply lg:text-6xl md:text-6xl text-white;
+  @apply sm:text-6xl md:text-5xl lg:text-5xl xl:text-6xl text-white;
 }
 
 .image-left {
   background-image: url("/images/hero-left.svg");
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply mt-8 mr-[4vw] rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-[50vh];
+  @apply mt-8 mr-[4vw] rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-[50vh] lg:w-[50vw] lg:h-[40vh] xl:w-[46vw] xl:h-[50vh];
 }
 
 .text-left {
@@ -120,9 +120,9 @@
 
 .image-right {
   background-image: url("/images/hero-right.svg");
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply w-[20vw] md:w-[15vw] md:h-[13vw];
+  @apply w-[20vw] md:w-[15vw] md:h-[13vw] lg:w-[18vw] lg:h-[20vh] xl:w-[12vw] xl:h-[14vw];
 }
 
 .image-mobile{
