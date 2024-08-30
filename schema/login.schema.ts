@@ -27,7 +27,7 @@ export const registerSchema = z.object({
 const contactUsEnum = ["SERVICE","CRITIC","ADVICE"]
 export const contactUseSchema = z.object({
     email: z.string().email(),
-    subject:  z.any().refine((val) => val in contactUsEnum),
+    subject:  z.string(),
     fullName: z.string(),
     message: z.string()
 })

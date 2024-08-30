@@ -5,7 +5,7 @@ export const useContact = defineStore("contact", {
         fullName: "",
         email: "",
         message: "",
-        subject: ""
+        subject: "NONE"
     }),
     actions: {
         async sendContactUs() {
@@ -22,6 +22,7 @@ export const useContact = defineStore("contact", {
                 message: this.message
             })
 
+            console.log(validate.error)
             if (validate.error) {
                 hideLoading()
                 return alert.failed(validate.error.errors.map(v => v.message).join(","))

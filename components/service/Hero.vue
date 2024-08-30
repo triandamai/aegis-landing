@@ -1,5 +1,19 @@
 <script setup lang="ts">
+import type {Database} from "~/types/database.types";
 
+const client = useSupabaseClient<Database>()
+const alert = useAlert()
+const router = useRouter()
+
+async function gotoBookService(){
+  const isLoggedIn = await  client.auth.getSession()
+  if(isLoggedIn.data.session == null){
+    return router.push({path:'/login'})
+  }
+
+  alert.failed("Fitur belum tersedia")
+
+}
 </script>
 
 <template>
@@ -15,7 +29,7 @@
             dengan bantuan AEGIS.ID. Kami
             menyediakan layanan yang membuat
             pengembangan dan pengelolaan bisnis jadi lebih mudah.</p>
-          <button class="px-10 py-2 bg-white rounded-lg my-1 w-1/2">Gabung Sekarang</button>
+          <button @click="gotoBookService" class="px-10 py-2 bg-white rounded-lg my-1 w-1/2">Booking Layanan</button>
         </div>
       </div>
     </div>
