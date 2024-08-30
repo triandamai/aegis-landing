@@ -205,13 +205,13 @@
   background-image: url("/images/second-box.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  @apply w-[52vw] h-[16vw] sm:w-[52vw] sm:h-[16vw] md:w-[50vw] md:h-[20vh] lg:w-[52vw] lg:h-[20vh] xl:w-[40vw] xl:h-[20vh] rounded-2xl;
+  @apply w-[52vw] h-[16vw] sm:w-[52vw] sm:h-[16vw] md:w-[50vw] md:h-[20vh] lg:w-[52vw] lg:h-[20vh] xl:w-[40vw] xl:h-[25vh] rounded-2xl;
 }
 
 .img-third-box {
   background-image: url("/images/third-box.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  @apply w-[52vw] h-[16vw] sm:w-[52vw] sm:h-[16vw] md:w-[50vw] md:h-[20vh] lg:w-[52vw] lg:h-[20vh] xl:w-[40vw] xl:h-[20vh] rounded-2xl;
+  @apply w-[52vw] h-[16vw] sm:w-[52vw] sm:h-[16vw] md:w-[50vw] md:h-[20vh] lg:w-[52vw] lg:h-[20vh] xl:w-[40vw] xl:h-[25vh] rounded-2xl;
 }
 </style>

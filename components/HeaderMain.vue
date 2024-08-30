@@ -19,13 +19,16 @@ function init() {
             session.value = data.data.session;
           }
         }
+        console.log(data)
       }).catch(() => {
     session.value = null
   })
+
+
 }
 
-function signOut(){
-  client.auth.signOut().finally(()=>{
+function signOut() {
+  client.auth.signOut().finally(() => {
     init()
   })
 }
@@ -48,12 +51,16 @@ onMounted(() => {
         <NuxtLink to="/services" class="mx-4 hover:text-blue-800" :active-class="'text-blue-800'">Layanan</NuxtLink>
         <NuxtLink to="/contact" class="mx-4 hover:text-blue-800" :active-class="'text-blue-800'">Kontak</NuxtLink>
       </span>
-      <span>
+      <span v-show="session==null">
         <NuxtLink to="/login"
                   class="border border-blue-800 text-blue-800 rounded-md my-2 mx-2 py-2 px-4 cursor-pointer hover:bg-blue-100"
                   aria-label="button">Masuk</NuxtLink>
         <NuxtLink to="/register"
                   class="border border-blue-800 bg-primary rounded-md my-2 mx-2 py-2 px-4 text-white cursor-pointer hover:bg-blue-700">Memulai</NuxtLink>
+      </span>
+      <span v-show="session != null" class="flex flex-row justify-start items-center">
+        <NuxtImg src="https://placehold.co/400" class="rounded-full h-[5vh]"/>
+        <h1 class="ml-4">{{ session?.user.user_metadata.full_name }}</h1>
       </span>
     </div>
   </header>
@@ -83,7 +90,7 @@ onMounted(() => {
         </div>
         <div v-show="session !== null" class="mt-10 w-full flex flex-row justify-between items-center">
           <div class="w-2/3 flex flex-row justify-start items-center">
-            <NuxtImg src="/images/main/dummy-avatar.webp" class="rounded-full"/>
+            <NuxtImg src="https://placehold.co/400" class="rounded-full"/>
             <h1 class="ml-4">{{ session?.user.user_metadata.full_name }}</h1>
           </div>
           <div>
