@@ -1,6 +1,6 @@
 import type {Database} from "~/types/database.types";
 
-export const useContact = defineStore("cotact", {
+export const useContact = defineStore("contact", {
     state: () => ({
         fullName: "",
         email: "",

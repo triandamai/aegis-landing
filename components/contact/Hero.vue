@@ -40,7 +40,7 @@ const contact = useContact()
       <div class="input-group">
         <label for="subject" class="input-label">Subjek </label>
         <select id="subject" v-model="contact.subject" class="input">
-          <option selected>Pilih subjek pesan</option>
+          <option selected value="NONE">Pilih subjek pesan</option>
           <option value="SERVICE">Layanan</option>
           <option value="CRITIC">Kritik</option>
           <option value="ADVICE">Saran</option>

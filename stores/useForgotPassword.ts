@@ -28,7 +28,7 @@ export const useForgotPassword = defineStore("forgot-password", {
             }
 
             const savedData = await client.auth.resetPasswordForEmail(this.email, {
-                redirectTo: `${runtime.public.BASE_URL}/confirmation-forgot-password`,
+                redirectTo: `${runtime.public.BASE_URL}confirmation-forgot-password`,
             })
             if (savedData.error) {
                 hideLoading()
@@ -45,6 +45,11 @@ export const useForgotPassword = defineStore("forgot-password", {
             const router = useRouter()
 
             showLoading()
+
+            if(this.password !== this.confirmPassword) {
+                return alert.failed("Password tidak sama")
+            }
+
             const validate = changePassword.safeParse({
                 password: this.password,
                 confirmPassword: this.confirmPassword
@@ -55,7 +60,7 @@ export const useForgotPassword = defineStore("forgot-password", {
                 return alert.failed(validate.error.errors.map(v => v.message).join(","))
             }
 
-            const setPassword = await client.auth.updateUser({
+             await client.auth.updateUser({
                 password: this.password,
             })
 

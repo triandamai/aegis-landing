@@ -8,20 +8,20 @@ export const useLogin = defineStore("login", {
     }),
     actions: {
         async signInEmail() {
-            const {showLoading,hideLoading} = useLoading()
+            const {showLoading, hideLoading} = useLoading()
             const alert = useAlert()
             const client = useSupabaseClient()
             const router = useRouter()
 
             showLoading()
             const schema = loginSchema.safeParse({
-                email:this.email,
-                password:this.password
+                email: this.email,
+                password: this.password
             })
 
-            if(schema.error){
+            if (schema.error) {
                 hideLoading()
-                alert.failed(schema.error.errors.map(v=>v.message).join(","))
+                alert.failed(schema.error.errors.map(v => v.message).join(","))
                 return
             }
 
@@ -38,19 +38,31 @@ export const useLogin = defineStore("login", {
 
             hideLoading()
             alert.success("Login Berhasil")
-            return router.push({path:"/",replace:true})
+            return router.push({path: "/", replace: true})
         },
-        async signInGoogle(){
-            const alert = useAlert()
+        async signInGoogle() {
             const client = useSupabaseClient<Database>()
-
-            const router = useRouter()
-            const signIn  = await client.auth.signInWithOAuth({
-                provider:'google',
+            const runtime = useRuntimeConfig()
+            await client.auth.signInWithOAuth({
+                provider: 'google',
                 options: {
-                    redirectTo: `http://localhost.3000/login`,
+                    redirectTo: `${runtime.public.BASE_URL}login`,
                 },
             })
+        },
+        async signInFacebook() {
+            const alert = useAlert()
+            const client = useSupabaseClient<Database>()
+            const runtime = useRuntimeConfig()
+
+            return alert.failed("Fitur belum tersedia")
+
+            // await client.auth.signInWithOAuth({
+            //     provider:'facebook',
+            //     options: {
+            //         redirectTo: `${runtime.public.BASE_URL}`,
+            //     },
+            // })
         }
     }
 })

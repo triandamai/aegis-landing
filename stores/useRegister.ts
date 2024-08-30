@@ -1,4 +1,5 @@
 import type {Database} from "~/types/database.types";
+import {runtime} from "std-env";
 
 export const useRegister = defineStore("register", {
     state: () => ({
@@ -17,6 +18,7 @@ export const useRegister = defineStore("register", {
             const alert = useAlert()
             const client = useSupabaseClient<Database>()
             const router = useRouter()
+            const runtime = useRuntimeConfig()
 
             showLoading()
             if (this.hasBusiness) {
@@ -53,6 +55,9 @@ export const useRegister = defineStore("register", {
             const signUp = await client.auth.signUp({
                 email: this.email,
                 password: this.password,
+                options:{
+                    emailRedirectTo:`${runtime.public.BASE_URL}register-success`
+                }
             })
 
             if (signUp.error) {
@@ -100,17 +105,29 @@ export const useRegister = defineStore("register", {
             return router.push({path: "/otp-sent", replace: true})
         },
         async signInGoogle(){
+            const client = useSupabaseClient<Database>()
+            const runtime = useRuntimeConfig()
+
+             await client.auth.signInWithOAuth({
+                provider:'google',
+                options: {
+                    redirectTo: `${runtime.public.BASE_URL}`,
+                },
+            })
+        },
+        async signInFacebook(){
             const alert = useAlert()
             const client = useSupabaseClient<Database>()
             const runtime = useRuntimeConfig()
 
-            const router = useRouter()
-            const signIn  = await client.auth.signInWithOAuth({
-                provider:'google',
-                options: {
-                    redirectTo: `${runtime.public.BASE_URL}/login`,
-                },
-            })
+            return alert.failed("Fitur belum tersedia")
+
+            // await client.auth.signInWithOAuth({
+            //     provider:'facebook',
+            //     options: {
+            //         redirectTo: `${runtime.public.BASE_URL}`,
+            //     },
+            // })
         }
     }
 })

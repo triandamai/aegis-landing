@@ -58,7 +58,7 @@ const register = useRegister()
             <div class="input-group">
               <label for="business-size" class="input-label">Ukuran Bisnis</label>
               <select id="business-size"  v-model="register.businessSize" class="input-select">
-                <option selected value="none" class="text-gray-600">Pilih Ukuran Bisnis</option>
+                <option selected value="NONE" class="text-gray-600">Pilih Ukuran Bisnis</option>
                 <option value="MICRO">Mikro</option>
                 <option value="SMALL">Kecil</option>
                 <option value="MEDIUM">Menengah</option>
@@ -71,8 +71,8 @@ const register = useRegister()
             <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
           </div>
           <div class="w-full flex flex-row justify-center items-center my-4">
-            <button><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
-            <button><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
+            <button @click="register.signInGoogle"><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
+            <button @click="register.signInFacebook"><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
           <button @click="register.signUpEmail" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
         </div>

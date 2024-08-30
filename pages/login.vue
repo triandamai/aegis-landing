@@ -48,7 +48,7 @@ const login = useLogin()
           </div>
           <div class="w-full flex flex-row justify-center items-center my-4">
             <button @click="login.signInGoogle"><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
-            <button><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
+            <button @click="login.signInFacebook"><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
           <button @click="login.signInEmail" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
             Kirim
