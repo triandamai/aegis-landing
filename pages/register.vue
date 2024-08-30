@@ -1,10 +1,10 @@
 <script setup lang="ts">
-
+const register = useRegister()
 </script>
 
 <template>
   <NuxtLayout name="landing">
-    <section class="w-svw h-[80vh] flex flex-row flex-wrap justify-center">
+    <section class="w-svw h-max flex flex-row flex-wrap justify-center">
       <!--      LEFT IMAGE -->
       <div class="hidden sm:hidden md:block lg:block xl:block w-[48vw] bg-gradient-to-b from-blue-800 via-blue-600 to-blue-400 rounded-r-2xl">
         <div class="container-left">
@@ -26,46 +26,55 @@
         <div>
           <div class="input-group">
             <label for="full-name" class="input-label">Nama Lengkap</label>
-            <input id="full-name" type="email" class="input" placeholder="tes@gmail.com"/>
+            <input id="full-name"  v-model="register.fullName" type="email" class="input" placeholder="Nama lengkap"/>
           </div>
           <div class="input-group">
             <label for="email" class="input-label">Email</label>
-            <input id="email" type="email" class="input" placeholder="tes@gmail.com"/>
+            <input id="email"  v-model="register.email" type="email" class="input" placeholder="john@example.com"/>
           </div>
           <div class="input-group">
-            <label for="password" class="input-label">Password</label>
-            <input id="password" type="password" class="input" placeholder="password"/>
+            <label for="password">Password:</label>
+            <div class="w-full flex flex-row justify-between relative">
+              <input v-model="register.password" required :type="register.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
+              <span @click="register.showPassword = !register.showPassword" class="toggle-password">
+                <IconEye v-show="register.showPassword" ></IconEye>
+                <IconEyeOff v-show="!register.showPassword"></IconEyeOff>
+            </span>
+            </div>
           </div>
-          <div class="input-group flex flex-row relative">
-            <input id="has-business" type="checkbox" class="mr-4" placeholder="password"/>
+          <div class="input-group-checkbox flex flex-row relative">
+            <input id="has-business" v-model="register.hasBusiness" type="checkbox" class="mr-4" placeholder="password"/>
             <label for="has-business" class="input-label">Apakah Anda sudah Memiliki Bisnis?</label>
           </div>
-          <div class="input-group">
-            <label for="password" class="input-label">Nama Bisnis</label>
-            <input id="password" type="text" class="input" placeholder="password"/>
-          </div>
-          <div class="input-group">
-            <label for="phone" class="input-label">Phone</label>
-            <input id="phone" type="number" class="input" placeholder="+62 888 8888 8888"/>
-          </div>
-          <div class="input-group">
-            <label for="business-size" class="input-label">Ukuran Bisnis</label>
-            <select id="business-size" class="input-select">
-              <option selected>Pilih Ukuran Bisnis</option>
-              <option>Kecil</option>
-              <option>Besar</option>
-            </select>
+          <div v-show="register.hasBusiness">
+            <div class="input-group">
+              <label for="business-name" class="input-label">Nama Bisnis</label>
+              <input id="business-name" v-model="register.businessName" type="text" class="input" placeholder="Masukkan nama bisnis"/>
+            </div>
+            <div class="input-group">
+              <label for="phone" class="input-label">Phone</label>
+              <input id="phone"  v-model="register.businessPhone" type="text" class="input" placeholder="+62 888 8888 8888"/>
+            </div>
+            <div class="input-group">
+              <label for="business-size" class="input-label">Ukuran Bisnis</label>
+              <select id="business-size"  v-model="register.businessSize" class="input-select">
+                <option selected value="none" class="text-gray-600">Pilih Ukuran Bisnis</option>
+                <option value="MICRO">Mikro</option>
+                <option value="SMALL">Kecil</option>
+                <option value="MEDIUM">Menengah</option>
+              </select>
+            </div>
           </div>
           <div class="w-full flex flex-row justify-center items-center my-3">
-            <div class="w-1/3 h-[1px] bg-gray-300"></div>
-            <p class="mx-2 text-gray-500">Atau daftar dengan</p>
-            <div class="w-1/3 h-[1px] bg-gray-300"></div>
+            <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
+            <p class="mx-1 text-gray-500 ">Atau daftar dengan</p>
+            <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
           </div>
           <div class="w-full flex flex-row justify-center items-center my-4">
             <button><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
             <button><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
-          <button class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
+          <button @click="register.signUpEmail" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
         </div>
         <div class="w-full flex flex-row justify-center">
           <span>Sudah punya akun?</span>
@@ -99,10 +108,21 @@
 }
 
 .input-group {
+  @apply my-4 flex flex-col items-start;
+}
+
+.input-group-checkbox {
   @apply my-4;
 }
 .input-label{
   @apply text-gray-600 my-2;
 }
-
+.toggle-password {
+  position: absolute;
+  transform: translateY(-50%);
+  right: 0;
+  top: 50%;
+  cursor: pointer;
+  @apply px-2;
+}
 </style>

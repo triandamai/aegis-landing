@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const login = useLogin()
+const forgotPassword = useForgotPassword()
 </script>
 
 <template>
@@ -25,38 +25,32 @@ const login = useLogin()
         <h1 class="w-full text-5xl text-center">Login</h1>
         <div class="w-full">
           <div class="input-group">
-            <label for="email" class="input-label">Email</label>
-            <input id="email" required v-model="login.email" type="email" class="input" placeholder="tes@gmail.com"/>
-          </div>
-          <div class="input-group">
-            <label for="password">Password:</label>
+            <label for="password">Password</label>
             <div class="w-full flex flex-row justify-between relative">
-              <input v-model="login.password" required :type="login.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
-              <span @click="login.showPassword = !login.showPassword" class="toggle-password">
-                <IconEye v-show="login.showPassword" ></IconEye>
-                <IconEyeOff v-show="!login.showPassword"></IconEyeOff>
+              <input v-model="forgotPassword.password" required :type="forgotPassword.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
+              <span @click="forgotPassword.showPassword = !forgotPassword.showPassword" class="toggle-password">
+                <IconEye v-show="forgotPassword.showPassword" ></IconEye>
+                <IconEyeOff v-show="!forgotPassword.showPassword"></IconEyeOff>
             </span>
             </div>
           </div>
-          <div class="my-4 flex flex-row justify-end">
-            <NuxtLink to="/forgot-password" class="text-blue-500">Lupa password?</NuxtLink>
+          <div class="input-group">
+            <label for="password">Confirm Password</label>
+            <div class="w-full flex flex-row justify-between relative">
+              <input v-model="forgotPassword.confirmPassword" required :type="forgotPassword.showConfirmPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
+              <span @click="forgotPassword.showConfirmPassword = !forgotPassword.showConfirmPassword" class="toggle-password">
+                <IconEye v-show="forgotPassword.showConfirmPassword" ></IconEye>
+                <IconEyeOff v-show="!forgotPassword.showConfirmPassword"></IconEyeOff>
+            </span>
+            </div>
           </div>
-          <div class="w-full flex flex-row justify-center items-center my-3">
-            <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
-            <p class="mx-1 text-gray-500 ">Atau masuk dengan</p>
-            <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
-          </div>
-          <div class="w-full flex flex-row justify-center items-center my-4">
-            <button @click="login.signInGoogle"><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
-            <button><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
-          </div>
-          <button @click="login.signInEmail" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
+          <button @click="forgotPassword.setPassword" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
             Kirim
           </button>
         </div>
         <div class="w-full flex flex-row justify-center my-6">
           <span>Belum punya akun?</span>
-          <NuxtLink to="/register" class="text-blue-800">Buat akun</NuxtLink>
+          <NuxtLink to="/register" class="text-blue-800">Daftar sekarang</NuxtLink>
         </div>
       </div>
     </section>

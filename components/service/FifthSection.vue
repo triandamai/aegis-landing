@@ -1,35 +1,31 @@
 <script setup lang="ts">
+import ItemFaq from "~/components/service/ItemFaq.vue";
+
 let faq = reactive([
   {
-    question: "Pertanyaan 11",
-    answer: "Ini adalah jawaban untuk pertanyaan 1",
-    open: false
+    question: "Apa itu AEGIS dan layanan apa yang ditawarkan?",
+    answer: "AEGIS adalah agensi konsultasi bisnis yang menawarkan layanan strategi bisnis, manajemen operasional, pengembangan pasar, dan solusi manajemen risiko."
   },
   {
-    question: "Pertanyaan 11",
-    answer: "Ini adalah jawaban untuk pertanyaan 1",
-    open: false
+    question: "Berapa lama biasanya proyek konsultasi dengan AEGIS berlangsung?",
+    answer: "Durasi proyek bervariasi tergantung pada kompleksitas dan kebutuhan klien, namun rata-rata berlangsung antara 3 hingga 6 bulan."
   },
   {
-    question: "Pertanyaan 11",
-    answer: "Ini adalah jawaban untuk pertanyaan 1",
-    open: false
+    question: "Apakah AEGIS menawarkan layanan pelatihan atau workshop?",
+    answer: "Ya, AEGIS menyediakan pelatihan dan workshop untuk membantu klien meningkatkan keterampilan manajemen dan operasional mereka."
   }
   ,
   {
-    question: "Pertanyaan 11",
-    answer: "Ini adalah jawaban untuk pertanyaan 1",
-    open: false
+    question: "Bagaimana AEGIS menentukan biaya konsultasi?",
+    answer: "Biaya konsultasi ditentukan berdasarkan cakupan proyek, kompleksitas, dan durasi, serta disesuaikan dengan kebutuhan spesifik klien."
   },
   {
-    question: "Pertanyaan 11",
-    answer: "Ini adalah jawaban untuk pertanyaan 1",
-    open: false
+    question: "Apakah AEGIS memiliki spesialisasi industri tertentu?",
+    answer: "AEGIS memiliki pengalaman di berbagai industri termasuk teknologi, manufaktur, ritel, dan keuangan."
   },
   {
-    question: "Pertanyaan 11",
-    answer: "Ini adalah jawaban untuk pertanyaan 1",
-    open: false
+    question: "Bagaimana cara menghubungi AEGIS untuk konsultasi?",
+    answer: "Bagaimana cara menghubungi AEGIS untuk konsultasi? Anda dapat menghubungi AEGIS melalui situs web resmi kami, email, atau telepon untuk mengatur konsultasi awal"
   }
 ])
 </script>
@@ -50,16 +46,7 @@ let faq = reactive([
     </div>
     <!-- Content-->
     <div class="w-full flex flex-row justify-evenly flex-wrap">
-      <div v-for="(item) in faq" class="w-full sm:w-[42vw] md:w-[42vw] lg:w-[42vw] xl:w-[42vw] py-4 border border-gray-200 m-2 rounded-2xl">
-        <div class=" w-full px-4 py-4 flex flex-row justify-between items-center">
-          <h1 class="text-2xl sm:text-5xl md:text-5xl lg:text-5xl text-gray-800">Pertanyaan</h1>
-          <span class="ml-2 w-[50px] h-[50px] bg-blue-200 rounded-md p-1 flex flex-row justify-center items-center"><IconPlus class="w-full h-full text-gray-600"/></span>
-        </div>
-        <div v-show="item.open">
-          <h1 class="text-gray-800">{{ item.question }}</h1>
-          <p>{{ item.answer }}</p>
-        </div>
-      </div>
+      <ItemFaq v-for="(item) in faq"  :question="item.question" :answer="item.answer"/>
     </div>
   </section>
 </template>

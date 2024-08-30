@@ -31,5 +31,10 @@ export default defineNuxtConfig({
     redirect:false,
     serviceKey: process.env.SUPABASE_KEY,
     url:process.env.SUPABASE_URL,
+  },
+  runtimeConfig:{
+    public:{
+      BASE_URL:process.env.BASE_URL,
+    }
   }
 })

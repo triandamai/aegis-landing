@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import ItemPricipal from "~/components/about/ItemPricipal.vue";
+import ItemPricipal from "~/components/about/ItemPrincipal.vue";
 </script>
 
 <template>

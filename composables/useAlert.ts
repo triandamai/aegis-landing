@@ -14,7 +14,13 @@ export function useAlert() {
         setTimeout(()=>{
             alert.show = false
             alert.message = ""
+            alert.type = 'none'
         },5000)
+    }
+    function close(){
+        alert.show = false
+        alert.message = ""
+        alert.type = 'none'
     }
     function success(message: string) {
         if (alert.show) {
@@ -28,6 +34,7 @@ export function useAlert() {
         } else {
             alert.show = true
             alert.message = message
+            alert.type = 'success'
             scheduleHide()
         }
     }
@@ -44,6 +51,7 @@ export function useAlert() {
         } else {
             alert.show = true
             alert.message = message
+            alert.type = 'error'
             scheduleHide()
         }
     }
@@ -60,6 +68,7 @@ export function useAlert() {
         } else {
             alert.show = true
             alert.message = message
+            alert.type = 'info'
             scheduleHide()
         }
     }
@@ -68,6 +77,7 @@ export function useAlert() {
         alert,
         success,
         failed,
-        info
+        info,
+        close
     }
 }

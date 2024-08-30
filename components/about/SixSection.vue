@@ -6,37 +6,37 @@ let teams = [
   {
     name: "Christian Hosana",
     title: "CEO",
-    link: "",
+    link: "https://www.linkedin.com/in/christianhsn",
     image: "/images/team/christian-hosana.png"
   },
   {
     name: "Abitama Ramadhan",
     title: "CFO",
-    link: "",
+    link: "https://www.linkedin.com/in/abitama-ramadhan-nandiva-1737b61ba",
     image: "/images/team/abitama-ramadan.png"
   },
   {
     name: "Adeva Bima",
     title: "CMO",
-    link: "",
+    link: "https://www.linkedin.com/in/adeva-bima-diviano-70281921a",
     image: "/images/team/adeva.png"
   },
   {
     name: "Anees Al Kareem",
     title: "CHRO",
-    link: "",
+    link: "https://www.linkedin.com/in/aneesprayoga",
     image: "/images/team/anees.png"
   },
   {
     name: "Muhammad Ramaditya",
     title: "Advisor",
-    link: "",
+    link: "https://www.linkedin.com/in/muhammad-ramaditya21",
     image: "/images/team/ramaditya.png"
   },
   {
     name: "Firly Rizki",
     title: "COO",
-    link: "",
+    link: "https://linkedin.com/in/firlyrizki",
     image: "/images/team/firly.png"
   }
 ]

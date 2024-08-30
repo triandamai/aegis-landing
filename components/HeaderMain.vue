@@ -1,10 +1,13 @@
 <script setup lang="ts">
 
+import type {Session} from "@supabase/auth-js";
+
 defineProps(['style', 'parent'])
 const client = useSupabaseClient()
-const session = ref<any | null>(null)
+const session = ref<Session | null>(null)
 const showMenuMobile = ref(false)
-onMounted(() => {
+
+function init() {
   client.auth.getSession()
       .then(data => {
         if (data.error) {
@@ -13,12 +16,22 @@ onMounted(() => {
           if (data.data.session == null) {
             session.value = null
           } else {
-            session.value = data;
+            session.value = data.data.session;
           }
         }
       }).catch(() => {
     session.value = null
   })
+}
+
+function signOut(){
+  client.auth.signOut().finally(()=>{
+    init()
+  })
+}
+
+onMounted(() => {
+  init()
 })
 </script>
 
@@ -68,10 +81,15 @@ onMounted(() => {
                     class="text-center my-2 px-4 py-3 bg-blue-800 border border-blue-800 rounded-lg text-white">Memulai
           </NuxtLink>
         </div>
-        <div v-show="session !== null" class="mt-10 w-full flex flex-col">
-          <div class="w-full flex flex-row justify-start items-center">
+        <div v-show="session !== null" class="mt-10 w-full flex flex-row justify-between items-center">
+          <div class="w-2/3 flex flex-row justify-start items-center">
             <NuxtImg src="/images/main/dummy-avatar.webp" class="rounded-full"/>
-            <h1 class="ml-4">Rimuru</h1>
+            <h1 class="ml-4">{{ session?.user.user_metadata.full_name }}</h1>
+          </div>
+          <div>
+            <button @click="signOut">
+              <IconLogOut/>
+            </button>
           </div>
         </div>
       </div>

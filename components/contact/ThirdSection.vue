@@ -18,11 +18,12 @@
     <!-- Content-->
     <div class="w-full flex flex-row justify-center mb-8">
       <iframe
-          class="w-full h-[50vh]"
+          class="w-full h-[40vh]"
           style="border:0"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0t0Nfe8NBl2BZA_jqH6eTcmDYp4uYus8&q=Space+Needle,Seattle+WA">
+          allowfullscreen
+          referrerpolicy=""
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB5qB5RSgFJIsaCWkJb8xRjN96YmUdW_Sc&q=Space+Needle,Seattle+WA">
       </iframe>
     </div>
   </section>

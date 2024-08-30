@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+const contact = useContact()
 </script>
 
 <template>
@@ -30,25 +30,27 @@
     </div>
     <div class="w-[92vw] sm:w-[40vw] md:w-[40vw] lg:w-[40vw] xl:w-[40vw] h-full mb-4">
       <div class="input-group">
-        <p class="input-label">Nama Anda</p>
-        <input placeholder="Rimuru tempest" class="input">
+        <label for="full-name" class="input-label">Nama Anda</label>
+        <input id="full-name" v-model="contact.fullName" placeholder="Rimuru tempest" class="input">
       </div>
       <div class="input-group">
-        <p class="input-label">Email Anda</p>
-        <input placeholder="rimuru@gmail.com" class="input">
+        <label for="email" class="input-label">Email Anda</label>
+        <input id="email" v-model="contact.email" placeholder="rimuru@gmail.com" class="input">
       </div>
       <div class="input-group">
-        <p class="input-label">Subjek </p>
-        <select class="input">
-          <option selected>Sales</option>
-          <option>Tanya</option>
+        <label for="subject" class="input-label">Subjek </label>
+        <select id="subject" v-model="contact.subject" class="input">
+          <option selected>Pilih subjek pesan</option>
+          <option value="SERVICE">Layanan</option>
+          <option value="CRITIC">Kritik</option>
+          <option value="ADVICE">Saran</option>
         </select>
       </div>
       <div class="input-group">
-        <p class="input-label">Pesan </p>
-       <textarea placeholder="Masukkan pesan" class="input-textarea h-full"/>
+        <label for="message" class="input-label">Pesan </label>
+       <textarea id="message" v-model="contact.message" placeholder="Masukkan pesan" class="input-textarea h-full"/>
       </div>
-      <button class="w-full bg-primary rounded-lg  px-2 py-2 hover:bg-blue-500 text-white">Kirim</button>
+      <button @click="contact.sendContactUs" class="w-full bg-primary rounded-lg  px-2 py-2 hover:bg-blue-500 text-white">Kirim</button>
     </div>
   </div>
 </section>
