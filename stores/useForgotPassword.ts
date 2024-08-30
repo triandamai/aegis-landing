@@ -1,5 +1,4 @@
 import type {Database} from "~/types/database.types";
-import {changePassword} from "~/schema/login.schema";
 
 export const useForgotPassword = defineStore("forgot-password", {
     state: () => ({

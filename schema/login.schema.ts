@@ -7,13 +7,14 @@ export const loginSchema = z.object({
 })
 
 
+const businessScale = ["SERVICE","CRITIC","ADVICE"]
 export const registerHasBusinessSchema = z.object({
     fullName: z.string(),
     email: z.string().email(),
     password: z.string().min(4),
     businessName: z.string(),
     phoneNumber: z.string().refine((value) => value.startsWith("+62") || value.startsWith("08")),
-    businessSize: z.string(),
+    businessSize: z.any().refine((val) => val in contactUsEnum),
 
 })
 
@@ -23,9 +24,10 @@ export const registerSchema = z.object({
     fullName: z.string()
 })
 
+const contactUsEnum = ["SERVICE","CRITIC","ADVICE"]
 export const contactUseSchema = z.object({
     email: z.string().email(),
-    subject: z.string().min(4),
+    subject:  z.any().refine((val) => val in contactUsEnum),
     fullName: z.string(),
     message: z.string()
 })

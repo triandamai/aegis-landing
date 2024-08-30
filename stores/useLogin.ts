@@ -55,14 +55,14 @@ export const useLogin = defineStore("login", {
             const client = useSupabaseClient<Database>()
             const runtime = useRuntimeConfig()
 
-            return alert.failed("Fitur belum tersedia")
+            // return alert.failed("Fitur belum tersedia")
 
-            // await client.auth.signInWithOAuth({
-            //     provider:'facebook',
-            //     options: {
-            //         redirectTo: `${runtime.public.BASE_URL}`,
-            //     },
-            // })
+            await client.auth.signInWithOAuth({
+                provider:'facebook',
+                options: {
+                    redirectTo: `${runtime.public.BASE_URL}`,
+                },
+            })
         }
     }
 })
