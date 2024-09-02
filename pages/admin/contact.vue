@@ -85,6 +85,7 @@ function getSubjectLabel(subject: string) {
           prepend-avatar="https://placehold.co/600x400"
           rounded="lg"
           variant="flat"
+          class="my-2"
       >
         <v-list-item-title>
           <span>
@@ -98,7 +99,7 @@ function getSubjectLabel(subject: string) {
           <v-scroll-y-reverse-transition mode="out-in">
             <div
                 key="not-subscribed"
-                class="text-caption"
+                class="text-caption line-clamp-1 pr-2"
             >
               {{item.message}}
             </div>

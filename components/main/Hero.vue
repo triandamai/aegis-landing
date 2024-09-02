@@ -53,12 +53,12 @@
               potensi maksimalnya dengan layanan terpadu yang terpercaya.</p>
             <div class="mt-8 hidden md:block">
               <NuxtLink to="/register"
-                        class="bg-blue-800 border border-blue-800 rounded-md px-3 py-2 text-white hover:cursor-pointer hover:bg-blue-600 hover:border-blue-600">
+                        class="bg-blue-800 border border-blue-800 rounded-lg px-8 py-3 text-white hover:cursor-pointer hover:bg-blue-600 hover:border-blue-600">
                 Gabung AEGIS
               </NuxtLink>
               <span class="mx-4"></span>
               <NuxtLink to="/contact"
-                        class="border border-blue-800 rounded-md px-3 py-2 text-blue-800 hover:bg-blue-400 hover:border-blue-400 hover:text-white">
+                        class="border border-blue-800 rounded-lg px-8 py-3 text-blue-800 hover:bg-blue-400 hover:border-blue-400 hover:text-white">
                 Tentang kami
               </NuxtLink>
             </div>

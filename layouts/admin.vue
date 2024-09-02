@@ -1,6 +1,43 @@
 <script setup lang="ts">
+import type {User} from "@supabase/auth-js";
+
 const router = useRouter()
 const drawer = ref(false)
+const client = useSupabaseClient()
+const session = ref<User | null>(null)
+const name = ref("")
+
+function init() {
+  client.auth.getUser()
+      .then(data => {
+        if (data.error) {
+          session.value = null
+        } else {
+          if (data.data == null) {
+            session.value = null
+          } else {
+            session.value = data.data.user;
+            let split = data.data.user.user_metadata["full_name"].split(" ")
+            if (split.length > 0) {
+              name.value = split[0]
+            }
+          }
+        }
+      }).catch(() => {
+    session.value = null
+  })
+}
+
+
+function signOut() {
+  client.auth.signOut().finally(() => {
+    router.push({path:"/admin/login",replace:true})
+  })
+}
+
+onMounted(() => {
+  init()
+})
 </script>
 
 <template>
@@ -23,7 +60,7 @@ const drawer = ref(false)
             ></v-img>
           </v-avatar>
 
-          <v-btn icon="mdi-logout" variant="text"></v-btn>
+          <v-btn @click="signOut" icon="mdi-logout" variant="text"></v-btn>
         </template>
       </v-app-bar>
 

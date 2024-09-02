@@ -3,12 +3,13 @@
 </script>
 
 <template>
-  <footer
-      class="w-svw px-0 sm:px-0 md:px-[6vw] lg:px-[6vw] xl:px-[6vw] py-[2vw] flex flex-row justify-center items-center">
+  <footer class="w-svw px-0 sm:px-0 md:px-[6vw] lg:px-[6vw] xl:px-[6vw] py-[2vw] flex flex-row justify-center items-center">
     <div class="w-full sm:w-full md:w-[88vw] lg:w-[88vw] xl:w-[88vw]">
       <!--   MOBILE   -->
-      <div class="block sm:block md:hidden lg:hidden xl:hidden flex-row justify-center">
-        <NuxtImg class=" w-1/2 h-[6vh]" src="/images/logo.png"/>
+      <div class="flex sm:flex md:hidden lg:hidden xl:hidden flex-row justify-center items-center w-full">
+        <span class="w-1/3"></span>
+        <NuxtImg class="w-1/3 h-max" width="100%" height="100%" src="/images/logo.png"/>
+        <span class="w-1/3"></span>
       </div>
       <!--   END MOBILE   -->
       <!--      TOP -->

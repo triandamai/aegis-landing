@@ -6,7 +6,7 @@ definePageMeta({
 
 <template>
   <NuxtLayout name="admin">
-    <p>Hom</p>
+    <p>Selamat datang di admin panel</p>
   </NuxtLayout>
 </template>
 

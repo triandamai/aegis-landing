@@ -61,12 +61,12 @@ function onSelectedTab(pos: number) {
       <div
           class="w-full h-[50vh] bg-gradient-to-br from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl flex flex-row justify-between px-10 py-10"
           :class="{'rounded-tl-2xl':selected > 0}">
-        <div class="w-[40vw]">
+        <div class="w-[40vw] sm:w-[40vw] md:w-[40vw] lg:w-[60vw] xl:w-[60vw]">
           <h1 class="text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold text-white mb-4">{{tabs[selected].title}}</h1>
           <p class="text-lg md:text-lglg:text-2xl xl:text-2xl text-white">{{tabs[selected].content}}</p>
         </div>
-        <div class="w-[40vw]">
-          <NuxtImg src="/images/services/bg-bds.png" class="w-[40vw] h-[40vh]"/>
+        <div class="w-[40vw] sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[40vw]">
+          <NuxtImg src="/images/services/bg-bds.png" width="100%" height="100%" class="w-[40vw] h-full sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[30vw]"/>
         </div>
       </div>
     </div>
@@ -89,8 +89,8 @@ function onSelectedTab(pos: number) {
         <button @click="onSelectedTab(2)" :class="selected == 2 ? 'btn-active':'btn-inactive'">Financial Services
         </button>
       </div>
-      <div class="mt-2 w-full h-[55vh] bg-gradient-to-br from-blue-700 via-blue-400 to-blue-400 px-8 py-4">
-        <NuxtImg src="/images/services/bg-bds.png" class="w-full h-[30vh]"/>
+      <div class="mt-2 w-full h-[55vh] bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 px-8 py-4">
+        <NuxtImg src="/images/services/bg-bds.png" width="100%" height="100%" class="w-full h-1/2"/>
         <div class="w-full">
           <h1 class="text-white text-3xl my-2 text-center">{{tabs[selected].title}}</h1>
           <p class="text-white text-center">{{tabs[selected].content}}</p>

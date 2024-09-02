@@ -4,7 +4,7 @@
 
 <template>
 
-  <section id="six" class="w-svw md:px-[6vw] relative py-4 mt-10">
+  <section id="six" class="w-svw md:px-[6vw] relative py-4 mt-32">
     <div class="w-full flex flex-row justify-center">
       <div class="text-2xl md:text-5xl font-semibold">
         <h1 class="text-center">Tumbuh Bersama dan Sukses Bersama

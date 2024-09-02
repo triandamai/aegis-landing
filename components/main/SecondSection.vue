@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section id="second" class="w-svw relative">
+  <section id="second" class="w-svw min-h-screen relative">
     <div class="container">
       <div class="container-left">
         <div class="w-[10vw] pt-4 h-full flex flex-col justify-center px-2 ml-[6vw]">
@@ -49,8 +49,8 @@
       </div>
     </div>
     <div class="title">
-      <p>Platform All-in-One <span class="rounded-2xl bg-blue-800 px-5 text-white">Terintegrasi</span></p>
-      <p>Untuk UMKN seluruh Indonesia</p>
+      <p class="my-2">Platform All-in-One <span class="rounded-2xl bg-blue-800 px-5 text-white">Terintegrasi</span></p>
+      <p class="my-2">Untuk UMKN seluruh Indonesia</p>
     </div>
   </section>
 </template>
