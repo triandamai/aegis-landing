@@ -27,7 +27,7 @@ function onSelectedTab(pos: number) {
   <!--  DESKTOP  -->
   <section id="second" class="hidden sm:block md:block lg:block w-svw h-svh px-[6vw]">
     <div class="w-full flex flex-row items-center justify-start">
-      <span class="bg-primary rounded-2xl text-white text-6xl px-2 py-1">Layanan</span>
+      <span class="bg-blue-800 rounded-2xl text-white text-6xl px-2 py-1">Layanan</span>
       <span class="text-6xl ml-2">Kami</span>
     </div>
     <div class="w-[40vw] my-6">
@@ -76,7 +76,7 @@ function onSelectedTab(pos: number) {
     <div class="w-full">
       <div class="mt-8 mb-8">
         <h1 class="w-full text-3xl font-semibold text-center"><span
-            class="bg-primary rounded-lg text-white">Layanan</span> Kami</h1>
+            class="bg-blue-800 rounded-lg text-white">Layanan</span> Kami</h1>
         <p class="px-2 text-center my-2">AEGIS menawarkan berbagai layanan yang dirancang untuk membantu bisnis Anda
           berkembang dan mencapai tujuan jangka panjang</p>
       </div>

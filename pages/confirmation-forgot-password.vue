@@ -44,7 +44,7 @@ const forgotPassword = useForgotPassword()
             </span>
             </div>
           </div>
-          <button @click="forgotPassword.setPassword" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
+          <button @click="forgotPassword.setPassword" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">
             Kirim
           </button>
         </div>

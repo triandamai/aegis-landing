@@ -43,7 +43,7 @@ let data: Array<{ name: string, web: string, avatar: string, message: string, po
     <div class="w-full flex flex-row justify-center">
       <div class="mb-6">
         <h1 class="text-3xl text-center md:text-5xl font-semibold">Apa kata mereka tentang
-          <span class="bg-primary py-1 px-2 text-white rounded-2xl">AEGIS</span>
+          <span class="bg-blue-800 py-1 px-2 text-white rounded-2xl">AEGIS</span>
         </h1>
       </div>
     </div>

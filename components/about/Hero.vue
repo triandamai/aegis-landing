@@ -18,7 +18,7 @@
           <div class="absolute top-0 right-0 w-[30px] h-[30px] bg-white rounded-tr-2xl"></div>
           <div class="w-full h-full px-1 py-6">
             <div class="mb-4">
-              <span class="w-full bg-primary rounded-lg text-white text-6xl">Solusi Terintegrasi</span>
+              <span class="w-full bg-blue-800 rounded-lg text-white text-6xl">Solusi Terintegrasi</span>
               <div class="text-6xl">untuk Kemajuan UMKM</div>
             </div>
             <p>AEGIS adalah mitra strategis bagi UMKM, menyediakan layanan all-in-one yang dirancang untuk mempercepat

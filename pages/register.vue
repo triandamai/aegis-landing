@@ -74,7 +74,7 @@ const register = useRegister()
             <button @click="register.signInGoogle"><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
             <button @click="register.signInFacebook"><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
-          <button @click="register.signUpEmail" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
+          <button @click="register.signUpEmail" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
         </div>
         <div class="w-full flex flex-row justify-center">
           <span>Sudah punya akun?</span>

@@ -8,7 +8,7 @@
       <div class="container-left">
         <div class="w-[10vw] pt-4 h-full flex flex-col justify-center px-2 ml-[6vw]">
           <!--  line  -->
-          <div class="w-5 h-[10vh] bg-primary rounded-2xl">
+          <div class="w-5 h-[10vh] bg-blue-800 rounded-2xl">
 
           </div>
           <div class="w-1 h-[30vh] bg-gray-400 opacity-20 rounded-b-2xl mx-2">
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="title">
-      <p>Platform All-in-One <span class="rounded-2xl bg-primary px-5 text-white">Terintegrasi</span></p>
+      <p>Platform All-in-One <span class="rounded-2xl bg-blue-800 px-5 text-white">Terintegrasi</span></p>
       <p>Untuk UMKN seluruh Indonesia</p>
     </div>
   </section>

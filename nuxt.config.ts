@@ -16,7 +16,12 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/supabase'],
+  modules: [
+    '@pinia/nuxt',
+    '@nuxt/image',
+    '@nuxtjs/supabase',
+    'vuetify-nuxt-module'
+  ],
   imports:{
     autoImport:true,
     dirs:['composables','schema']
@@ -27,14 +32,17 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1'
     }
   },
+  runtimeConfig:{
+    public:{
+      BASE_URL:process.env.BASE_URL,
+    }
+  },
   supabase:{
     redirect:false,
     serviceKey: process.env.SUPABASE_KEY,
     url:process.env.SUPABASE_URL,
   },
-  runtimeConfig:{
-    public:{
-      BASE_URL:process.env.BASE_URL,
-    }
+  vuetify:{
+
   }
 })

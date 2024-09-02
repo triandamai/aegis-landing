@@ -28,7 +28,7 @@ const forgotPassword = useForgotPassword()
             <label for="email" class="input-label">Email</label>
             <input id="email" v-model="forgotPassword.email" type="email" class="input" placeholder="tes@gmail.com"/>
           </div>
-          <button @click="forgotPassword.sendForgotPassword" class="w-full bg-primary rounded-lg px-2 py-2 text-white hover:bg-blue-700">
+          <button @click="forgotPassword.sendForgotPassword" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">
             Kirim
           </button>
         </div>

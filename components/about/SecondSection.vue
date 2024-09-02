@@ -8,7 +8,7 @@ import ItemPricipal from "~/components/about/ItemPrincipal.vue";
     <!-- Head-->
     <div class="w-full flex flex-row justify-evenly my-2">
       <div class="text-3xl md:text-5xl lg:text-5xl xl:text-5xl font-semibold">
-        <span class="bg-primary text-white rounded-md md:rounded-2xl">
+        <span class="bg-blue-800 text-white rounded-md md:rounded-2xl">
          Prinsip
         </span>
         <span>Kami</span>

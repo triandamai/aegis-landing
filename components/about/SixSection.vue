@@ -47,7 +47,7 @@ let teams = [
     <!-- Head-->
     <div class="w-full h-[10vh] flex flex-row justify-evenly">
       <div class="text-3xl font-semibold md:text-5xl lg:text-5xl">
-        <span class="bg-primary text-white rounded-lg">Tim</span><span> Kami</span>
+        <span class="bg-blue-800 text-white rounded-lg">Tim</span><span> Kami</span>
       </div>
     </div>
     <!--    Subtitle  -->

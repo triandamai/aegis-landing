@@ -24,11 +24,11 @@ export const registerSchema = z.object({
     fullName: z.string()
 })
 
-const contactUsEnum = ["SERVICE","CRITIC","ADVICE"]
+export const contactUsEnum = ["SERVICE","CRITIC","ADVICE"]
 export const contactUseSchema = z.object({
     email: z.string().email(),
     subject:  z.string(),
-    fullName: z.string(),
+    full_name: z.string(),
     message: z.string()
 })
 

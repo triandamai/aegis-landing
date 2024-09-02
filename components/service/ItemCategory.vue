@@ -1,11 +1,14 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   name: string,
   price: string,
   description: string,
   primary: boolean,
   items: Array<string>,
 }>()
+
+defineEmits(['select'])
+
 </script>
 
 <template>
@@ -36,7 +39,7 @@ const props = defineProps<{
                 </div>
               </div>
             </div>
-            <button :class="{'btn-start-primary':primary, 'btn-start':!primary}" class="w-full py-1 my-2">
+            <button @click="$emit('select')" :class="{'btn-start-primary':primary, 'btn-start':!primary}" class="w-full py-1 my-2">
               Mulai Sekarang
             </button>
           </div>

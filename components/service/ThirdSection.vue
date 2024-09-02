@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ItemCategory from "~/components/service/ItemCategory.vue";
+defineEmits(['book-services'])
 
 let data = [
   {
@@ -40,6 +41,8 @@ let data = [
   }
 ]
 
+
+
 </script>
 
 <template>
@@ -47,7 +50,7 @@ let data = [
     <!-- Head-->
     <div class="w-full flex flex-row justify-evenly my-10">
       <div class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl">
-        <span class="bg-primary text-white rounded-lg">Harga Terjangkau</span><span> Untuk</span>
+        <span class="bg-blue-800 text-white rounded-lg">Harga Terjangkau</span><span> Untuk</span>
         <div class="w-full flex flex-row justify-evenly">
           <span class="text-center">Semua Ukuran Bisnis</span>
         </div>
@@ -61,7 +64,15 @@ let data = [
     </div>
     <!-- Content-->
     <div class="w-full h-max flex flex-row flex-wrap justify-center">
-      <ItemCategory v-for="(item,idx) in data" :name="item.title" :price="item.price" :description="item.description" :primary="item.primary" :items="item.items"/>
+      <ItemCategory
+          v-for="(item,idx) in data"
+          :name="item.title"
+          :price="item.price"
+          :description="item.description"
+          :primary="item.primary"
+          :items="item.items"
+          @select="()=>{$emit('book-services',item)}"
+      />
     </div>
   </section>
 </template>

@@ -1,19 +1,5 @@
 <script setup lang="ts">
-import type {Database} from "~/types/database.types";
-
-const client = useSupabaseClient<Database>()
-const alert = useAlert()
-const router = useRouter()
-
-async function gotoBookService(){
-  const isLoggedIn = await  client.auth.getSession()
-  if(isLoggedIn.data.session == null){
-    return router.push({path:'/login'})
-  }
-
-  alert.failed("Fitur belum tersedia")
-
-}
+defineEmits(['create-reservation'])
 </script>
 
 <template>
@@ -29,7 +15,7 @@ async function gotoBookService(){
             dengan bantuan AEGIS.ID. Kami
             menyediakan layanan yang membuat
             pengembangan dan pengelolaan bisnis jadi lebih mudah.</p>
-          <button @click="gotoBookService" class="px-10 py-2 bg-white rounded-lg my-1 w-1/2">Booking Layanan</button>
+          <button @click="$emit('create-reservation')" class="px-10 py-2 bg-white rounded-lg my-1 w-1/2">Booking Layanan</button>
         </div>
       </div>
     </div>
@@ -43,8 +29,7 @@ async function gotoBookService(){
             <p class="text-center text-white">Ubah cara Anda menjalankan bisnis dengan bantuan AEGIS.ID. Kami
               menyediakan layanan yang membuat pengembangan dan pengelolaan bisnis jadi lebih mudah.</p>
             <div class="px-10 mt-10 flex flex-row justify-center items-center">
-              <NuxtLink class="w-full bg-white rounded-lg px-10 py-3 text-center text-blue-800">Gabung Sekarang
-              </NuxtLink>
+              <button  @click="$emit('create-reservation')" class="w-full bg-white rounded-lg px-10 py-3 text-center text-blue-800">Booking Layanan</button>
             </div>
           </div>
         </div>
@@ -64,7 +49,7 @@ async function gotoBookService(){
 .bg-hero {
   background-image: url("/images/services/bg-hero-services.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   @apply absolute right-0 h-full  sm:w-[80vw]  md:w-[80vw] lg:w-[80vw] xl:w-[80vw]   rounded-br-2xl;
 }
 

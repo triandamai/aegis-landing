@@ -8,7 +8,7 @@ import ItemMission from "~/components/about/ItemMission.vue";
     <!-- Head-->
     <div class="w-full flex flex-row justify-evenly my-10">
       <div class="text-3xl font-semibold md:text-5xl lg:text-5xl">
-        <span class="bg-primary text-white rounded-lg">Misi</span>
+        <span class="bg-blue-800 text-white rounded-lg">Misi</span>
         <span> Kami</span>
       </div>
     </div>

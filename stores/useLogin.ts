@@ -31,9 +31,7 @@ export const useLogin = defineStore("login", {
             })
             if (response.error) {
                 hideLoading()
-                alert.failed(response.error.message)
-                //show error
-                return
+               return alert.failed(response.error.message)
             }
 
             hideLoading()

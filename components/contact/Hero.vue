@@ -9,7 +9,7 @@ const contact = useContact()
       <div class="w-full h-[65vh] sm:w-full sm:h-[65vh] md:w-full md:h-[65vh] lg:w-full lg:h-[65vh] xl:w-full xl:h-[65vh] relative">
         <div class="w-full h-[8vh] flex flex-row justify-start">
           <div class="w-full h-full relative flex flex-row">
-            <div class="w-[70vw] sm:w-[30vw] md:w-[30vw] lg:w-[30vw] xl:w-[30vw] bg-primary h-full rounded-t-2xl"></div>
+            <div class="w-[70vw] sm:w-[30vw] md:w-[30vw] lg:w-[30vw] xl:w-[30vw] bg-blue-800 h-full rounded-t-2xl"></div>
             <div class="w-[10vw] bg-white h-full relative">
               <div class="absolute left-0 w-[20px] h-full bg-primary"></div>
               <div class="absolute left-0 w-[20px] h-full bg-white rounded-bl-2xl"></div>
@@ -50,23 +50,12 @@ const contact = useContact()
         <label for="message" class="input-label">Pesan </label>
        <textarea id="message" v-model="contact.message" placeholder="Masukkan pesan" class="input-textarea h-full"/>
       </div>
-      <button @click="contact.sendContactUs" class="w-full bg-primary rounded-lg  px-2 py-2 hover:bg-blue-500 text-white">Kirim</button>
+      <button @click="contact.sendContactUs" class="w-full bg-blue-800 rounded-lg  px-2 py-2 hover:bg-blue-500 text-white">Kirim</button>
     </div>
   </div>
 </section>
 </template>
 
 <style scoped>
-.input{
-  @apply w-full rounded-lg border border-gray-300 px-2 py-2;
-}
-.input-textarea{
-  @apply w-full rounded-lg border border-gray-300 px-2 py-2;
-}
-.input-group{
-  @apply my-2;
-}
-.input-label{
-  @apply text-gray-600 my-2;
-}
+
 </style>

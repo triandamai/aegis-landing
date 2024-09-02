@@ -8,7 +8,7 @@
 
       </div>
       <div class="md:ml-10 lg:ml-10 w-full md:w-[40vw] lg:w-[40vw]">
-        <h1 class="text-3xl font-semibold md:text-6xl lg:text-6xl mb-2 md:mb-10 lg:mb-10"><span class="bg-primary rounded-lg text-white">Visi</span> Kami</h1>
+        <h1 class="text-3xl font-semibold md:text-6xl lg:text-6xl mb-2 md:mb-10 lg:mb-10"><span class="bg-blue-800 rounded-lg text-white">Visi</span> Kami</h1>
         <p class="text-2xl md:text-5xl lg:text-5xl w-full md:w-[40vw] lg:w-[40vw]">Menjadi platform terdepan dalam pengembangan dan digitalisasi UMKM Indonesia dengan solusi yang terintegrasi.</p>
       </div>
     </div>

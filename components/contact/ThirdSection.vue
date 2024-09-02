@@ -7,7 +7,7 @@
     <!-- Head-->
     <div class="w-full flex flex-row justify-evenly my-10">
       <div class="text-3xl sm:text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-semibold">
-        <span class="bg-primary text-white rounded-lg">Kantor</span>
+        <span class="bg-blue-800 text-white rounded-lg">Kantor</span>
         <span> Kami</span>
       </div>
     </div>

@@ -1,31 +1,34 @@
 <script setup lang="ts">
 
-import type {Session} from "@supabase/auth-js";
+import type {User} from "@supabase/auth-js";
 
 defineProps(['style', 'parent'])
 const client = useSupabaseClient()
-const session = ref<Session | null>(null)
+const session = ref<User | null>(null)
+const name = ref("")
 const showMenuMobile = ref(false)
 
 function init() {
-  client.auth.getSession()
+  client.auth.getUser()
       .then(data => {
         if (data.error) {
           session.value = null
         } else {
-          if (data.data.session == null) {
+          if (data.data == null) {
             session.value = null
           } else {
-            session.value = data.data.session;
+            session.value = data.data.user;
+            let split = data.data.user.user_metadata["full_name"].split(" ")
+            if (split.length > 0) {
+              name.value = split[0]
+            }
           }
         }
-        console.log(data)
       }).catch(() => {
     session.value = null
   })
-
-
 }
+
 
 function signOut() {
   client.auth.signOut().finally(() => {
@@ -56,11 +59,17 @@ onMounted(() => {
                   class="border border-blue-800 text-blue-800 rounded-md my-2 mx-2 py-2 px-4 cursor-pointer hover:bg-blue-100"
                   aria-label="button">Masuk</NuxtLink>
         <NuxtLink to="/register"
-                  class="border border-blue-800 bg-primary rounded-md my-2 mx-2 py-2 px-4 text-white cursor-pointer hover:bg-blue-700">Memulai</NuxtLink>
+                  class="border border-blue-800 bg-blue-800 rounded-md my-2 mx-2 py-2 px-4 text-white cursor-pointer hover:bg-blue-700">Memulai</NuxtLink>
       </span>
       <span v-show="session != null" class="flex flex-row justify-start items-center">
-        <NuxtImg src="https://placehold.co/400" class="rounded-full h-[5vh]"/>
-        <h1 class="ml-4">{{ session?.user.user_metadata.full_name }}</h1>
+        <span class="mr-4">
+          <span class="text-gray-500">Hi,</span>
+          <span>{{ name }}</span>
+        </span>
+         <NuxtImg src="https://placehold.co/400" class="rounded-full h-[5vh]"/>
+         <button class="h-[5vh] w-[5vh] mx-2" @click="signOut">
+              <IconLogOut/>
+         </button>
       </span>
     </div>
   </header>
@@ -91,7 +100,7 @@ onMounted(() => {
         <div v-show="session !== null" class="mt-10 w-full flex flex-row justify-between items-center">
           <div class="w-2/3 flex flex-row justify-start items-center">
             <NuxtImg src="https://placehold.co/400" class="rounded-full"/>
-            <h1 class="ml-4">{{ session?.user.user_metadata.full_name }}</h1>
+            <h1 class="ml-4">{{ name }}</h1>
           </div>
           <div>
             <button @click="signOut">

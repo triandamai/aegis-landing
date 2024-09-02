@@ -18,6 +18,35 @@
     }
 }
 
-.bg-primary{
-    @apply bg-blue-800;
+
+.input-textarea{
+    border-style: solid !important;
+    @apply w-full rounded-lg border border-gray-400 px-2 py-2 !important;
+}
+.input-group{
+    @apply my-2 !important;
+}
+.input-label{
+    @apply text-gray-600 my-2 !important;
+}
+.input {
+    border-style: solid !important;
+    @apply w-full border border-gray-400 rounded-lg px-2 py-3 !important;
+}
+
+.input-group {
+    @apply my-4 flex flex-col;
+}
+
+.input-label {
+    @apply text-gray-600 my-2;
+}
+
+.toggle-password {
+    position: absolute;
+    transform: translateY(-50%);
+    right: 0;
+    top: 50%;
+    cursor: pointer;
+    @apply px-2;
 }

@@ -72,26 +72,15 @@ export const useRegister = defineStore("register", {
                     full_name: this.fullName
                 }
             })
-            //save data user
-            const savedData = await client.from("customer")
-                .insert({
-                    email: this.email,
-                    full_name: this.fullName,
-                    uid: user?.id ?? ""
-                })
 
-            if (savedData.error) {
-                hideLoading()
-                alert.failed(savedData.error?.message ?? "Gagal mendaftarkan akun")
-                return
-            }
 
             if (this.hasBusiness) {
                 const savedBusiness = await client.from("business")
                     .insert({
                         business_phone: this.businessPhone,
                         business_name: this.businessName,
-                        business_scale: this.businessSize
+                        business_scale: this.businessSize,
+                        user_id:user?.id
                     })
 
                 if (savedBusiness.error) {
@@ -119,8 +108,6 @@ export const useRegister = defineStore("register", {
             const alert = useAlert()
             const client = useSupabaseClient<Database>()
             const runtime = useRuntimeConfig()
-
-            // return alert.failed("Fitur belum tersedia")
 
             await client.auth.signInWithOAuth({
                 provider:'facebook',

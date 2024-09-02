@@ -9,7 +9,7 @@
         <div class="w-full text-2xl md:text-5xl lg:text-5xl font-semibold">
           <p class="text-center">Kontribusi Besar UMKM Terhadap</p>
           <p class="text-center mt-4">
-            <span class="text-white bg-primary px-2 rounded-lg md:rounded-2xl lg:rounded-2xl">Ekonomi Indonesia</span>
+            <span class="text-white bg-blue-800 px-2 rounded-lg md:rounded-2xl lg:rounded-2xl">Ekonomi Indonesia</span>
             dan
             ASEAN
           </p>
@@ -29,11 +29,11 @@
       <!--   MOBILE   -->
       <div class="block  sm:block md:hidden lg:hidden mt-[5vh]">
         <div class="md:w-[7vw] md:h-[3vh] lg:w-[7vw] lg:h-[3vh] bg-blue-200 rounded-2xl absolute top-0 mt-[5vh]"></div>
-        <div class="w-full h-[20vh] flex flex-col justify-between">
+        <div class="w-full h-[40vh] flex flex-col justify-between">
           <div class="image-left-mobile"></div>
           <p class="text-start bg-blue-100 px-[4vw] py-2">UMKM bertumbuh secara konsisten sebesar 2,5% dari 2015-2019</p>
         </div>
-        <div class="w-full h-[20vh] flex flex-col justify-between">
+        <div class="w-full h-[40vh] flex flex-col justify-between">
           <div class="image-right-mobile"></div>
           <p class="text-start bg-blue-100 px-[4vw] py-2">UMKM menyerap 97% lapangan kerja dan menyumbang 60% PDB kita.</p>
 
@@ -141,7 +141,7 @@
   background-image: url("/images/main/jokowi.webp");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  @apply w-full h-full   flex flex-row justify-start items-center;
+  @apply w-full h-full flex flex-row justify-start items-center;
 }
 
 .image-right-mobile {

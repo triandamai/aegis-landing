@@ -29,7 +29,7 @@ onMounted(()=>{
           <div class="bg-shape w-full h-full px-10 py-10 z-999">
             <h1 class="text-6xl mb-4">Terimakasih</h1>
             <p class="mb-6 text-2xl">Email Anda telah terverifikasi. Anda akan segera dialihkan ke halaman login.</p>
-            <NuxtLink to="/" class="bg-primary rounded-lg text-white py-4 px-6 mt-10">Kembali ke hompage</NuxtLink>
+            <NuxtLink to="/" class="bg-blue-800 rounded-lg text-white py-4 px-6 mt-10">Kembali ke hompage</NuxtLink>
           </div>
         </div>
         <NuxtImg src="/images/bg-contact-sent.webp" class="w-[20vw] h-[50vh] absolute bottom-0"/>
@@ -57,7 +57,7 @@ onMounted(()=>{
               Anda.</p>
           </div>
           <div class="w-full mb-4 flex flex-row justify-center">
-            <NuxtLink to="/contact" class="w-[80vw] bg-primary rounded-lg py-3 text-white text-center">Kembali ke hompage</NuxtLink>
+            <NuxtLink to="/contact" class="w-[80vw] bg-blue-800 rounded-lg py-3 text-white text-center">Kembali ke hompage</NuxtLink>
           </div>
         </div>
         <NuxtImg src="/images/ic-check.svg" class="absolute top-0 left-0 w-[20vw] h-[20vw]  sm:w-[15vw] sm:h-[15vw] md:w-[4vw] md:h-[4vw]  lg:w-[4vw] lg:h-[4vw]  xl:w-[4vw] xl:h-[4vw]"/>

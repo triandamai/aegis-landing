@@ -9,6 +9,35 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      admin: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: number
+          user_uid: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          user_uid?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          user_uid?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "admin_user_uid_fkey"
+            columns: ["user_uid"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       business: {
         Row: {
           business_name: string | null
@@ -16,7 +45,7 @@ export type Database = {
           business_scale: string | null
           created_at: string
           id: number
-          user_id: number | null
+          user_id: string | null
         }
         Insert: {
           business_name?: string | null
@@ -24,7 +53,7 @@ export type Database = {
           business_scale?: string | null
           created_at?: string
           id?: number
-          user_id?: number | null
+          user_id?: string | null
         }
         Update: {
           business_name?: string | null
@@ -32,68 +61,91 @@ export type Database = {
           business_scale?: string | null
           created_at?: string
           id?: number
-          user_id?: number | null
+          user_id?: string | null
         }
         Relationships: [
           {
             foreignKeyName: "business_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
-            referencedRelation: "customer"
+            referencedRelation: "users"
             referencedColumns: ["id"]
           },
         ]
       }
-      customer: {
-        Row: {
-          created_at: string
-          email: string | null
-          full_name: string | null
-          id: number
-          uid: string | null
-        }
-        Insert: {
-          created_at?: string
-          email?: string | null
-          full_name?: string | null
-          id?: number
-          uid?: string | null
-        }
-        Update: {
-          created_at?: string
-          email?: string | null
-          full_name?: string | null
-          id?: number
-          uid?: string | null
-        }
-        Relationships: []
-      }
       inbox: {
         Row: {
           created_at: string
-          email: string | null
-          fullName: string | null
+          email: string
+          full_name: string
           id: number
-          message: string | null
-          subject: string | null
+          message: string
+          subject: string
         }
         Insert: {
           created_at?: string
-          email?: string | null
-          fullName?: string | null
+          email?: string
+          full_name?: string
           id?: number
-          message?: string | null
-          subject?: string | null
+          message?: string
+          subject?: string
         }
         Update: {
           created_at?: string
-          email?: string | null
-          fullName?: string | null
+          email?: string
+          full_name?: string
           id?: number
-          message?: string | null
-          subject?: string | null
+          message?: string
+          subject?: string
         }
         Relationships: []
+      }
+      reservation: {
+        Row: {
+          book_at: string
+          business_name: string
+          business_scale: string
+          created_at: string
+          email: string
+          id: number
+          location: string
+          phone_number: string
+          services_type: string
+          user_id: string | null
+        }
+        Insert: {
+          book_at: string
+          business_name: string
+          business_scale: string
+          created_at?: string
+          email: string
+          id?: number
+          location: string
+          phone_number: string
+          services_type: string
+          user_id?: string | null
+        }
+        Update: {
+          book_at?: string
+          business_name?: string
+          business_scale?: string
+          created_at?: string
+          email?: string
+          id?: number
+          location?: string
+          phone_number?: string
+          services_type?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reservation_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {

@@ -4,6 +4,8 @@ const selected = ref(0)
 function onSelectedTab(pos: number) {
   selected.value = pos;
 }
+
+defineEmits(['create-reservation'])
 </script>
 
 <template>
@@ -12,7 +14,7 @@ function onSelectedTab(pos: number) {
     <div class="w-full flex flex-row justify-evenly pt-16 pb-2">
       <div class="text-3xl md:text-5xl lg:text-5xl xl:text-5xl font-semibold">
         <span>Layanan yang </span>
-        <span class="bg-primary text-white rounded-lg">
+        <span class="bg-blue-800 text-white rounded-lg">
           Disesuaikan
         </span>
         <div class="w-full flex flex-row justify-evenly">
@@ -51,7 +53,7 @@ function onSelectedTab(pos: number) {
           <div class="w-full flex flex-row justify-start items-end mb-4 mt-4">
             <span class="text-4xl">Rp199.000</span><span>(sekali bayar)</span></div>
 
-          <button class="w-full bg-primary rounded-lg py-2 text-white">Mulai Sekarang</button>
+          <button class="w-full bg-blue-800 rounded-lg py-2 text-white">Mulai Sekarang</button>
 
         </div>
       </div>
@@ -87,7 +89,7 @@ function onSelectedTab(pos: number) {
               <span class="text-4xl">Rp199.000</span><span>(sekali bayar)</span>
             </div>
             <div class="w-full">
-              <button class="w-[85vw] bg-primary rounded-lg py-2 text-white">Mulai Sekarang</button>
+              <button @click="$emit('create-reservation')" class="w-[85vw] bg-blue-800 rounded-lg py-2 text-white">Mulai Sekarang</button>
             </div>
           </div>
         </div>
