@@ -51,9 +51,9 @@ async function submit(){
         </div>
         <div class="input-group">
           <label for="type" class="input-label">Pilih Lokasi</label>
-          <select  id="type" class="input">
+          <select  id="type" class="input" v-model="service.location">
             <option selected value="NONE">Pilih lokasi</option>
-            <option v-for="item in data" value="MICRO">{{item.text}}</option>
+            <option v-for="item in data" :value="item.text">{{item.text}}</option>
           </select>
         </div>
         <div class="w-full rounded-lg bg-gray-200 px-2 py-4">

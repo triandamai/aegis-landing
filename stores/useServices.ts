@@ -8,7 +8,7 @@ export const useServices = defineStore("service", {
         businessName: "",
         serviceType: "NONE",
         bookAt: new Date(),
-        location: ""
+        location: "NONE"
     }),
     actions: {
         async bookServices() {
@@ -57,6 +57,12 @@ export const useServices = defineStore("service", {
                 return false
             }
 
+
+            this.businessName=""
+            this.phoneNumber=""
+            this.serviceType="NONE"
+            this.location="NONE"
+            this.email=""
             return true
         }
     }
