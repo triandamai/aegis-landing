@@ -99,7 +99,7 @@ onMounted(() => {
         </div>
         <div v-show="session !== null" class="mt-10 w-full flex flex-row justify-between items-center">
           <div class="w-2/3 flex flex-row justify-start items-center">
-            <NuxtImg src="https://placehold.co/400" class="rounded-full"/>
+            <NuxtImg src="https://placehold.co/400" class="rounded-full w-[20px] h-[20px]"/>
             <h1 class="ml-4">{{ name }}</h1>
           </div>
           <div>
