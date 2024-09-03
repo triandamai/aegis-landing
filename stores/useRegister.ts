@@ -1,5 +1,4 @@
 import type {Database} from "~/types/database.types";
-import {runtime} from "std-env";
 
 export const useRegister = defineStore("register", {
     state: () => ({
@@ -59,6 +58,7 @@ export const useRegister = defineStore("register", {
                     emailRedirectTo:`${runtime.public.BASE_URL}register-success`
                 }
             })
+
 
             if (signUp.error) {
                 hideLoading()

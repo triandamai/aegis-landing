@@ -1,7 +1,7 @@
 import {z} from "zod";
 
 
-export const loginSchema = z.object({
+export const typeSchema = z.object({
     email: z.string().email(),
     password: z.string().min(4)
 })
@@ -39,4 +39,13 @@ export const forgotPasswordSchema = z.object({
 export const changePassword = z.object({
     password: z.string().min(4),
     confirmPassword: z.string().min(4),
+})
+
+export const serviceTypeEnum = ["MICRO","SMALL","MEDIUM"]
+export const reservationSchema = z.object({
+    phoneNumber:z.string(),
+    email:z.string().email(),
+    businessName:z.string().min(2),
+    serviceType:z.string().min(2),
+    location:z.string(),
 })

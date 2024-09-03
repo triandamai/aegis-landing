@@ -20,7 +20,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/image',
     '@nuxtjs/supabase',
-    'vuetify-nuxt-module'
+    'vuetify-nuxt-module',
+    'nuxt-mail'
   ],
   imports:{
     autoImport:true,
@@ -44,5 +45,17 @@ export default defineNuxtConfig({
   },
   vuetify:{
 
+  },
+  mail:{
+    message: {
+      to: 'foo@bar.de',
+    },
+    smtp:{
+      service:'gmail',
+      auth:{
+        user:process.env.SMTP_USER,
+        pass:process.env.SMTP_PASS,
+      }
+    }
   }
 })

@@ -1,21 +1,26 @@
 <script setup lang="ts">
-import {da} from "vuetify/locale";
 
 defineProps(['show'])
-defineEmits(['dismiss'])
+const emit = defineEmits(['dismiss'])
 const service = useServices()
 
 const {data} = useAsyncData(async ()=>await fetch('https://alamat.thecloudalert.com/api/provinsi/get').then(res=>res.json()))
 
+async function submit(){
+  const result =await service.bookServices()
+  if(result){
+    emit('dismiss')
+  }
+}
 </script>
 
 <template>
   <div v-show="show" class=" fixed w-screen h-screen bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center z-30">
-    <div class="w-full h-full sm:w-full sm:h-full md:w-2/3 md:h-1/2 lg:w-1/2 lg:h-1/2 xl:w-1/2 xl:h-max rounded-lg bg-white relative overflow-y-hidden">
+    <div class="w-full h-full sm:w-full sm:h-full md:w-2/3 md:h-max lg:w-1/2 lg:h-max xl:w-1/2 xl:h-max rounded-lg bg-white relative">
       <div class="w-full h-max px-4 py-4">
         <div class="w-full flex flex-row justify-between items-center">
           <h1 class="font-semibold text-lg">Pesan Layanan</h1>
-          <IconClose @click="$emit('dismiss')" class="w-[40px] h-[40px] sm:w-[40px] sm:h-[40px] md:w-[40px] md:h-[40px] lg:w-[40px] lg:h-[40px] xl:w-[30px] xl:h-[30px]"/>
+          <IconClose @click="$emit('dismiss')" class="w-[40px] h-[40px] sm:w-[40px] sm:h-[40px] md:w-[40px] md:h-[40px] lg:w-[40px] lg:h-[40px] xl:w-[30px] xl:h-[30px] cursor-pointer"/>
         </div>
         <div class="input-group">
           <label for="phone" class="input-label">Nomor Hp</label>
@@ -58,7 +63,7 @@ const {data} = useAsyncData(async ()=>await fetch('https://alamat.thecloudalert.
         <div class="w-full flex flex-row justify-between items-center py-4">
           <button @click="$emit('dismiss')" class="w-1/2 bg-white rounded-lg text-blue-800 border border-blue-800 py-2">Batal</button>
           <div class="w-[20px] "></div>
-          <button @click="service.bookServices()" class="w-1/2 bg-blue-800 rounded-lg text-white border border-blue-800 py-2">Pesan Layanan</button>
+          <button @click="submit()" class="w-1/2 bg-blue-800 rounded-lg text-white border border-blue-800 py-2">Pesan Layanan</button>
         </div>
       </div>
     </div>

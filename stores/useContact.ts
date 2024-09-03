@@ -1,12 +1,16 @@
 import type {Database} from "~/types/database.types";
-import {contactUsEnum} from "~/schema/login.schema";
+import {contactUsEnum} from "~/schema/type.schema";
 
 export const useContact = defineStore("contact", {
     state: () => ({
         fullName: "",
+        // fullNameState:InputState.None(),
         email: "",
+        // emailState:InputState.None(),
         message: "",
-        subject: "NONE"
+        // messageState:InputState.None(),
+        subject: "NONE",
+        // subjectState:InputState.None()
     }),
     actions: {
         async sendContactUs() {
@@ -14,6 +18,7 @@ export const useContact = defineStore("contact", {
             const alert = useAlert()
             const client = useSupabaseClient<Database>()
             const router = useRouter()
+            const mail = useMail()
 
             showLoading()
             const validate = contactUseSchema.safeParse({
@@ -41,6 +46,13 @@ export const useContact = defineStore("contact", {
                     message: this.message,
                 })
 
+
+            mail.send({
+                from: 'John Doe',
+                subject: 'Incredible',
+                text: 'This is an incredible test message',
+                to: "triandamai@gmail.com",
+            })
             hideLoading()
             if (savedData.error) return alert.failed(savedData.error.message)
 

@@ -50,7 +50,7 @@ defineEmits(['create-reservation'])
   background-image: url("/images/services/bg-hero-services.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  @apply absolute right-0 h-full  sm:w-[80vw]  md:w-[80vw] lg:w-[80vw] xl:w-[80vw]   rounded-br-2xl;
+  @apply absolute right-0 h-full  sm:w-[80vw]  md:w-full lg:w-full xl:w-full   rounded-br-2xl;
 }
 
 .bg-left-hero {

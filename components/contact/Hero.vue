@@ -29,9 +29,11 @@ const contact = useContact()
       <NuxtImg src="/images/contact/bg-hero.png" class="w-[15vh] h-[15vh] sm:w-[11vh] sm:h-[11vh] md:w-[11vh] md:h-[11vh] lg:w-[11vh] lg:h-[11vh] xl:w-[11vh] xl:h-[11vh] absolute bottom-0 left-0"/>
     </div>
     <div class="w-[92vw] sm:w-[40vw] md:w-[40vw] lg:w-[40vw] xl:w-[40vw] h-full mb-4">
+<!--      <InputText v-model="contact.fullName" />-->
       <div class="input-group">
         <label for="full-name" class="input-label">Nama Anda</label>
         <input id="full-name" v-model="contact.fullName" placeholder="Rimuru tempest" class="input">
+<!--        <span  class="w-full flex flex-row justify-start items-center"><IconWarning class="mr-2"/>Nama tidak sesuai</span>-->
       </div>
       <div class="input-group">
         <label for="email" class="input-label">Email Anda</label>
