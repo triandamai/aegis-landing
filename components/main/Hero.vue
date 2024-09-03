@@ -76,7 +76,7 @@
   <section id="hero-mobile" class="block sm:block md:block lg:hidden xl:hidden h-screen px-[4vw]">
     <div class="image-mobile"></div>
     <div class="w-[92vw] h-[22vh] flex flex-row justify-between items-center">
-      <div class="w-[85vw] h-[22vh] text-4xl font-semibold text-white bg-blue-800 rounded-2xl px-2 py-2">
+      <div class="w-[85vw] h-[22vh] text-3xl font-semibold text-white bg-blue-800 rounded-2xl px-2 py-2">
         <h1>Dukungan Strategis</h1>
         <h1>Untuk Setiap</h1>
         <h1>Pertumbuhan Bisnis</h1>
@@ -96,8 +96,8 @@
     </div>
     <div class="mt-2 flex flex-col">
       <p class="text-lg">AEGIS hadir dari validasi ide awal, pengurusan legalitas, akses pendanaan untuk membantu UMKM mencapai potensi maksimalnya dengan layanan terpadu yang terpercaya.</p>
-      <NuxtLink to="/register" class="w-full bg-blue-800 text-white border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2">Gabung AEGIS</NuxtLink>
-      <NuxtLink to="/about" class="w-full bg-white text-blue-800 border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2">Tentang Kami</NuxtLink>
+      <NuxtLink to="/register" class="w-full bg-blue-800 text-white border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2 text-center">Gabung AEGIS</NuxtLink>
+      <NuxtLink to="/about" class="w-full bg-white text-blue-800 border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2 text-center">Tentang Kami</NuxtLink>
     </div>
   </section>
 </template>
