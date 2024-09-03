@@ -7,14 +7,14 @@ export const loginSchema = z.object({
 })
 
 
-const businessScale = ["SERVICE","CRITIC","ADVICE"]
+export const businessScale = ["MICRO","SMALL","MEDIUM"]
 export const registerHasBusinessSchema = z.object({
     fullName: z.string(),
     email: z.string().email(),
     password: z.string().min(4),
     businessName: z.string(),
-    phoneNumber: z.string().refine((value) => value.startsWith("+62") || value.startsWith("08")),
-    businessSize: z.any().refine((val) => val in contactUsEnum),
+    phoneNumber: z.string().refine((value) => value.startsWith("+62") || value.startsWith("08"),"Nomor telphone harus diawali +62 atau 08"),
+    businessSize: z.string(),
 
 })
 

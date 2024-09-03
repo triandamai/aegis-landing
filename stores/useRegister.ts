@@ -1,4 +1,5 @@
 import type {Database} from "~/types/database.types";
+import {businessScale} from "~/schema/type.schema";
 
 export const useRegister = defineStore("register", {
     state: () => ({
@@ -8,7 +9,7 @@ export const useRegister = defineStore("register", {
         hasBusiness: false,
         businessName: "",
         businessPhone: "",
-        businessSize: "none",
+        businessSize: "NONE",
         showPassword: false
     }),
     actions: {
@@ -31,9 +32,16 @@ export const useRegister = defineStore("register", {
 
                 })
 
+                console.log("ahah1",validate)
                 if (validate.error) {
                     hideLoading()
                     alert.failed(validate.error.errors.map(v => v.message).join(","))
+                    return
+                }
+
+                if(!businessScale.includes(this.businessSize)){
+                    hideLoading()
+                    alert.failed("Silahkan pilih ukuran bisnis.")
                     return
                 }
             }
@@ -44,6 +52,7 @@ export const useRegister = defineStore("register", {
                     password: this.password,
                     fullName: this.fullName,
                 })
+                console.log("ahah2",validate)
                 if (validate.error) {
                     hideLoading()
                     alert.failed(validate.error.errors.map(v => v.message).join(","))

@@ -57,7 +57,7 @@ const register = useRegister()
             </div>
             <div class="input-group">
               <label for="business-size" class="input-label">Ukuran Bisnis</label>
-              <select id="business-size"  v-model="register.businessSize" class="input-select">
+              <select id="business-size"  v-model="register.businessSize" class="input">
                 <option selected value="NONE" class="text-gray-600">Pilih Ukuran Bisnis</option>
                 <option value="MICRO">Mikro</option>
                 <option value="SMALL">Kecil</option>
@@ -99,30 +99,10 @@ const register = useRegister()
 .container-content {
   @apply w-[40vw] h-[35vw] absolute flex flex-col justify-center;
 }
-.input {
-  @apply w-full border border-gray-300 rounded-lg px-2 py-3;
-}
 
-.input-select {
-  @apply w-full border border-gray-300 rounded-lg px-2 py-3;
-}
-
-.input-group {
-  @apply my-4 flex flex-col items-start;
-}
 
 .input-group-checkbox {
   @apply my-4;
 }
-.input-label{
-  @apply text-gray-600 my-2;
-}
-.toggle-password {
-  position: absolute;
-  transform: translateY(-50%);
-  right: 0;
-  top: 50%;
-  cursor: pointer;
-  @apply px-2;
-}
+
 </style>
