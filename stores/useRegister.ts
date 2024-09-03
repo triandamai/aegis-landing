@@ -55,7 +55,11 @@ export const useRegister = defineStore("register", {
                 email: this.email,
                 password: this.password,
                 options:{
-                    emailRedirectTo:`${runtime.public.BASE_URL}register-success`
+                    emailRedirectTo:`${runtime.public.BASE_URL}register-success`,
+                    data:{
+                        full_name: this.fullName,
+                        display_name:this.fullName
+                    }
                 }
             })
 
@@ -65,14 +69,7 @@ export const useRegister = defineStore("register", {
                 alert.failed(signUp.error.message)
                 return
             }
-
             const user = signUp.data.user
-            await client.auth.updateUser({
-                data: {
-                    full_name: this.fullName
-                }
-            })
-
             if (this.hasBusiness) {
                 const savedBusiness = await client.from("business")
                     .insert({
