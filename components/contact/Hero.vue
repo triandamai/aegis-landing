@@ -11,18 +11,21 @@ const contact = useContact()
           <div class="w-full h-full relative flex flex-row">
             <div class="w-[70vw] sm:w-[30vw] md:w-[30vw] lg:w-[30vw] xl:w-[30vw] bg-blue-800 h-full rounded-t-2xl"></div>
             <div class="w-[10vw] bg-white h-full relative">
-              <div class="absolute left-0 w-[20px] h-full bg-primary"></div>
+              <div class="absolute left-0 w-[20px] h-full bg-blue-800"></div>
               <div class="absolute left-0 w-[20px] h-full bg-white rounded-bl-2xl"></div>
             </div>
           </div>
         </div>
         <div class="w-full h-[40vh] sm:h-[57vh] md:h-[57vh] lg:h-[57vh] xl:h-[57vh] bg-gradient-to-b from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl px-10 pb-10 text-white relative">
-          <h1 class="text-3xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-6xl mb-10"><span class="text-white">Hubungi</span><span class="bg-white text-blue-800 rounded-lg"> Kami</span></h1>
+          <h1 class="text-3xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-6xl mb-10"><span class="text-white">Hubungi&nbsp;</span><span class="bg-white text-blue-800 rounded-lg px-1">Kami</span></h1>
           <p class="text-lg sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl">Kami senang mendengar dari Anda! Meskipun kami menghargai semua cara komunikasi, ada cara yang lebih mudah untuk terhubung. Kirimkan pesan Anda dan kami akan segera merespons</p>
           <div class="absolute bottom-0 right-0 flex flex-row px-10 py-6">
-            <NuxtImg src="/images/ic-fb.svg" class="mx-2"/>
-            <NuxtImg src="/images/ic-linkedin.svg" class="mx-2"/>
-            <NuxtImg src="/images/ic-ig.svg" class="mx-2"/>
+            <NuxtLink to="https://www.facebook.com/profile.php?id=61565034420965" target="_blank"> <NuxtImg
+                class="mx-2" src="/images/ic-linkedin.svg"/></NuxtLink>
+            <NuxtLink to="https://www.facebook.com/profile.php?id=61565034420965" target="_blank"><NuxtImg
+                class="mx-2" src="/images/ic-fb.svg"/></NuxtLink>
+            <NuxtLink to="https://www.facebook.com/profile.php?id=61565034420965" target="_blank"> <NuxtImg
+                class="mx-2" src="/images/ic-ig.svg"/></NuxtLink>
           </div>
         </div>
       </div>

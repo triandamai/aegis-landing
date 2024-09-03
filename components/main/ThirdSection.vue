@@ -91,7 +91,7 @@
           <h1 class="text-3xl text-gray-600">UMKM adalah Tulang Punggung Ekonomi</h1>
           <p class="my-2 font-normal text-gray-600">Kekuatan utama di perekonomian Indonesia dan ASEAN, menyerap hampir 97% tenaga kerja dan berkontribusi
             60% dari PDB. Peran mereka sangat penting dalam pertumbuhan ekonomi dan penciptaan lapangan kerja</p>
-          <NuxtImg src="/images/third-box.png" class="rounded-lg h-[26vh] w-full" width="100%"/>
+          <NuxtImg src="/images/third-box.png" class="rounded-lg h-[20vh] w-full" width="100%"/>
         </div>
         <div class="w-full h-[2vh] flex flex-row justify-between">
           <div class="w-[48vw]  bg-yellow-50 rounded-b-2xl"></div>
@@ -110,7 +110,7 @@
           <div class="w-[48vw] bg-purple-50 rounded-t-2xl"></div>
         </div>
         <div class="w-full h-[45vh] bg-purple-50 rounded-b-2xl rounded-tl-2xl  px-4 py-4">
-          <NuxtImg src="/images/second-box.png" class="rounded-lg h-[24vh] w-full mb-2" width="100%"/>
+          <NuxtImg src="/images/second-box.png" class="rounded-lg h-[20vh] w-full mb-2" width="100%"/>
           <h1 class="text-3xl text-gray-600">64 Juta UMKM di Indonesia: 99% dari Total Kegiatan Bisnis</h1>
           <p class="my-2 text-gray-600">Indonesia memiliki 64 juta UMKM, yang mencakup 99% dari total kegiatan bisnis di negara ini. UMKM merupakan bagian integral dari ekonomi nasional dan sumber utama kegiatan usaha.</p>
         </div>

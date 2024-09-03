@@ -73,7 +73,7 @@
     </div>
   </section>
   <!--  MOBILE -->
-  <section id="hero-mobile" class="block sm:block md:block lg:hidden xl:hidden px-[4vw]">
+  <section id="hero-mobile" class="block sm:block md:block lg:hidden xl:hidden h-screen px-[4vw]">
     <div class="image-mobile"></div>
     <div class="w-[92vw] h-[20vh] flex flex-row justify-between">
       <div class="w-[85vw] h-[20vh] text-4xl font-semibold text-white bg-blue-800 rounded-2xl px-2 py-2">
@@ -129,6 +129,6 @@
   background-image: url("/images/main/m/bg-hero.webp");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply w-full h-[20vh] md:h-[40vh] mb-2 rounded-b-2xl;
+  @apply w-full h-[25vh] md:h-[40vh] mb-2 rounded-b-2xl;
 }
 </style>

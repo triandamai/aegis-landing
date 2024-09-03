@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <section id="second" class="w-svw min-h-screen relative">
-    <div class="container">
+  <section id="second" class="w-screen min-h-screen relative">
+    <div class="container-second">
       <div class="container-left">
         <div class="w-[10vw] pt-4 h-full flex flex-col justify-center px-2 ml-[6vw]">
           <!--  line  -->
@@ -22,7 +22,7 @@
           <h4 class="text-4xl">Financial Planning & Analysis</h4>
         </div>
       </div>
-      <div class=" container-right map">
+      <div class="container-right map">
 
       </div>
     </div>
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="title">
-      <p class="my-2">Platform All-in-One <span class="rounded-2xl bg-blue-800 px-5 text-white">Terintegrasi</span></p>
+      <p class="my-2">Platform All-in-One&nbsp;<span class="rounded-2xl bg-blue-800 px-1 text-white">Terintegrasi</span></p>
       <p class="my-2">Untuk UMKN seluruh Indonesia</p>
     </div>
   </section>
@@ -60,8 +60,8 @@
   @apply hidden md:block lg:block xl:block absolute w-full top-0 text-5xl font-semibold ml-[6vw];
 }
 
-.container {
-  @apply w-svw h-[80vh] hidden md:flex lg:flex xl:flex flex-row justify-evenly;
+.container-second {
+  @apply w-screen h-[80vh] hidden md:flex lg:flex xl:flex flex-row justify-evenly;
 }
 
 .container-mobile {
@@ -91,6 +91,6 @@
 }
 
 .container-right {
-  @apply w-full   md:w-[60vw] lg:w-[60vw] h-[30vh] md:h-full  lg:h-full;
+  @apply w-full md:w-full lg:w-[60vw] h-[30vh] md:h-full  lg:h-full;
 }
 </style>

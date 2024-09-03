@@ -4,7 +4,7 @@ export const useScroll=()=>{
 
     function init(){
         style.value = "rounded-md border border-gray-200 my-6"
-        styleParent.value = "px-[6vw]"
+        styleParent.value = "px-[4vw] sm:px-[4vw] md:px-[4vw] lg:px-[6vw] xl:px-[6vw]"
     }
     function onScroll(e:any){
         if (e.target.scrollTop > 30) {
@@ -12,7 +12,7 @@ export const useScroll=()=>{
             styleParent.value = "px-0"
         } else {
             style.value = "rounded-md border border-gray-200 my-6"
-            styleParent.value = "px-[6vw]"
+            styleParent.value = "px-[4vw] sm:px-[4vw] md:px-[4vw] lg:px-[6vw] xl:px-[6vw]"
         }
     }
     return{
