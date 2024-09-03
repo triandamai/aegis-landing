@@ -32,7 +32,6 @@ export const useRegister = defineStore("register", {
 
                 })
 
-                console.log("ahah1",validate)
                 if (validate.error) {
                     hideLoading()
                     alert.failed(validate.error.errors.map(v => v.message).join(","))
@@ -52,7 +51,6 @@ export const useRegister = defineStore("register", {
                     password: this.password,
                     fullName: this.fullName,
                 })
-                console.log("ahah2",validate)
                 if (validate.error) {
                     hideLoading()
                     alert.failed(validate.error.errors.map(v => v.message).join(","))

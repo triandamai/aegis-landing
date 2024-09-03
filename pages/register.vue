@@ -23,19 +23,19 @@ const register = useRegister()
       <div class="w-full sm:w-[48vw] md:w-[48vw] lg:w-[48vw] xl:w-[48vw] h-full px-10 flex flex-col justify-between">
         <div></div>
         <h1 class="w-full text-5xl text-center">Daftar</h1>
-        <div>
+        <form>
           <div class="input-group">
             <label for="full-name" class="input-label">Nama Lengkap</label>
             <input id="full-name"  v-model="register.fullName" type="email" class="input" placeholder="Nama lengkap"/>
           </div>
           <div class="input-group">
             <label for="email" class="input-label">Email</label>
-            <input id="email"  v-model="register.email" type="email" class="input" placeholder="john@example.com"/>
+            <input id="email" autocomplete="email"  v-model="register.email" type="email" class="input" placeholder="john@example.com"/>
           </div>
           <div class="input-group">
-            <label for="password">Password:</label>
+            <label for="password" class="input-label">Password</label>
             <div class="w-full flex flex-row justify-between relative">
-              <input v-model="register.password" required :type="register.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
+              <input autocomplete="current-password" v-model="register.password" required :type="register.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
               <span @click="register.showPassword = !register.showPassword" class="toggle-password">
                 <IconEye v-show="register.showPassword" ></IconEye>
                 <IconEyeOff v-show="!register.showPassword"></IconEyeOff>
@@ -75,7 +75,7 @@ const register = useRegister()
             <button @click="register.signInFacebook"><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
           <button @click="register.signUpEmail" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
-        </div>
+        </form>
         <div class="w-full flex flex-row justify-center">
           <span>Sudah punya akun?</span>
           <NuxtLink to="/login" class="text-blue-800">Masuk</NuxtLink>
@@ -99,7 +99,6 @@ const register = useRegister()
 .container-content {
   @apply w-[40vw] h-[35vw] absolute flex flex-col justify-center;
 }
-
 
 .input-group-checkbox {
   @apply my-4;

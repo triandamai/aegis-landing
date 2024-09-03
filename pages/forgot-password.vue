@@ -26,7 +26,7 @@ const forgotPassword = useForgotPassword()
         <div class="w-full">
           <div class="input-group">
             <label for="email" class="input-label">Email</label>
-            <input id="email" v-model="forgotPassword.email" type="email" class="input" placeholder="tes@gmail.com"/>
+            <input autocomplete="email" id="email" v-model="forgotPassword.email" type="email" class="input" placeholder="tes@gmail.com"/>
           </div>
           <button @click="forgotPassword.sendForgotPassword" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">
             Kirim
@@ -54,27 +54,6 @@ const forgotPassword = useForgotPassword()
 
 .container-content {
   @apply w-[40vw] h-[35vw] absolute flex flex-col justify-center;
-}
-
-.input {
-  @apply w-full border border-gray-300 rounded-lg px-2 py-3;
-}
-
-.input-group {
-  @apply my-4 flex flex-col;
-}
-
-.input-label {
-  @apply text-gray-600 my-2;
-}
-
-.toggle-password {
-  position: absolute;
-  transform: translateY(-50%);
-  right: 0;
-  top: 50%;
-  cursor: pointer;
-  @apply px-2;
 }
 
 </style>

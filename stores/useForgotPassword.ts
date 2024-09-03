@@ -29,12 +29,11 @@ export const useForgotPassword = defineStore("forgot-password", {
             const savedData = await client.auth.resetPasswordForEmail(this.email, {
                 redirectTo: `${runtime.public.BASE_URL}confirmation-forgot-password`,
             })
+            hideLoading()
             if (savedData.error) {
-                hideLoading()
+
                 return alert.failed(savedData.error.message)
             }
-
-            hideLoading()
             return router.push({path: "/otp-sent"})
         },
         async setPassword() {

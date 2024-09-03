@@ -23,15 +23,15 @@ const login = useLogin()
       <div class="w-full sm:w-full md:w-[48vw] lg:w-[48vw] xl:w-[48vw] h-full px-[4vw] sm:px-[4vw] md:px-[6vw] lg:px-[6vw] xl:px-[6vw] flex flex-col justify-between items-center mb-8">
         <div></div>
         <h1 class="w-full text-5xl text-center">Login</h1>
-        <div class="w-full">
+        <form class="w-full">
           <div class="input-group">
             <label for="email" class="input-label">Email</label>
-            <input id="email" required v-model="login.email" type="email" class="input" placeholder="tes@gmail.com"/>
+            <input autocomplete="email" id="email" required v-model="login.email" type="email" class="input" placeholder="tes@gmail.com"/>
           </div>
           <div class="input-group">
-            <label for="password">Password:</label>
+            <label for="password" class="input-label">Password</label>
             <div class="w-full flex flex-row justify-between relative">
-              <input v-model="login.password" required :type="login.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
+              <input autocomplete="current-password" v-model="login.password" required :type="login.showPassword ? 'text' :'password'" id="password" class="input" placeholder="Enter your password">
               <span @click="login.showPassword = !login.showPassword" class="toggle-password">
                 <IconEye v-show="login.showPassword" ></IconEye>
                 <IconEyeOff v-show="!login.showPassword"></IconEyeOff>
@@ -53,7 +53,7 @@ const login = useLogin()
           <button @click="login.signInEmail" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">
             Kirim
           </button>
-        </div>
+        </form>
         <div class="w-full flex flex-row justify-center my-6">
           <span>Belum punya akun?</span>
           <NuxtLink to="/register" class="text-blue-800">Buat akun</NuxtLink>
