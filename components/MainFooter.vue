@@ -27,7 +27,7 @@
       <!--      END TOP -->
       <div
           class="w-full bg-blue-800 md:rounded-bl-2xl md:rounded-tl-2xl md:rounded-br-2xl lg:rounded-bl-2xl lg:rounded-tl-2xl lg:rounded-br-2xl xl:rounded-bl-2xl xl:rounded-tl-2xl xl:rounded-br-2xl px-10 py-10 flex flex-wrap flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row justify-between items-center md:items-start relative">
-        <div class="w-[12vw] h-[12vw] sm:w-[12vw] sm:h-[12vw] md:w-[6vw] md:h-[6vw] lg:w-[7vw] lg:h-[7vw] xl:w-[12vw] xl:h-[12vw] " >
+        <div class="w-[20vw] h-[25vw] sm:w-[20vw] sm:h-[25vw] md:w-[7vw] md:h-[10vw] lg:w-[10vw] lg:h-[12vw] xl:w-[12vw] xl:h-[12vw] " >
           <NuxtImg src="/images/avatar-footer.png" class="w-full h-full" height="100%" width="100%"/>
         </div>
         <div class="w-[70vw] h-full flex flex-col justify-between px-10">
