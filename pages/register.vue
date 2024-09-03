@@ -65,7 +65,8 @@ const register = useRegister()
               </select>
             </div>
           </div>
-          <div class="w-full flex flex-row justify-center items-center my-3">
+          <button @click="register.signUpEmail" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700 mb-4">Daftar</button>
+          <div class="w-full flex flex-row justify-center items-center mt-3 mb-3">
             <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
             <p class="mx-1 text-gray-500 ">Atau daftar dengan</p>
             <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
@@ -74,7 +75,6 @@ const register = useRegister()
             <button @click="register.signInGoogle"><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
             <button @click="register.signInFacebook"><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
-          <button @click="register.signUpEmail" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">Kirim</button>
         </form>
         <div class="w-full flex flex-row justify-center">
           <span>Sudah punya akun?</span>

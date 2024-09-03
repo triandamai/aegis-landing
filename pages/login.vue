@@ -41,7 +41,11 @@ const login = useLogin()
           <div class="my-4 flex flex-row justify-end">
             <NuxtLink to="/forgot-password" class="text-blue-500">Lupa password?</NuxtLink>
           </div>
-          <div class="w-full flex flex-row justify-center items-center my-3">
+
+          <button @click="login.signInEmail" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">
+            Login
+          </button>
+          <div class="w-full flex flex-row justify-center items-center mt-4 mb-4">
             <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
             <p class="mx-1 text-gray-500 ">Atau masuk dengan</p>
             <div class="w-1/4 sm:w-1/4 md:w-1/3 lg:w-1/3 xl:w-1/3 h-[1px] bg-gray-300"></div>
@@ -50,9 +54,6 @@ const login = useLogin()
             <button @click="login.signInGoogle"><NuxtImg src="/images/ic-google.svg" class="w-[30px] h-[30px] mr-2"/></button>
             <button @click="login.signInFacebook"><NuxtImg src="/images/ic-fb.svg" class="w-[36px] h-[36px] ml-2"/></button>
           </div>
-          <button @click="login.signInEmail" class="w-full bg-blue-800 rounded-lg px-2 py-2 text-white hover:bg-blue-700">
-            Kirim
-          </button>
         </form>
         <div class="w-full flex flex-row justify-center my-6">
           <span>Belum punya akun?</span>

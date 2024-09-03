@@ -75,14 +75,14 @@
   <!--  MOBILE -->
   <section id="hero-mobile" class="block sm:block md:block lg:hidden xl:hidden h-screen px-[4vw]">
     <div class="image-mobile"></div>
-    <div class="w-[92vw] h-[20vh] flex flex-row justify-between">
-      <div class="w-[85vw] h-[20vh] text-4xl font-semibold text-white bg-blue-800 rounded-2xl px-2 py-2">
+    <div class="w-[92vw] h-[22vh] flex flex-row justify-between items-center">
+      <div class="w-[85vw] h-[22vh] text-4xl font-semibold text-white bg-blue-800 rounded-2xl px-2 py-2">
         <h1>Dukungan Strategis</h1>
         <h1>Untuk Setiap</h1>
         <h1>Pertumbuhan Bisnis</h1>
         <h1>UMKM Indonesia</h1>
       </div>
-      <div class="w-[7vw] h-[20vh]">
+      <div class="w-[7vw] h-[22vh]">
         <div class="w-[7vw] h-[5vh] relative">
           <div class="absolute bottom-0 left-0 w-[2vh] h-[2vh] bg-primary"></div>
           <div class="absolute bottom-0 left-0 w-[2vh] h-[2vh] bg-white rounded-bl-2xl"></div>

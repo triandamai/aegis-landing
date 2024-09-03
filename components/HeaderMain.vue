@@ -59,7 +59,7 @@ onMounted(() => {
                   class="border border-blue-800 text-blue-800 rounded-md my-2 mx-2 py-2 px-4 cursor-pointer hover:bg-blue-100"
                   aria-label="button">Masuk</NuxtLink>
         <NuxtLink to="/register"
-                  class="border border-blue-800 bg-blue-800 rounded-md my-2 mx-2 py-2 px-4 text-white cursor-pointer hover:bg-blue-700">Memulai</NuxtLink>
+                  class="border border-blue-800 bg-blue-800 rounded-md my-2 mx-2 py-2 px-4 text-white cursor-pointer hover:bg-blue-700">Daftar</NuxtLink>
       </span>
       <span v-show="session != null" class="flex flex-row justify-start items-center">
         <span class="mr-4">

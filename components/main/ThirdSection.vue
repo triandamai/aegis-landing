@@ -20,10 +20,10 @@
       <div class="hidden sm:hidden md:flex lg:flex flex-row justify-evenly relative mt-[5vh]">
         <div class=" md:w-[7vw] md:h-[3vh] lg:w-[7vw] lg:h-[3vh] bg-blue-200 rounded-2xl absolute top-0 mt-[5vh]"></div>
         <div class="image-left">
-          <p class="w-[15vw] text-2xl sm:text-lg md:text-lg lg:text-lg xl:text-3xl text-start ml-4">UMKM bertumbuh secara konsisten sebesar 2,5% dari 2015-2019</p>
+          <p class="w-[15vw] text-2xl sm:text-lg md:text-lg lg:text-lg xl:text-2xl text-start ml-4">UMKM bertumbuh secara konsisten sebesar 2,5% dari 2015-2019</p>
         </div>
         <div class="image-right">
-          <p class="w-[15vw] text-2xl sm:text-lg md:text-lg lg:text-lg xl:text-3xl  text-start mr-4">UMKM menyerap 97% lapangan kerja dan menyumbang 60% PDB kita.</p>
+          <p class="w-[15vw] text-2xl sm:text-lg md:text-lg lg:text-lg xl:text-2xl  text-start mr-4">UMKM menyerap 97% lapangan kerja dan menyumbang 60% PDB kita.</p>
         </div>
       </div>
       <!--   MOBILE   -->
