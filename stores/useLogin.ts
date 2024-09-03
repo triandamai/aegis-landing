@@ -44,7 +44,7 @@ export const useLogin = defineStore("login", {
             await client.auth.signInWithOAuth({
                 provider: 'google',
                 options: {
-                    redirectTo: `${runtime.public.BASE_URL}login`,
+                    redirectTo: `${runtime.public.BASE_URL}sign-in-confirmation`,
                 },
             })
         },
@@ -58,7 +58,7 @@ export const useLogin = defineStore("login", {
             await client.auth.signInWithOAuth({
                 provider:'facebook',
                 options: {
-                    redirectTo: `${runtime.public.BASE_URL}`,
+                    redirectTo: `${runtime.public.BASE_URL}sign-in-confirmation`,
                 },
             })
         }
