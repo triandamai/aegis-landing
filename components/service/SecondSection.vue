@@ -34,7 +34,7 @@ function onSelectedTab(pos: number) {
       <span class="text-6xl ml-2">Kami</span>
     </div>
     <div class="w-[40vw] my-6">
-      <p>AEGIS menawarkan berbagai layanan yang dirancang untuk membantu bisnis Anda berkembang dan mencapai tujuan
+      <p class="text-lg">AEGIS menawarkan berbagai layanan yang dirancang untuk membantu bisnis Anda berkembang dan mencapai tujuan
         jangka panjang</p>
     </div>
     <div class="w-full rounded-b-2xl relative">

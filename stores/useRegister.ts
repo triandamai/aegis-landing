@@ -73,7 +73,6 @@ export const useRegister = defineStore("register", {
                 }
             })
 
-
             if (this.hasBusiness) {
                 const savedBusiness = await client.from("business")
                     .insert({

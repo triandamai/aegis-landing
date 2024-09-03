@@ -13,7 +13,7 @@ const props = defineProps<{
   <div class="w-[88vw] h-[40vh] md:w-[24vw] md:h-[45vh] lg:w-[24vw] lg:h-[40vh] flex flex-col justify-between mx-[2vw]">
     <div class="w-full h-[30vh] md:h-[35vh] lg:h-[35vh]">
       <div class="w-full h-full px-10 py-10 rounded-t-2xl rounded-br-2xl bg-gradient-to-tl" :class="bodyStyle">
-        <img alt="Icon" :src="icon">
+        <NuxtImg alt="Icon" :src="icon"/>
         <h1 class="my-2 text-2xl">{{title}}</h1>
         <p>{{description}}</p>
       </div>
