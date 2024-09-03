@@ -57,7 +57,7 @@
                 Gabung AEGIS
               </NuxtLink>
               <span class="mx-4"></span>
-              <NuxtLink to="/contact"
+              <NuxtLink to="/about"
                         class="border border-blue-800 rounded-lg px-8 py-3 text-blue-800 hover:bg-blue-400 hover:border-blue-400 hover:text-white">
                 Tentang kami
               </NuxtLink>
@@ -96,8 +96,8 @@
     </div>
     <div class="mt-2 flex flex-col">
       <p class="text-lg">AEGIS hadir dari validasi ide awal, pengurusan legalitas, akses pendanaan untuk membantu UMKM mencapai potensi maksimalnya dengan layanan terpadu yang terpercaya.</p>
-      <button class="w-full bg-blue-800 text-white border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2">Gabung AEGIS</button>
-      <button class="w-full bg-white text-blue-800 border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2">Tentang Kami</button>
+      <NuxtLink to="/register" class="w-full bg-blue-800 text-white border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2">Gabung AEGIS</NuxtLink>
+      <NuxtLink to="/about" class="w-full bg-white text-blue-800 border border-blue-800 px-2 py-2 rounded-lg mt-2 mb-2">Tentang Kami</NuxtLink>
     </div>
   </section>
 </template>
