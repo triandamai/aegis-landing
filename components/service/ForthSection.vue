@@ -30,23 +30,23 @@ defineEmits(['create-reservation'])
     </div>
     <!-- Content-->
     <!--  DESKTOP  -->
-    <div class="hidden sm:hidden md:flex lg:flex xl:flex w-[88vw] flex-row justify-evenly">
+    <div class="hidden sm:hidden md:flex lg:flex xl:flex w-[88vw] h-max flex-row justify-evenly">
       <div class="w-[30vw] flex flex-col mr-4">
         <button class="selected-button">Marketing & Digitalization plan</button>
         <button class="button">Financial Planning & Analysis Plan</button>
         <button class="button"> Planning & OPeration Plan</button>
       </div>
-      <div class="w-[50vw] h-[55vh] relative bg-white rounded-2xl border border-gray-200">
-        <div class="px-4 py-4">
-          <NuxtImg src="/images/services/bg-service.png"/>
+      <div class="w-[50vw] h-max relative bg-white rounded-2xl border border-gray-200">
+        <div class="px-4 py-4 w-full">
+          <NuxtImg src="/images/services/bg-service.png" class="w-full"/>
         </div>
         <div class="w-full px-10 py-4">
           <h1 class="text-2xl mb-2">Marketing & Digitalization plan</h1>
           <p>Rancang strategi pemasaran yang efektif dan manfaatkan digitalisasi untuk menjangkau lebih banyak
             pelanggan.</p>
           <div class="w-full mt-4">
-            <div v-for="i in 3" class="w-full flex flex-row justify-start items-center">
-              <span><IconCheck class="bg-green-600 text-lg rounded-full mr-2"/></span>
+            <div v-for="i in 3" class="w-full flex flex-row justify-start items-center my-4">
+              <span><IconCheck class="text-green-600 text-lg rounded-full mr-2"/></span>
               <span>Marketing & Strategiry Research</span>
             </div>
           </div>
@@ -71,8 +71,8 @@ defineEmits(['create-reservation'])
       </div>
       <div class="px-[4vw]">
         <div class="relative px-4 py-4 bg-white rounded-2xl border border-gray-200">
-          <div class="px-4 py-4">
-            <NuxtImg src="/images/services/bg-service.png"/>
+          <div class="px-4 py-4 w-full h-1/2">
+            <NuxtImg src="/images/services/bg-service.png" width="100%" height="100%" class="w-full"/>
           </div>
           <div class="w-[92vw] flex flex-col justify-between items-center">
             <h1 class="text-2xl mb-2 w-full text-start">Marketing & Digitalization plan</h1>
@@ -81,7 +81,7 @@ defineEmits(['create-reservation'])
               pelanggan.</p>
             <div class="w-full mt-4">
               <div v-for="i in 3" class="w-full flex flex-row my-2">
-                <span class="mr-2"><IconCheck class="bg-green-600 rounded-full"/></span>
+                <span class="mr-2"><IconCheck class="text-green-600 rounded-full"/></span>
                 <span class="text-sm">Marketing & Strategiry Research</span>
               </div>
             </div>

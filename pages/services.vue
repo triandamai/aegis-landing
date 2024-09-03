@@ -23,5 +23,6 @@ async function gotoBookService(){
     <ServiceThirdSection @book-services="gotoBookService"/>
     <ServiceForthSection @create-reservation="gotoBookService"/>
     <ServiceFifthSection/>
+    <ServiceSixSection/>
   </NuxtLayout>
 </template>

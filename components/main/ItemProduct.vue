@@ -13,8 +13,8 @@
         <p class="my-4 flex flex-row"><IconCheck class="mx-2 text-blue-800"/> Perencanaan Anggaran</p>
         <p class="my-4 flex flex-row"><IconCheck class="mx-2 text-blue-800"/> Perencanaan Anggaran</p>
       </div>
-      <div class="absolute bottom-0 right-0 ">
-        <IconArrowRight class="h-[30px] w-[30px] mr-4 mb-2" />
+      <div class="w-full">
+        <button class="w-full bg-blue-800 text-white rounded-lg py-3 px-8">Pelajari lebih lanjut</button>
       </div>
     </div>
   </div>
