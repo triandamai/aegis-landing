@@ -12,14 +12,13 @@ defineEmits(['select'])
 </script>
 
 <template>
-  <div class="w-full h-[70vh] sm:w-[50vw] sm:h-[61vh] md:w-[50vw] md:h-[70vh] lg:w-[20vw] lg:h-[61vh] xl:w-[20vw] xl:h-[61vh] mx-4 my-4 flex flex-row justify-center">
+  <div class="w-full h-[75vh] sm:w-[50vw] sm:h-[72vh] md:w-[40vw] md:h-[72vh] lg:w-[30vw] lg:h-[72vh] xl:w-[20vw] xl:h-[72vh] mx-4 my-4 flex flex-row justify-center">
     <div class="relative w-full">
-      <div class="absolute bottom-0 flex flex-row justify-center  w-full h-[68vh] sm:w-[50vw] sm:h-[60vh] md:w-[50vw] md:h-[68vh] lg:w-[20vw] lg:h-[60vh] xl:w-[20vw] xl:h-[60vh] px-2">
-        <div :class="{'primary':primary, 'normal':!primary}"
-             class=" w-full h-[68vh] flex flex-row justify-center rounded-2xl border border-gray-300">
+      <div class="absolute bottom-0 flex flex-row justify-center  w-full h-[70vh] sm:w-[50vw] sm:h-[70vh] md:w-[40vw] md:h-[70vh] lg:w-[30vw] lg:h-[70vh] xl:w-[20vw] xl:h-[70vh] px-2">
+        <div :class="{'primary':primary, 'normal':!primary}" class=" w-full h-[70vh]  sm:w-full sm:h-[70vh]  md:w-full md:h-[70vh]  lg:w-full lg:h-[70vh]  xl:w-full xl:h-[75vh] flex flex-row justify-center rounded-2xl border border-gray-300">
           <div class="w-full h-full px-12 py-6 flex flex-col justify-between">
             <div class="w-full h-full">
-              <div class="h-[23vh] flex flex-col justify-between">
+              <div class="h-1/2 flex flex-col justify-between">
                 <div>
                   <h1 class="text-2xl mt-4 mb-4" :class="{'text-white':primary}">{{ name }}</h1>
                   <h1 class="text-3xl mb-2 font-semibold" :class="{'text-white':primary}">{{ price }}</h1>
@@ -28,7 +27,7 @@ defineEmits(['select'])
                 <div class="w-full h-[1px] bg-gray-200"></div>
               </div>
 
-              <div class="h-[20vh]">
+              <div class="h-1/2">
                 <div class="w-full">
                   <div v-for="(item,idx) in items" class="my-4 w-full flex flex-row justify-start items-start">
                     <span class="rounded-full w-[20px] h-[20px] flex flex-row justify-center">
@@ -45,9 +44,9 @@ defineEmits(['select'])
           </div>
         </div>
       </div>
-      <div v-show="primary" class="absolute w-full sm:w-[20vw] md:w-[50vw] lg:w-[20vw] xl:w-[20vw] top-0 flex flex-row justify-between">
+      <div v-show="primary" class="absolute w-full sm:w-[50vw] md:w-[40vw] lg:w-[30vw] xl:w-[20vw] top-4 sm:top-0 md:top-0 lg:top-0 xl:top-0 flex flex-row justify-between">
         <span class="star-left"/>
-        <span class="bg-yellow-400 text-gray-600 font-semibold rounded-lg w-[60vw] h-[5vh] sm:w-[10vw] md:w-full lg:w-[60vw] xl:w-[60vw] text-center place-content-center">Rekomendasi kami</span>
+        <span class="bg-yellow-400 text-gray-600 font-semibold rounded-lg w-[60vw] h-[5vh] sm:w-full md:w-full lg:w-[60vw] xl:w-[60vw] text-center place-content-center">Rekomendasi kami</span>
         <span class="star-right"/>
       </div>
     </div>
