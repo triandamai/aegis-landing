@@ -2,16 +2,19 @@
 let tabs = [
   {
     title: "Business Development Services",
-    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan"
+    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan",
+    images:"/images/services/service-1.webp"
   },
   {
     title: "Operation Services",
-    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan"
+    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan",
+    images:"/images/services/service-2.webp"
 
   },
   {
     title: "Financial Services",
-    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan"
+    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan",
+    images:"/images/services/service-3.webp"
   }
 ]
 
@@ -66,7 +69,7 @@ function onSelectedTab(pos: number) {
           <p class="text-lg md:text-lglg:text-2xl xl:text-2xl text-white">{{tabs[selected].content}}</p>
         </div>
         <div class="w-[40vw] sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[40vw]">
-          <NuxtImg src="/images/services/bg-bds.png" width="100%" height="100%" class="w-[40vw] h-full sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[30vw]"/>
+          <NuxtImg :src="tabs[selected].images" width="100%" height="100%" class="w-[40vw] h-full sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[30vw]"/>
         </div>
       </div>
     </div>
@@ -90,7 +93,7 @@ function onSelectedTab(pos: number) {
         </button>
       </div>
       <div class="mt-2 w-full h-[55vh] bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 px-8 py-4">
-        <NuxtImg src="/images/services/bg-bds.png" width="100%" height="100%" class="w-full h-1/2"/>
+        <NuxtImg :src="tabs[selected].images" width="100%" height="100%" class="w-full h-1/2"/>
         <div class="w-full">
           <h1 class="text-white text-3xl my-2 text-center">{{tabs[selected].title}}</h1>
           <p class="text-white text-center">{{tabs[selected].content}}</p>

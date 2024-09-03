@@ -1,4 +1,23 @@
 <script setup lang="ts">
+let tabsCustom = [
+  {
+    title: "Marketing & Digitalization plan",
+    content: "Rancang strategi pemasaran yang efektif dan manfaatkan digitalisasi untuk menjangkau lebih banyak pelanggan.",
+    images:"/images/services/bg-service.png"
+  },
+  {
+    title: "Financial Planning & Analysis Plan",
+    content: "Rancang strategi pemasaran yang efektif dan manfaatkan digitalisasi untuk menjangkau lebih banyak pelanggan.",
+    images:"/images/services/bg-service.png"
+
+  },
+  {
+    title: "Planning & Operation Plan",
+    content: "Rancang strategi pemasaran yang efektif dan manfaatkan digitalisasi untuk menjangkau lebih banyak pelanggan.",
+    images:"/images/services/bg-service.png"
+  }
+]
+
 const selected = ref(0)
 
 function onSelectedTab(pos: number) {
@@ -32,18 +51,15 @@ defineEmits(['create-reservation'])
     <!--  DESKTOP  -->
     <div class="hidden sm:hidden md:flex lg:flex xl:flex w-[88vw] h-max flex-row justify-evenly">
       <div class="w-[30vw] flex flex-col mr-4">
-        <button class="selected-button">Marketing & Digitalization plan</button>
-        <button class="button">Financial Planning & Analysis Plan</button>
-        <button class="button"> Planning & OPeration Plan</button>
+        <button v-for="(item,idx) in tabsCustom" @click="onSelectedTab(idx)" :class="selected == idx ? 'selected-button':'button' ">{{item.title}}</button>
       </div>
       <div class="w-[50vw] h-max relative bg-white rounded-2xl border border-gray-200">
         <div class="px-4 py-4 w-full">
           <NuxtImg src="/images/services/bg-service.png" class="w-full"/>
         </div>
         <div class="w-full px-10 py-4">
-          <h1 class="text-2xl mb-2">Marketing & Digitalization plan</h1>
-          <p>Rancang strategi pemasaran yang efektif dan manfaatkan digitalisasi untuk menjangkau lebih banyak
-            pelanggan.</p>
+          <h1 class="text-2xl mb-2">{{tabsCustom[selected].title}}</h1>
+          <p>{{tabsCustom[selected].content}}.</p>
           <div class="w-full mt-4">
             <div v-for="i in 3" class="w-full flex flex-row justify-start items-center my-4">
               <span><IconCheck class="text-green-600 text-lg rounded-full mr-2"/></span>
@@ -61,13 +77,7 @@ defineEmits(['create-reservation'])
     <!--  MOBILE  -->
     <div class="block sm:block md:hidden lg:hidden xl:hidden">
       <div class="w-full px-8 flex flex-col items-center">
-        <button @click="onSelectedTab(0)" :class="selected == 0 ? 'btn-active':'btn-inactive'">Business Development
-          Services
-        </button>
-        <button @click="onSelectedTab(1)" :class="selected == 1 ? 'btn-active':'btn-inactive'">Operation Services
-        </button>
-        <button @click="onSelectedTab(2)" :class="selected == 2 ? 'btn-active':'btn-inactive'">Financial Services
-        </button>
+        <button v-for="(item,idx) in tabsCustom" @click="onSelectedTab(idx)" :class="selected == idx ? 'btn-active':'btn-inactive'">{{item.title}}</button>
       </div>
       <div class="px-[4vw]">
         <div class="relative px-4 py-4 bg-white rounded-2xl border border-gray-200">
@@ -75,10 +85,8 @@ defineEmits(['create-reservation'])
             <NuxtImg src="/images/services/bg-service.png" width="100%" height="100%" class="w-full"/>
           </div>
           <div class="w-[92vw] flex flex-col justify-between items-center">
-            <h1 class="text-2xl mb-2 w-full text-start">Marketing & Digitalization plan</h1>
-            <p class="w-full text-start">Rancang strategi pemasaran yang efektif dan manfaatkan digitalisasi untuk
-              menjangkau lebih banyak
-              pelanggan.</p>
+            <h1 class="text-2xl mb-2 w-full text-start">{{tabsCustom[selected].title}}</h1>
+            <p class="w-full text-start">{{tabsCustom[selected].content}}</p>
             <div class="w-full mt-4">
               <div v-for="i in 3" class="w-full flex flex-row my-2">
                 <span class="mr-2"><IconCheck class="text-green-600 rounded-full"/></span>

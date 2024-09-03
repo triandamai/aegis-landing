@@ -12,6 +12,7 @@ async function gotoBookService(){
     return router.push({path:'/register'})
   }
   showDialog.value = !showDialog.value
+  await router.push({path:'/reservation-sent',replace:true})
 }
 </script>
 
