@@ -1,48 +1,9 @@
 <script setup lang="ts">
 import ItemCategory from "~/components/service/ItemCategory.vue";
+defineProps<{
+  packages:Array<DataDetailPackage>
+}>()
 defineEmits(['book-services'])
-
-let data = [
-  {
-    title:"Mikro",
-    price:"Rp199.000",
-    description:"Dirancang khusus untuk bisnis kecil atau pemula, paket ini mencakup:",
-    primary:false,
-    items:[
-        "E-Learning",
-        "Financial Resporting",
-        "Budgeting",
-        "Financial Training and Assistance"
-    ]
-  },
-  {
-    title:"Kecil",
-    price:"Rp199.000",
-    description:"Untuk bisnis yang sedang berkembang, paket ini menawarkan",
-    primary:true,
-    items:[
-      "E-Learning",
-      "Marketing Plan & Strategy",
-      "Market Research",
-      "Digital Marketing"
-    ]
-  },
-  {
-    title:"Menengah",
-    price:"Rp199.000",
-    description:"Untuk bisnis yang siap tumbuh lebih jauh, paket ini mencakup",
-    primary:false,
-    items:[
-      "Semua benefit paket Mikro & Kecil",
-      "Marketing Plan & Strategy",
-      "Financial Modelling",
-      "BUssiness Process Analysis"
-    ]
-  }
-]
-
-
-
 </script>
 
 <template>
@@ -65,12 +26,12 @@ let data = [
     <!-- Content-->
     <div class="w-full h-max flex flex-row flex-wrap justify-center">
       <ItemCategory
-          v-for="(item,idx) in data"
-          :name="item.title"
-          :price="item.price"
-          :description="item.description"
-          :primary="item.primary"
-          :items="item.items"
+          v-for="(item,idx) in packages"
+          :name="item.title ?? ''"
+          :price="item.price ?? 0"
+          :description="item.subtitle ?? ''"
+          :primary="item.recommendation ?? false"
+          :items="item.features.map((v) => v.feature?.name ?? '')"
           @select="()=>{$emit('book-services',item)}"
       />
     </div>

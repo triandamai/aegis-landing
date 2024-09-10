@@ -8,10 +8,10 @@ export default defineNuxtRouteMiddleware(async (to,from)=>{
     if(isLoggedIn.error) return navigateTo("/admin/login")
     if(isLoggedIn.data.user == null) return navigateTo("/admin/login")
 
-    const admin = await client.from('admin')
-        .select("*")
-        .eq("email",isLoggedIn.data.user.email ?? "")
-
-    if(admin.error) return navigateTo("/admin/login")
-    if(admin.data.length < 1) return navigateTo("/admin/login")
+    // const admin = await client.from('admin')
+    //     .select("*")
+    //     .eq("email",isLoggedIn.data.user.email ?? "")
+    //
+    // if(admin.error) return navigateTo("/admin/login")
+    // if(admin.data.length < 1) return navigateTo("/admin/login")
 })

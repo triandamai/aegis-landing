@@ -40,6 +40,7 @@ export type Database = {
       }
       business: {
         Row: {
+          business_email: string | null
           business_name: string | null
           business_phone: string | null
           business_scale: string | null
@@ -48,6 +49,7 @@ export type Database = {
           user_id: string | null
         }
         Insert: {
+          business_email?: string | null
           business_name?: string | null
           business_phone?: string | null
           business_scale?: string | null
@@ -56,6 +58,7 @@ export type Database = {
           user_id?: string | null
         }
         Update: {
+          business_email?: string | null
           business_name?: string | null
           business_phone?: string | null
           business_scale?: string | null
@@ -100,52 +103,203 @@ export type Database = {
         }
         Relationships: []
       }
-      reservation: {
+      package_feature: {
         Row: {
-          book_at: string
-          business_name: string
-          business_scale: string
           created_at: string
-          email: string
-          id: number
-          location: string
-          phone_number: string
-          services_type: string
-          user_id: string | null
+          feature_id: number
+          package_id: number
         }
         Insert: {
-          book_at: string
-          business_name: string
-          business_scale: string
           created_at?: string
-          email: string
-          id?: number
-          location: string
-          phone_number: string
-          services_type: string
-          user_id?: string | null
+          feature_id: number
+          package_id: number
         }
         Update: {
-          book_at?: string
-          business_name?: string
-          business_scale?: string
           created_at?: string
-          email?: string
-          id?: number
-          location?: string
-          phone_number?: string
-          services_type?: string
-          user_id?: string | null
+          feature_id?: number
+          package_id?: number
         }
         Relationships: [
           {
-            foreignKeyName: "reservation_user_id_fkey"
-            columns: ["user_id"]
+            foreignKeyName: "package_feature_feature_id_fkey"
+            columns: ["feature_id"]
             isOneToOne: false
-            referencedRelation: "users"
+            referencedRelation: "service_feature"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "package_feature_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "packages"
             referencedColumns: ["id"]
           },
         ]
+      }
+      packages: {
+        Row: {
+          created_at: string
+          description: string | null
+          feature_sub_title: string | null
+          feature_title: string | null
+          icon: string | null
+          id: number
+          image: string | null
+          price: number | null
+          recommendation: boolean | null
+          slug: string | null
+          subtitle: string | null
+          title: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          feature_sub_title?: string | null
+          feature_title?: string | null
+          icon?: string | null
+          id?: number
+          image?: string | null
+          price?: number | null
+          recommendation?: boolean | null
+          slug?: string | null
+          subtitle?: string | null
+          title?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          feature_sub_title?: string | null
+          feature_title?: string | null
+          icon?: string | null
+          id?: number
+          image?: string | null
+          price?: number | null
+          recommendation?: boolean | null
+          slug?: string | null
+          subtitle?: string | null
+          title?: string | null
+        }
+        Relationships: []
+      }
+      reservation: {
+        Row: {
+          book_at: string
+          business_id: number | null
+          created_at: string
+          id: number
+          location: string
+          package_id: number | null
+          service_id: number | null
+        }
+        Insert: {
+          book_at: string
+          business_id?: number | null
+          created_at?: string
+          id?: number
+          location: string
+          package_id?: number | null
+          service_id?: number | null
+        }
+        Update: {
+          book_at?: string
+          business_id?: number | null
+          created_at?: string
+          id?: number
+          location?: string
+          package_id?: number | null
+          service_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reservation_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "business"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reservation_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "packages"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reservation_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      service_feature: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: number
+          image: string | null
+          name: string | null
+          service_id: number | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: number
+          image?: string | null
+          name?: string | null
+          service_id?: number | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: number
+          image?: string | null
+          name?: string | null
+          service_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_feature_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      services: {
+        Row: {
+          created_at: string
+          description: string | null
+          icon: string | null
+          id: number
+          image: string | null
+          name: string | null
+          price: number | null
+          slug: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: number
+          image?: string | null
+          name?: string | null
+          price?: number | null
+          slug?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: number
+          image?: string | null
+          name?: string | null
+          price?: number | null
+          slug?: string | null
+        }
+        Relationships: []
       }
     }
     Views: {

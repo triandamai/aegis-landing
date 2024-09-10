@@ -41,11 +41,30 @@ export const changePassword = z.object({
     confirmPassword: z.string().min(4),
 })
 
-export const serviceTypeEnum = ["MICRO","SMALL","MEDIUM"]
+
 export const reservationSchema = z.object({
-    phoneNumber:z.string(),
-    email:z.string().email(),
+    businessId:z.number().min(1),
+    serviceId:z.number().min(1),
+    packageId:z.number().min(1),
+    location:z.string().min(4),
+})
+
+export const reservationCreateBusinessSchema = z.object({
+    businessPhoneNumber:z.string().refine((value) => value.startsWith("+62") || value.startsWith("08"),"Nomor telphone harus diawali +62 atau 08"),
+    businessEmail:z.string().email(),
     businessName:z.string().min(2),
-    serviceType:z.string().min(2),
-    location:z.string(),
+    businessScale:z.string().min(2),
+})
+
+
+export const reservationPackageSchema = z.object({
+    businessId:z.number().min(1),
+    packageId:z.number().min(1),
+    location:z.string().min(4),
+})
+
+export const reservationServiceSchema = z.object({
+    businessId:z.number().min(1),
+    serviceId:z.number().min(1),
+    location:z.string().min(4),
 })

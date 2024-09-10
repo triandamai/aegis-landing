@@ -22,13 +22,13 @@ export const useAdminServices = defineStore("book", {
     actions: {
         async nextPage(){
             this.page = this.page + 1
-            this.getBookServices()
+            this.getReservationServices()
         },
         async prevPage(){
             this.page = this.page - 1
-            this.getBookServices()
+            this.getReservationServices()
         },
-        async getBookServices() {
+        async getReservationServices() {
             const client = useSupabaseClient<Database>()
             const count = await client.from("reservation")
                 .select("id")

@@ -27,7 +27,7 @@ function getBusinessLabel(scale: string): string {
           }else if((opt.page -1) < reservation.page){
             reservation.prevPage()
           }else if((opt.page -1) === reservation.page){
-            reservation.getBookServices()
+            reservation.getReservationServices()
           }
         }"
     >

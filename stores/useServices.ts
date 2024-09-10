@@ -33,8 +33,6 @@ export const useServices = defineStore("service", {
                 return false
             }
 
-            console.log(this.serviceType)
-            console.log(serviceTypeEnum.includes(this.serviceType))
             if (!serviceTypeEnum.includes(this.serviceType)) {
                 hideLoading()
                 alert.failed("Layanan mohon diisi.")

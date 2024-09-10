@@ -40,7 +40,7 @@ import ItemPricipal from "~/components/about/ItemPrincipal.vue";
           body-style="from-green-200 to-green-50"
           footer-style="from-green-100 to-green-50"
           cutout-color="bg-green-50"
-          title="Collaoration"
+          title="Collaboration"
           icon="/images/about/ic-collaboration.svg"
           description="Kami percaya bahwa kerja sama yang baik membawa hasil yang lebih besar dan lebih kuat."/>
 

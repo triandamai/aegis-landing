@@ -1,32 +1,41 @@
 <script setup lang="ts">
 
 import type {User} from "@supabase/auth-js";
+import NavPackage from "~/components/header/NavItemPackage.vue";
+import NavService from "~/components/header/NavItemServices.vue";
 
-defineProps(['style', 'parent'])
+defineProps<{
+  style: string,
+  parent: string,
+  services: Array<DataService>,
+  package: Array<DataPackage>
+}>()
+
+defineEmits(['refresh'])
+
 const client = useSupabaseClient()
 const session = ref<User | null>(null)
 const name = ref("")
 const showMenuMobile = ref(false)
+const showMegaMenu = ref(false)
 
-function init() {
-  client.auth.getUser()
-      .then(data => {
-        if (data.error) {
-          session.value = null
-        } else {
-          if (data.data == null) {
-            session.value = null
-          } else {
-            session.value = data.data.user;
-            let split = data.data.user.user_metadata["full_name"].split(" ")
-            if (split.length > 0) {
-              name.value = split[0]
-            }
-          }
-        }
-      }).catch(() => {
+async function init() {
+  const user = await client.auth.getUser();
+  if (user.error) {
     session.value = null
-  })
+  }
+  if (user.data) {
+    if (user.data.user === null) {
+      session.value = null
+    } else {
+      session.value = user.data.user;
+      let split = user.data.user?.user_metadata["full_name"].split(" ")
+      if (split.length > 0) {
+        name.value = split[0]
+      }
+    }
+  }
+
 }
 
 
@@ -38,21 +47,53 @@ function signOut() {
 
 onMounted(() => {
   init()
+  if (import.meta.client) {
+    const nav = document.getElementById("services")
+    const mega = document.getElementById("container-mega-menu")
+    nav?.addEventListener("mouseover", () => {
+      showMegaMenu.value = true
+    })
+    nav?.addEventListener("mouseout", (e) => {
+      showMegaMenu.value = false
+    })
+    mega?.addEventListener("mouseover", () => {
+      showMegaMenu.value = true
+    })
+    mega?.addEventListener("mouseout", (e) => {
+      showMegaMenu.value = false
+    })
+  }
 })
 </script>
 
 <template>
   <header class="w-full fixed z-10 hidden md:block lg:block xl:block" :class="parent">
-    <div
-        :class="style"
-        class="h-[10vh] bg-white py-2 px-8 flex flex-row justify-between items-center">
+    <div :class="style" class="h-[10vh] bg-white flex flex-row justify-between items-center px-8">
       <NuxtLink to="/">
         <NuxtImg src="/images/logo.png"/>
       </NuxtLink>
-      <span class="flex flex-row">
-        <NuxtLink to="/about" class="mx-4 hover:text-blue-800" :active-class="'text-blue-800'">Tentang kami</NuxtLink>
-        <NuxtLink to="/services" class="mx-4 hover:text-blue-800" :active-class="'text-blue-800'">Layanan</NuxtLink>
-        <NuxtLink to="/contact" class="mx-4 hover:text-blue-800" :active-class="'text-blue-800'">Kontak</NuxtLink>
+      <span class="flex flex-row h-full">
+        <NuxtLink
+            to="/about"
+            class="flex flex-col justify-center px-4 mx-4 hover:text-blue-800"
+            :active-class="'text-blue-800'">
+          Tentang kami
+        </NuxtLink>
+        <NuxtLink
+            to="#"
+            class="justify-center h-full px-2 mx-4 hover:text-blue-800 flex flex-row items-center"
+            :active-class="'text-blue-800'"
+            id="services">
+          Layanan&nbsp;
+          <IconArrowDown v-show="!showMegaMenu"/>
+          <IconArrowUp v-show="showMegaMenu"/>
+        </NuxtLink>
+        <NuxtLink
+            to="/contact"
+            class="flex flex-col justify-center px-4  mx-4 hover:text-blue-800"
+            :active-class="'text-blue-800'">
+          Kontak
+        </NuxtLink>
       </span>
       <span v-show="session==null">
         <NuxtLink to="/login"
@@ -111,7 +152,40 @@ onMounted(() => {
       </div>
     </div>
   </header>
+  <!-- MEGA MENU -->
+  <div v-show="showMegaMenu"
+       class="fixed z-50 top-0 w-screen h-max flex flex-row justify-center items-center mt-[10vh]">
+    <div id="container-mega-menu" class="bg-white w-2/3 h-full rounded-2xl shadow-lg shadow-gray-500/40 px-4 py-4">
+      <div class="w-full h-2/3 mt-2">
+        <h1>PAKET UMKM</h1>
+        <div class="w-full h-[1px] bg-gray-300"/>
+        <div class="w-full flex flex-row my-2">
+          <NavPackage
+              v-for="p in package"
+              :title="p.title ?? ''"
+              :text="p.subtitle ?? ''"
+              :icon="p.icon ?? ''"
+              :slug="p.slug ?? ''"
+              @refresh="()=>$emit('refresh')"
+          />
+        </div>
+      </div>
+      <div class="w-full h-max mt-2">
+        <h1>LAYANAN KHUSUS</h1>
+        <div class="w-full h-[1px] bg-gray-300"/>
+        <div class="w-full flex flex-row flex-wrap justify-between items-center my-2">
 
+          <NavService
+              v-for="service in services"
+              :title="service.name ?? ''"
+              :text="service.description ?? ''"
+              :icon="service.image ?? ''"
+              :slug="service.slug ?? ''"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>

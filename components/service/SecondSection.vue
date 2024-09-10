@@ -1,23 +1,8 @@
 <script setup lang="ts">
-let tabs = [
-  {
-    title: "Business Development Services",
-    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan",
-    images:"/images/services/service-1.webp"
-  },
-  {
-    title: "Operation Services",
-    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan",
-    images:"/images/services/service-2.webp"
-
-  },
-  {
-    title: "Financial Services",
-    content: "Kami membantu Anda merancang strategi pertumbuhan yang kuat, menciptakan peluang baru, dan memperluas jangkauan pasar. Dengan pendekatan kami, bisnis Anda siap menghadapi tantangan dan meraih kesuksesan",
-    images:"/images/services/service-3.webp"
-  }
-]
-
+defineProps<{
+  services:Array<DataDetailService>
+}>()
+const {publicServiceUrl} = useFile()
 const selected = ref(0)
 
 function onSelectedTab(pos: number) {
@@ -39,37 +24,37 @@ function onSelectedTab(pos: number) {
     </div>
     <div class="w-full rounded-b-2xl relative">
       <div class="w-full flex flex-row justify-start">
-        <div class="tab" @click="onSelectedTab(0)" :class="{'tab-active':selected == 0, 'tab-inactive':selected != 0}">
-          <p class="mx-4 my-4">Business Development Services</p>
-          <div v-show="selected == 1" class="h-full w-[15px] bg-blue-800 absolute right-0"></div>
-          <div v-show="selected == 1" class="h-full w-[15px] bg-white absolute right-0 rounded-br-2xl"></div>
-        </div>
-        <div class="tab" @click="onSelectedTab(1)" :class="{'tab-active':selected == 1,'tab-inactive':selected != 1}">
-          <p class="mx-4 my-4 cursor-pointer">Operation Services</p>
-          <div v-show="selected == 0" class="h-full w-[15px] bg-blue-800 absolute left-0"></div>
-          <div v-show="selected == 0" class="h-full w-[15px] bg-white absolute left-0 rounded-bl-2xl"></div>
-          <div v-show="selected == 2" class="h-full w-[15px] bg-blue-800 absolute right-0"></div>
-          <div v-show="selected == 2" class="h-full w-[15px] bg-white absolute right-0 rounded-br-2xl"></div>
-        </div>
-        <div class="tab" @click="onSelectedTab(2)" :class="{'tab-active':selected == 2,'tab-inactive':selected!=2}">
-          <p class="mx-4 my-4 cursor-pointer"> Financial Services</p>
-          <div v-show="selected == 1" class="h-full w-[15px] bg-blue-800 absolute left-0"></div>
-          <div v-show="selected == 1" class="h-full w-[15px] bg-white absolute left-0 rounded-bl-2xl"></div>
-        </div>
-        <div class="relative flex flex-row justify-start">
-          <div v-show="selected == 2" class="h-full w-[15px] bg-blue-800 absolute left-0"></div>
-          <div v-show="selected == 2" class="h-full w-[15px] bg-white absolute left-0 rounded-bl-2xl"></div>
+        <template v-for="(tab,idx) in services">
+<!--      first    -->
+          <div v-if="idx == 0"  class="tab" @click="onSelectedTab(idx)" :class="{'tab-active':selected == idx, 'tab-inactive':selected != idx}">
+            <p class="mx-4 my-4">{{tab.name ?? ''}}</p>
+            <div v-show="selected == (idx+1)" class="h-full w-[15px] bg-blue-800 absolute right-0"></div>
+            <div v-show="selected == (idx+1)" class="h-full w-[15px] bg-white absolute right-0 rounded-br-2xl"></div>
+          </div>
+<!--     second to end     -->
+          <div v-else-if="(idx <= services.length - 1) && (idx > 0) " class="tab" @click="onSelectedTab(idx)"  :class="{'tab-active':selected == idx, 'tab-inactive':selected != idx}">
+            <p class="mx-4 my-4 cursor-pointer">{{tab.name}}</p>
+            <div v-show="selected == (idx-1)" class="h-full w-[15px] bg-blue-800 absolute left-0"></div>
+            <div v-show="selected == (idx-1)" class="h-full w-[15px] bg-white absolute left-0 rounded-bl-2xl"></div>
+            <div v-show="selected == (idx+1)" class="h-full w-[15px] bg-blue-800 absolute right-0"></div>
+            <div v-show="selected == (idx+1)" class="h-full w-[15px] bg-white absolute right-0 rounded-br-2xl"></div>
+          </div>
+        </template>
+
+        <div v-if="selected == services.length -1" class="relative flex flex-row justify-start">
+          <div class="h-full w-[15px] bg-blue-800 absolute left-0"></div>
+          <div  class="h-full w-[15px] bg-white absolute left-0 rounded-bl-2xl"></div>
         </div>
       </div>
       <div
           class="w-full h-[50vh] bg-gradient-to-br from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl flex flex-row justify-between px-10 py-10"
           :class="{'rounded-tl-2xl':selected > 0}">
         <div class="w-[40vw] sm:w-[40vw] md:w-[40vw] lg:w-[60vw] xl:w-[60vw]">
-          <h1 class="text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold text-white mb-4">{{tabs[selected].title}}</h1>
-          <p class="text-lg md:text-lglg:text-2xl xl:text-2xl text-white">{{tabs[selected].content}}</p>
+          <h1 class="text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-semibold text-white mb-4">{{services[selected]?.name ?? ''}}</h1>
+          <p class="text-lg md:text-lg lg:text-2xl xl:text-2xl text-white">{{services[selected]?.description ?? ''}}</p>
         </div>
         <div class="w-[40vw] sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[40vw]">
-          <NuxtImg :src="tabs[selected].images" width="100%" height="100%" class="w-[40vw] h-full sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[30vw]"/>
+          <NuxtImg :src="publicServiceUrl(services[selected]?.image ?? '')" width="100%" height="100%" class="w-[40vw] h-full sm:w-[40vw] md:w-[40vw] lg:w-[30vw] xl:w-[30vw]"/>
         </div>
       </div>
     </div>
@@ -84,19 +69,15 @@ function onSelectedTab(pos: number) {
           berkembang dan mencapai tujuan jangka panjang</p>
       </div>
       <div class="w-full px-8 flex flex-col items-center">
-        <button @click="onSelectedTab(0)" :class="selected == 0 ? 'btn-active':'btn-inactive'">Business Development
-          Services
-        </button>
-        <button @click="onSelectedTab(1)" :class="selected == 1 ? 'btn-active':'btn-inactive'">Operation Services
-        </button>
-        <button @click="onSelectedTab(2)" :class="selected == 2 ? 'btn-active':'btn-inactive'">Financial Services
+        <button v-for="(item,idx) in services" @click="onSelectedTab(idx)" :class="selected == idx ? 'btn-active':'btn-inactive'">
+          {{item.name ?? ''}}
         </button>
       </div>
       <div class="mt-2 w-full h-[55vh] bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 px-8 py-4">
-        <NuxtImg :src="tabs[selected].images" width="100%" height="100%" class="w-full h-1/2"/>
+        <NuxtImg :src="publicServiceUrl(services[selected]?.image ?? '')" width="100%" height="100%" class="w-full h-1/2"/>
         <div class="w-full">
-          <h1 class="text-white text-3xl my-2 text-center">{{tabs[selected].title}}</h1>
-          <p class="text-white text-center">{{tabs[selected].content}}</p>
+          <h1 class="text-white text-3xl my-2 text-center">{{services[selected]?.name ?? ''}}</h1>
+          <p class="text-white text-center">{{services[selected]?.description}}</p>
 
         </div>
       </div>

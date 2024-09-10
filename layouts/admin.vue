@@ -69,9 +69,14 @@ onMounted(() => {
           :location="$vuetify.display.mobile ? 'bottom' : undefined"
       >
         <v-list>
-          <v-list-item href="/admin/services" title="Layanan"></v-list-item>
-          <v-divider></v-divider>
+          <v-list-subheader title="Layanan"></v-list-subheader>
+          <v-list-item href="/admin/services" title="Resevasi"></v-list-item>
           <v-list-item href="/admin/contact" title="Pesan"></v-list-item>
+          <v-divider></v-divider>
+          <v-list-subheader title="Master"></v-list-subheader>
+          <v-list-item href="/admin/master/services" title="Layanan"></v-list-item>
+          <v-list-item href="/admin/master/packages" title="Paket"></v-list-item>
+          <v-divider></v-divider>
         </v-list>
       </v-navigation-drawer>
 

@@ -7,11 +7,13 @@ definePageMeta({
 
 <template>
   <NuxtLayout name="landing">
-    <MainHero/>
-    <MainSecondSection/>
-    <MainThirdSection/>
-    <MainForthSection/>
-    <MainFifthSection/>
-    <MainSixSection/>
+    <template #default="{services}">
+      <MainHero/>
+      <MainSecondSection/>
+      <MainThirdSection/>
+      <MainForthSection :services="services" />
+      <MainFifthSection/>
+      <MainSixSection/>
+    </template>
   </NuxtLayout>
 </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   name: string,
-  price: string,
+  price: number,
   description: string,
   primary: boolean,
   items: Array<string>,
@@ -21,7 +21,7 @@ defineEmits(['select'])
               <div class="h-1/2 flex flex-col justify-between">
                 <div>
                   <h1 class="text-2xl mt-4 mb-4" :class="{'text-white':primary}">{{ name }}</h1>
-                  <h1 class="text-3xl mb-2 font-semibold" :class="{'text-white':primary}">{{ price }}</h1>
+                  <h1 class="text-3xl mb-2 font-semibold" :class="{'text-white':primary}">Rp{{ price }}</h1>
                   <p class="font-normal text-lg sm:text-sm md:text-sm lg:text-lg" :class="{'text-white':primary}">{{ description }}</p>
                 </div>
                 <div class="w-full h-[1px] bg-gray-200"></div>

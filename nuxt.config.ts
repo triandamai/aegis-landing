@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   future:{
     typescriptBundlerResolution:false
   },
+  experimental:{
+    typedPages:true 
+  },
   nitro:{
     preset:'vercel'
   },
@@ -44,7 +47,11 @@ export default defineNuxtConfig({
     url:process.env.SUPABASE_URL,
   },
   vuetify:{
-
+    vuetifyOptions:{
+      icons:{
+        defaultSet:'mdi'
+      }
+    }
   },
   mail:{
     message: {

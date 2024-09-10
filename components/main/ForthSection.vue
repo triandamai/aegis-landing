@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+defineProps<{
+  services:Array<DataDetailService>
+}>()
 </script>
 
 <template>
@@ -12,9 +14,7 @@
       </div>
     </div>
     <div class="w-full h-max flex flex-row flex-wrap justify-evenly items-center relative mt-[5vh]">
-      <MainItemProduct/>
-      <MainItemProduct/>
-      <MainItemProduct/>
+      <MainItemProduct v-for="item in services" :name="item.name" :features="item.features"/>
     </div>
   </section>
 </template>
