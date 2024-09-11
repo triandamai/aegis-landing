@@ -3,7 +3,7 @@ import ItemCategory from "~/components/service/ItemCategory.vue";
 defineProps<{
   packages:Array<DataDetailPackage>
 }>()
-defineEmits(['book-services'])
+defineEmits(['create-reservation'])
 </script>
 
 <template>
@@ -32,7 +32,7 @@ defineEmits(['book-services'])
           :description="item.subtitle ?? ''"
           :primary="item.recommendation ?? false"
           :items="item.features.map((v) => v.feature?.name ?? '')"
-          @select="()=>{$emit('book-services',item)}"
+          @select="()=>{$emit('create-reservation',item)}"
       />
     </div>
   </section>

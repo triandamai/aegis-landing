@@ -1,8 +1,10 @@
 <script setup lang="ts">
 defineProps<{
-  name:string,
+  name:string|null,
   features:Array<DataDetailFeatureService>,
 }>()
+
+defineEmits(['click'])
 </script>
 
 <template>
@@ -16,7 +18,7 @@ defineProps<{
         <p v-for="item in features" class="my-4 flex flex-row"><IconCheck class="mx-2 text-blue-800" /> {{item.name}}</p>
       </div>
       <div class="w-full">
-        <button class="w-full bg-blue-800 text-white rounded-lg py-3 px-8">Pelajari lebih lanjut</button>
+        <button @click="$emit('click')" class="w-full bg-blue-800 text-white rounded-lg py-3 px-8">Pelajari lebih lanjut</button>
       </div>
     </div>
   </div>

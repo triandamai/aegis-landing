@@ -56,7 +56,7 @@ function onSelectedTab(pos: number) {
           <div class="w-full flex flex-row justify-start items-end mb-4 mt-4">
             <span class="text-4xl">Rp{{ services[selected]?.price ?? '' }}</span><span>(sekali bayar)</span>
           </div>
-          <button class="w-full bg-blue-800 rounded-lg py-2 text-white">Mulai Sekarang</button>
+          <button @click="$emit('create-reservation')" class="w-full bg-blue-800 rounded-lg py-2 text-white">Mulai Sekarang</button>
         </div>
       </div>
     </div>

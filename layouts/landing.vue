@@ -23,6 +23,14 @@ const data = useAsyncData(async () => {
   landing.getDetailServices()
 })
 
+
+function openFormReservation(){
+  landing.getServices()
+  landing.getPackage()
+  landing.getBusiness()
+}
+
+
 function getLocations(){
   landing.getLocations()
 }
@@ -42,15 +50,20 @@ async function gotoBookService() {
   if (isLoggedIn.error) {
     return router.push({path: '/register'})
   }
-  landing.showDialogCreateReservation = true
   getLocations()
+  openFormReservation()
+  landing.showDialogCreateReservation = true
 }
 
 const callback = {
   onBookService: function (service:DataDetailService) {
+    landing.serviceId = service.id
+    landing.isPackageReservation = false
     gotoBookService()
   },
   onBookPackage: function(packages:DataDetailPackage){
+    landing.packageId = packages.id
+    landing.isPackageReservation = true
     gotoBookService()
 
   }
@@ -69,6 +82,7 @@ const callback = {
       v-model:package-id="landing.packageId"
       v-model:selected-location="landing.location"
 
+      :locations="landing.locations"
       :services="landing.services"
       :packages="landing.package"
       :is-package-reservation="landing.isPackageReservation"

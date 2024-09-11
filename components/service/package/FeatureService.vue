@@ -14,7 +14,7 @@ defineProps<{
       <h1 class="text-4xl font-bold">{{title ?? ''}}</h1>
       <p>{{subtitle}}</p>
     </div>
-    <div class="w-full flex flex-row flex-wrap justify-center">
+    <div class="w-full flex flex-row flex-wrap justify-start">
       <ItemServiceFeature
           v-for="item in features"
           :title="item.feature?.name ?? ''"

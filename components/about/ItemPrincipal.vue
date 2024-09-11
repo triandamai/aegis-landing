@@ -10,9 +10,9 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="w-[88vw] h-[40vh] md:w-[24vw] md:h-[45vh] lg:w-[24vw] lg:h-[40vh] flex flex-col justify-between mx-[2vw]">
-    <div class="w-full h-[30vh] md:h-[35vh] lg:h-[35vh]">
-      <div class="w-full h-full px-10 py-10 rounded-t-2xl rounded-br-2xl bg-gradient-to-tl" :class="bodyStyle">
+  <div class="w-[88vw] h-[40vh] md:w-[24vw] md:h-max lg:w-[24vw] lg:h-[40vh] flex flex-col justify-between mx-[2vw]">
+    <div class="w-full h-[30vh] md:h-[30vh] lg:h-[35vh]">
+      <div class="w-full h-full px-2 py-2 sm:px-4 sm:py-4 md:px-4 md:py-4 lg:px-10 lg:py-10 xl:px-10 xl:py-10 rounded-t-2xl rounded-br-2xl bg-gradient-to-tl" :class="bodyStyle">
         <NuxtImg alt="Icon" :src="icon"/>
         <h1 class="my-2 text-2xl">{{title}}</h1>
         <p>{{description}}</p>

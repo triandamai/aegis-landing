@@ -4,7 +4,7 @@
 
 <template>
   <NuxtLayout name="landing">
-    <template #default="{detailPackages}">
+    <template #default="{detailPackages,callback}">
       <ServicePackageHero
           :name="detailPackages?.title"
           :slug="detailPackages?.slug"
@@ -20,6 +20,7 @@
       />
       <ServicePackageCTAService
           :price="detailPackages?.price ?? 0"
+          @create-reservation="() => callback.onBookPackage(detailPackages)"
       />
     </template>
   </NuxtLayout>

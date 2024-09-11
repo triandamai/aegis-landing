@@ -4,12 +4,7 @@ const headers = [
   {key: 'email', title: 'Reservasi Layanan'}
 ]
 
-function getBusinessLabel(scale: string): string {
-  if (scale === "SMALL") return "Kecil"
-  if (scale === "MICRO") return "Mikro"
-  if (scale === "MEDIUM") return "Menengah"
-  return "Menengah"
-}
+
 </script>
 
 <template>
@@ -21,15 +16,7 @@ function getBusinessLabel(scale: string): string {
         :items-length="reservation.totalItems"
         :loading="false"
         :search="reservation.search"
-        @update:options="(opt)=>{
-          if((opt.page -1) > reservation.page){
-            reservation.nextPage()
-          }else if((opt.page -1) < reservation.page){
-            reservation.prevPage()
-          }else if((opt.page -1) === reservation.page){
-            reservation.getReservationServices()
-          }
-        }"
+        @update:options="(opt)=>reservation.onPageChange(opt.page)"
     >
       <template v-slot:item="{ item }">
         <v-card
@@ -57,15 +44,15 @@ function getBusinessLabel(scale: string): string {
                   class="ms-2 text-medium-emphasis"
                   prepend-icon="mdi-email"
                   size="small"
-                  :text="item.email"
+                  :text="item.business?.business_email ?? ''"
                   variant="outlined"
               ></v-chip>
             </v-card-title>
 
             <div class="py-1">
-              <div class="text-h6">{{ item.business_name }}</div>
+              <div class="text-h6">{{ item.business?.business_name }}</div>
               <div class="font-weight-light text-medium-emphasis">
-                Reservasi Layanan: {{ item.services_type }}
+                Reservasi Layanan: {{ item.package?.title }} {{item.service?.name}}
               </div>
               <div class="font-weight-light text-medium-emphasis">
                 Lokasi: {{ item.location }}
@@ -88,6 +75,7 @@ function getBusinessLabel(scale: string): string {
                 color="success"
                 prepend-icon="mdi-whatsapp"
                 variant="flat"
+                :href="`https://wa.me/${item.business?.business_phone}?text=I'm%20interested%20in%20your%20car%20for%20sale`"
             >
               Hubungi
             </v-btn>

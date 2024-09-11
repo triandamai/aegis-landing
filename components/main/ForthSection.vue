@@ -2,6 +2,8 @@
 defineProps<{
   services:Array<DataDetailService>
 }>()
+
+defineEmits(['create-reservation'])
 </script>
 
 <template>
@@ -14,7 +16,12 @@ defineProps<{
       </div>
     </div>
     <div class="w-full h-max flex flex-row flex-wrap justify-evenly items-center relative mt-[5vh]">
-      <MainItemProduct v-for="item in services" :name="item.name" :features="item.features"/>
+      <MainItemProduct
+          v-for="item in services"
+          :name="item.name"
+          :features="item.features"
+          @click="()=>$emit('create-reservation',item)"
+      />
     </div>
   </section>
 </template>

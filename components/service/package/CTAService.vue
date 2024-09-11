@@ -2,6 +2,10 @@
 defineProps<{
   price:number|null
 }>()
+
+defineEmits(['create-reservation'])
+
+
 </script>
 
 <template>
@@ -15,13 +19,13 @@ defineProps<{
           <h1 class="text-white text-lg my-2">Jangan Tunda Lagi, Kembangkan Bisnis Anda Bersama AEGIS. Daftar Sekarang!</h1>
         </div>
         <div class="w-full flex flex-row flex-wrap justify-start">
-          <button class="bg-white border border-white px-4 py-2 rounded-lg text-blue-600">
+          <button @click="$emit('create-reservation')" class="bg-white border border-white px-4 py-2 rounded-lg text-blue-600">
             Daftar Gratis
           </button>
           <div class="w-[10px]"/>
-          <button class="px-4 py-2 rounded-lg border border-white bg-transparent text-white">
+          <NuxtLink to="/contact" class="px-4 py-2 rounded-lg border border-white bg-transparent text-white">
             Hubungi Kami
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </div>

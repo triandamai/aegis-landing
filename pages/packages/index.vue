@@ -1,28 +1,16 @@
 <script setup lang="ts">
-import type {Database} from "~/types/database.types";
 
-const showDialog = ref(false)
-
-const client = useSupabaseClient<Database>()
-const router = useRouter()
-
-async function gotoBookService(){
-  const isLoggedIn = await  client.auth.getUser()
-  if(isLoggedIn.error){
-    return router.push({path:'/register'})
-  }
-  showDialog.value = !showDialog.value
-}
 </script>
 
 <template>
-  <DialogBookServices :show="showDialog" @dismiss="showDialog = false"/>
   <NuxtLayout name="landing">
-    <ServiceHero @create-reservation="gotoBookService"/>
-    <ServiceSecondSection/>
-    <ServiceThirdSection @book-services="gotoBookService"/>
-    <ServiceForthSection @create-reservation="gotoBookService"/>
-    <ServiceFifthSection/>
-    <ServiceSixSection/>
+    <template #default="{packages,services,callback}">
+      <ServiceHero @create-reservation="()=>callback.onBookService({id:0})"/>
+      <ServiceSecondSection :services="services"/>
+      <ServiceThirdSection :packages="packages" @create-reservation="(value)=>callback.onBookPackage(value)"/>
+      <ServiceForthSection :services="services" @create-reservation="(value)=>  callback.onBookService(value)"/>
+      <ServiceFifthSection/>
+      <ServiceSixSection/>
+    </template>
   </NuxtLayout>
 </template>

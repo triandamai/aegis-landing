@@ -58,13 +58,13 @@ export const reservationCreateBusinessSchema = z.object({
 
 
 export const reservationPackageSchema = z.object({
-    businessId:z.number().min(1),
-    packageId:z.number().min(1),
-    location:z.string().min(4),
+    businessId:z.number().min(1,"Pilih bisnis terlebih dahulu"),
+    packageId:z.number().min(1,"Pilih layanan terlebih dahuulu"),
+    location:z.string().min(4,"Pilih lokasi"),
 })
 
 export const reservationServiceSchema = z.object({
-    businessId:z.number().min(1),
-    serviceId:z.number().min(1),
-    location:z.string().min(4),
+    businessId:z.number().min(1,"Pilih bisnis terlebih dahulu"),
+    serviceId:z.number().min(1,"Pilih layanan terlebih dahuulu"),
+    location:z.string().min(4,"Pilih lokasi"),
 })

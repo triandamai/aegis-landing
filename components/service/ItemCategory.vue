@@ -14,9 +14,9 @@ defineEmits(['select'])
 <template>
   <div class="w-full h-[75vh] sm:w-[50vw] sm:h-[72vh] md:w-[40vw] md:h-[72vh] lg:w-[30vw] lg:h-[72vh] xl:w-[20vw] xl:h-[72vh] mx-4 my-4 flex flex-row justify-center">
     <div class="relative w-full">
-      <div class="absolute bottom-0 flex flex-row justify-center  w-full h-[74vh] sm:w-[50vw] sm:h-[70vh] md:w-[40vw] md:h-[70vh] lg:w-[30vw] lg:h-[70vh] xl:w-[20vw] xl:h-[70vh] px-2">
+      <div class="absolute bottom-0 flex flex-row justify-center  w-full h-[74vh] sm:w-[50vw] sm:h-[70vh] md:w-[40vw] md:h-[70vh] lg:w-[30vw] lg:h-[70vh] xl:w-[20vw] xl:h-[70vh] px-1">
         <div :class="{'primary':primary, 'normal':!primary}" class=" w-full h-[75vh] sm:w-full sm:h-[70vh]  md:w-full md:h-[70vh]  lg:w-full lg:h-[70vh]  xl:w-full xl:h-[75vh] flex flex-row justify-center rounded-2xl border border-gray-300">
-          <div class="w-full h-full px-12 py-6 flex flex-col justify-between">
+          <div class="w-full h-full px-12 py-6 sm:px-12 sm:py-6 md:px-12 md:py-6 lg:px-2 lg:py-6 xl:px-2 xl:py-6 flex flex-col justify-between">
             <div class="w-full h-full">
               <div class="h-1/2 flex flex-col justify-between">
                 <div>

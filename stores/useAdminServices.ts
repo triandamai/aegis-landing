@@ -7,19 +7,18 @@ export const useAdminServices = defineStore("book", {
         totalItems: 0,
         page: 0,
         size: 10,
-        items: [] as Array<{
-            book_at: string
-            business_name: string
-            business_scale: string
-            created_at: string
-            email: string
-            id: number
-            location: string
-            phone_number: string
-            services_type: string
-        }>
+        items: [] as Array<DataDetailReservation>
     }),
     actions: {
+        async onPageChange(page:number){
+            if((page -1) > this.page){
+                this.nextPage()
+            }else if((page -1) < this.page){
+                this.prevPage()
+            }else if((page -1) === this.page){
+                this.getReservationServices()
+            }
+        },
         async nextPage(){
             this.page = this.page + 1
             this.getReservationServices()
@@ -40,14 +39,14 @@ export const useAdminServices = defineStore("book", {
             this.totalItems = count.data.length
 
             const data = await client.from('reservation')
-                .select("*")
+                .select("*,business:business!business_id(*),service:services!service_id(*),package:packages!package_id(*)()")
                 .limit(this.size)
                 .range(this.page, (this.page + this.size))
+                .order('created_at',{ascending:false})
 
 
-            console.log("dt",{page:this.page,size:this.size})
             if (!data.error) {
-                this.items = data.data
+                this.items = data.data as any
                 return
             }
         }

@@ -3,29 +3,28 @@
 </script>
 
 <template>
-  <section id="hero" class="hidden sm:hidde md:hidden lg:block xl:block w-svw h-screen px-[6vw] relative">
-    <div class="w-[88vw] absolute top-0">
+  <section id="hero" class="hidden sm:hidden md:hidden lg:block xl:block w-svw h-screen px-[6vw] relative">
+    <div class="w-max absolute top-0">
       <!-- text 1   -->
-      <div class="w-[88vw] flex flex-row justify-start">
+      <div class="w-max flex flex-row justify-start">
         <div
-            class="w-[60vw] h-[8vh] md:w-[74vw] md:h-[15vh] lg:w-[74vw] lg:h-[15vh] bg-blue-800 rounded-t-2xl rounded-bl-2xl">
-          <p class="text-hero px-5 py-5">Dukungan Strategis Untuk
-            Setiap</p>
+            class="w-[60vw] h-[8vh] md:w-[74vw] md:h-[15vh] lg:w-[74vw] lg:h-max xl:w-[77vw] xl:h-max bg-blue-800 rounded-t-2xl rounded-bl-2xl">
+          <p class="text-hero px-5 py-5 xl:px-2 overflow-ellipsis line-clamp-1">Dukungan Strategis Untuk Setiap</p>
         </div>
       </div>
       <!-- text 2  -->
       <div class="w-[88vw] flex flex-row justify-start">
-        <div class="w-[30vw] md:w-[28vw] flex flex-row justify-end">
+        <div class="w-[35vw] md:w-[28vw] xl:w-[27vw] flex flex-row justify-end">
           <div class="w-[10vw] flex flex-row justify-end relative">
             <div class="h-4 w-4 bg-blue-800 absolute"></div>
             <div class="h-4 w-4 bg-white rounded-tr-2xl absolute"></div>
           </div>
         </div>
         <div
-            class="w-[40vw] md:w-[46vw] md:h-[15vh] bg-blue-800 rounded-bl-2xl flex flex-row justify-start items-center">
-          <p class="text-hero pr-5 pl-5 py-5">Pertumbuhan Bisnis</p>
+            class="w-[50vw] md:w-[46vw] md:h-[15vh] xl:w-[50vw] bg-blue-800 rounded-bl-2xl flex flex-row justify-start items-center">
+          <p class="text-hero pr-5 pl-5 py-5 overflow-ellipsis line-clamp-1">Pertumbuhan Bisnis</p>
         </div>
-        <div class="w-[10vw] flex flex-row justify-start relative">
+        <div class="w-[5vw] flex flex-row justify-start relative">
           <div class="h-4 w-4 bg-blue-800 absolute bottom-0"></div>
           <div class="h-4 w-4 bg-white rounded-bl-2xl absolute bottom-0"></div>
         </div>
@@ -38,27 +37,25 @@
             <div class="h-4 w-4 bg-white rounded-tr-2xl absolute"></div>
           </div>
         </div>
-        <div class="w-[40vw] md:w-[40vw] md:h-[15vh] bg-blue-800 rounded-tr-2xl rounded-bl-2xl rounded-br-2xl">
-          <p class="text-hero px-5 py-5">UMKM Indonesia</p>
+        <div class="w-[40vw] md:w-[40vw] md:h-[15vh] xl:w-[50vw] bg-blue-800 rounded-tr-2xl rounded-bl-2xl rounded-br-2xl">
+          <p class="text-hero overflow-ellipsis line-clamp-1 px-5 py-5">UMKM Indonesia</p>
         </div>
       </div>
     </div>
-    <!--  image left and description  -->
-    <div class="w-[88vw] h-[30vh] md:h-[85vh] absolute md:bottom-0 flex flex-row justify-evenly">
-      <div class=" w-full flex flex-row justify-start relative">
+    <!--  image left and right  -->
+    <div class="w-[88vw] h-[30vh] md:h-full absolute md:top-0 flex flex-col justify-evenly">
+      <div class="h-1/2 w-full flex flex-row justify-start relative">
         <div class="image-left"></div>
         <div class="text-left">
           <div class="w-full">
             <p>AEGIS hadir dari validasi ide awal, pengurusan legalitas, akses pendanaan untuk membantu UMKM mencapai
               potensi maksimalnya dengan layanan terpadu yang terpercaya.</p>
             <div class="mt-8 hidden md:block">
-              <NuxtLink to="/register"
-                        class="bg-blue-800 border border-blue-800 rounded-lg px-8 py-3 text-white hover:cursor-pointer hover:bg-blue-600 hover:border-blue-600">
+              <NuxtLink to="/services" class="bg-blue-800 border border-blue-800 rounded-lg px-8 py-3 text-white hover:cursor-pointer hover:bg-blue-600 hover:border-blue-600">
                 Gabung AEGIS
               </NuxtLink>
               <span class="mx-4"></span>
-              <NuxtLink to="/about"
-                        class="border border-blue-800 rounded-lg px-8 py-3 text-blue-800 hover:bg-blue-400 hover:border-blue-400 hover:text-white">
+              <NuxtLink to="/about" class="border border-blue-800 rounded-lg px-8 py-3 text-blue-800 hover:bg-blue-400 hover:border-blue-400 hover:text-white">
                 Tentang kami
               </NuxtLink>
             </div>
@@ -66,10 +63,8 @@
         </div>
       </div>
     </div>
-    <div class="w-[88vw] absolute top-0 right-0 flex flex-row justify-end items-start">
-      <div class="mr-[6vw]">
+    <div class="w-[88vw] absolute top-0 right-0 flex flex-row justify-end items-start lg:pr-[3vw] xl:pr-[6vw]">
         <div class="image-right"></div>
-      </div>
     </div>
   </section>
   <!--  MOBILE -->
@@ -104,31 +99,31 @@
 
 <style scoped>
 .text-hero {
-  @apply sm:text-6xl md:text-5xl lg:text-5xl xl:text-6xl text-white;
+  @apply sm:text-6xl md:text-5xl lg:text-5xl xl:text-7xl text-white;
 }
 
 .image-left {
   background-image: url("/images/hero-left.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply mt-8 mr-[4vw] rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-[50vh] lg:w-[50vw] lg:h-[40vh] xl:w-[46vw] xl:h-[50vh];
+  @apply mt-8 mr-[4vw] rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-max lg:w-[50vw] lg:h-[50vh] xl:w-[40vw] xl:h-[50vh];
 }
 
 .text-left {
-  @apply w-[38vw] h-[50vh] flex flex-col justify-end;
+  @apply w-[38vw] h-full flex flex-col justify-end;
 }
 
 .image-right {
   background-image: url("/images/hero-right.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply w-[20vw] md:w-[15vw] md:h-[13vw] lg:w-[18vw] lg:h-[20vh] xl:w-[12vw] xl:h-[14vw];
+  @apply w-[20vw] md:w-[15vw] md:h-[13vw] lg:w-[18vw] lg:h-[20vh] xl:w-[10vw] xl:h-[30vh];
 }
 
 .image-mobile{
   background-image: url("/images/main/m/bg-hero.webp");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply w-full h-[25vh] md:h-[40vh] mb-2 rounded-b-2xl;
+  @apply w-full h-[25vh] sm:h-[50vh] md:h-[70vh] lg:h-[60vh] xl:h-[60vh] mb-2 rounded-b-2xl;
 }
 </style>

@@ -4,9 +4,9 @@ import ItemMission from "~/components/about/ItemMission.vue";
 </script>
 
 <template>
-  <section id="fifth" class="w-svw h-max">
+  <section id="fifth" class="w-svw h-max mb-10">
     <!-- Head-->
-    <div class="w-full flex flex-row justify-evenly my-10">
+    <div class="w-full h-max flex flex-row justify-evenly my-10">
       <div class="text-3xl font-semibold md:text-5xl lg:text-5xl">
         <span class="bg-blue-800 text-white rounded-lg">Misi</span>
         <span> Kami</span>
@@ -17,7 +17,7 @@ import ItemMission from "~/components/about/ItemMission.vue";
       <p class="w-[88vw] md:w-[20vw] lg:w-[20vw] text-center">Kami memiliki dua misi utama yang menjadi fokus dalam setiap usaha kami</p>
     </div>
     <!-- Content-->
-    <div class="w-full flex flex-row flex-wrap justify-center">
+    <div class="w-full h-max flex flex-row flex-wrap justify-center">
       <ItemMission
           icon="/images/about/ic-mission1.svg"
           description="Memajukan UMKM untuk Bersaing Secara Internasional"

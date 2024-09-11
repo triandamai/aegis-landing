@@ -80,7 +80,6 @@ onMounted(() => {
           Tentang kami
         </NuxtLink>
         <NuxtLink
-            to="#"
             class="justify-center h-full px-2 mx-4 hover:text-blue-800 flex flex-row items-center"
             :active-class="'text-blue-800'"
             id="services">
@@ -179,7 +178,7 @@ onMounted(() => {
               v-for="service in services"
               :title="service.name ?? ''"
               :text="service.description ?? ''"
-              :icon="service.image ?? ''"
+              :icon="service.icon ?? ''"
               :slug="service.slug ?? ''"
           />
         </div>
