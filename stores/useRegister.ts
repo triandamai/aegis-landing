@@ -38,7 +38,7 @@ export const useRegister = defineStore("register", {
                     return
                 }
 
-                if(!businessScale.includes(this.businessSize)){
+                if (!businessScale.includes(this.businessSize)) {
                     hideLoading()
                     alert.failed("Silahkan pilih ukuran bisnis.")
                     return
@@ -61,11 +61,11 @@ export const useRegister = defineStore("register", {
             const signUp = await client.auth.signUp({
                 email: this.email,
                 password: this.password,
-                options:{
-                    emailRedirectTo:`${runtime.public.BASE_URL}register-success`,
-                    data:{
+                options: {
+                    emailRedirectTo: `${runtime.public.BASE_URL}register-success`,
+                    data: {
                         full_name: this.fullName,
-                        display_name:this.fullName
+                        display_name: this.fullName
                     }
                 }
             })
@@ -83,7 +83,8 @@ export const useRegister = defineStore("register", {
                         business_phone: this.businessPhone,
                         business_name: this.businessName,
                         business_scale: this.businessSize,
-                        user_id:user?.id
+                        business_email: this.email,
+                        user_id: user?.id
                     })
 
                 if (savedBusiness.error) {
@@ -92,28 +93,33 @@ export const useRegister = defineStore("register", {
                     return
                 }
             }
-
             hideLoading()
+            this.fullName = ""
+            this.email = ""
+            this.password = ""
+            this.businessName = ""
+            this.businessPhone = ""
+            this.businessSize = "NONE"
             return router.push({path: "/otp-sent", replace: true})
         },
-        async signInGoogle(){
+        async signInGoogle() {
             const client = useSupabaseClient<Database>()
             const runtime = useRuntimeConfig()
 
-             await client.auth.signInWithOAuth({
-                provider:'google',
+            await client.auth.signInWithOAuth({
+                provider: 'google',
                 options: {
                     redirectTo: `${runtime.public.BASE_URL}sign-in-confirmation`,
                 },
             })
         },
-        async signInFacebook(){
+        async signInFacebook() {
             const alert = useAlert()
             const client = useSupabaseClient<Database>()
             const runtime = useRuntimeConfig()
 
             await client.auth.signInWithOAuth({
-                provider:'facebook',
+                provider: 'facebook',
                 options: {
                     redirectTo: `${runtime.public.BASE_URL}sign-in-confirmation`,
                 },

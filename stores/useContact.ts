@@ -55,6 +55,10 @@ export const useContact = defineStore("contact", {
             })
             hideLoading()
             if (savedData.error) return alert.failed(savedData.error.message)
+            this.fullName = ""
+            this.email = ""
+            this.message = ""
+            this.subject = "NONE"
 
             return router.push({path: "/contact-sent"})
         }
