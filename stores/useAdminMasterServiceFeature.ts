@@ -4,13 +4,14 @@ import type {DataFeatureService} from "~/schema/type.data";
 export const useAdminMasterServiceFeature = defineStore("master-services-feature", {
     state: () => ({
         //form
-        featureId: 0 as number | null,
+        featureId: null as number | null,
         featureName: "",
         featureDescription: "",
         featureImage: null as File | null,
         featureImageUrl: "" as string | ArrayBuffer | null,
         isEdit: false,
         showForm: false,
+        loadingSubmit:false,
 
         // data
         search: "",
@@ -28,11 +29,26 @@ export const useAdminMasterServiceFeature = defineStore("master-services-feature
     }),
     getters: {
         getImagePreview(): string {
-            if (this.featureImage == null) return "https://placehold.co/600x400"
-            return URL.createObjectURL(this.featureImage)
+            if(this.isEdit){
+                const {publicServiceUrl} = useFile()
+                if (this.featureImage == null) return publicServiceUrl(this.featureImageUrl)
+                return URL.createObjectURL(this.featureImage)
+            }else {
+                if (this.featureImage == null) return "https://placehold.co/600x400"
+                return URL.createObjectURL(this.featureImage)
+            }
         }
     },
     actions: {
+        resetForm(){
+            this.isEdit=false
+            this.showForm = false
+            this.featureId = null
+            this.featureName = ""
+            this.featureDescription = ""
+            this.featureImage = null
+            this.featureImageUrl = null
+        },
         async onPageChange(page: number) {
             if ((page - 1) > this.page) {
                 this.nextPage()
@@ -80,17 +96,25 @@ export const useAdminMasterServiceFeature = defineStore("master-services-feature
         },
         async createFeature() {
             const client = useSupabaseClient<Database>()
+            this.loadingSubmit = true
             const {getExt} = useFile()
-            if (this.featureImage === null) return false
+            if (this.featureImage === null) {
+                this.loadingSubmit = false
+                return false
+            }
             const currentDate = new Date().getTime()
 
             const getFileExtension = getExt(this.featureImage)
 
-            if (getFileExtension === "") return false
+            if (getFileExtension === "") {
+                this.loadingSubmit = false
+                return false
+            }
             const upload = await client.storage.from("service-feature")
                 .upload(`${currentDate}.${getFileExtension}`, this.featureImage)
 
             if (upload.error) {
+                this.loadingSubmit = false
                 return false
             }
             const route = useRoute('admin-master-services-feature-id')
@@ -102,16 +126,61 @@ export const useAdminMasterServiceFeature = defineStore("master-services-feature
                     image: upload.data.fullPath,
                     service_id: parseInt(route.params.id)
                 })
-
+            this.loadingSubmit = false
             if (savedService.error) {
                 return false
             }
-            this.showForm = false
-            this.featureId = null
-            this.featureName = ""
-            this.featureDescription = ""
-            this.featureImage = null
-            this.featureImageUrl = null
+            this.resetForm()
+            this.getFeature()
+            return true
+        },
+        async updateFeature() {
+            const client = useSupabaseClient<Database>()
+            this.loadingSubmit = true
+
+            const data =await client.from('service_feature')
+                .select("*")
+                .eq('id',this.featureId)
+                .limit(1)
+
+            if(data.error){
+                this.loadingSubmit = false
+                return false
+            }
+            if(data.data.length<=0){
+                this.loadingSubmit = false
+                return false
+            }
+
+            let imageUrl:string = data.data[0].image
+            if(this.featureImage !== null){
+                const upload = await client.storage.from("service-feature")
+                    .update(imageUrl.split("service-feature/")[1], this.featureImage)
+
+                if (upload.error) {
+                    this.loadingSubmit = false
+                    return false
+                }
+                imageUrl = upload.data.fullPath
+            }
+
+
+            const route = useRoute('admin-master-services-feature-id')
+
+            const savedService = await client.from("service_feature")
+                .update({
+                    name: this.featureName,
+                    description: this.featureDescription,
+                    image: imageUrl,
+                    service_id: parseInt(route.params.id)
+                })
+                .eq('id',this.featureId)
+
+            this.loadingSubmit = false
+            if (savedService.error) {
+                return false
+            }
+            this.resetForm()
             this.getFeature()
             return true
         },
@@ -136,7 +205,7 @@ export const useAdminMasterServiceFeature = defineStore("master-services-feature
             }
 
             const deleteImage = await client.storage.from('service-feature')
-                .remove([getData.data[0].image ?? ''])
+                .remove([getData.data[0].image.split("service-feature/")[1] ?? ''])
 
             if (deleteImage.error) {
                 this.showDeleteLoading = false

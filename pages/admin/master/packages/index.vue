@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {da} from "vuetify/locale";
+
 const header = [
   {key: 'title', title: 'Nama'},
   {key: 'subtitle', title: 'Deskripsi'},
@@ -10,18 +12,35 @@ const header = [
 ]
 const {publicServiceUrl} = useFile()
 const store = useAdminMasterPackage()
+
+function showEdit(data: DataPackage) {
+  store.isEdit = true
+  store.packageId = data.id
+  store.packageTitle = data.title
+  store.packageSubTitle = data.subtitle
+  store.packageDescription = data.description
+  store.packageBenefitTitle = data.feature_title
+  store.packageBenefitDescription = data.feature_sub_title
+  store.packageIconUrl = data.icon
+  store.packageImageUrl = data.image
+  store.packagePrice = data.price
+  store.showForm = true
+}
 </script>
 
 <template>
   <NuxtLayout name="admin">
 
-<!--    create new -->
-    <v-dialog v-model="store.showForm" max-width="800">
+    <!--    create new -->
+    <v-dialog v-model="store.showForm"
+              max-width="800"
+              scrollable
+    >
       <template v-slot:default="{ isActive }">
         <v-card rounded="lg">
           <v-card-title class="d-flex justify-space-between align-center">
             <div class="text-h5 text-medium-emphasis ps-2">
-              Tambah paket baru
+              {{ store.isEdit ? 'Ubah paket' : 'Tambah paket baru' }}
             </div>
 
             <v-btn
@@ -34,7 +53,7 @@ const store = useAdminMasterPackage()
           <v-divider class="mb-4"></v-divider>
 
           <v-card-text>
-            <v-text-field v-model="store.packageTitle" label="Nama Layanan" variant="outlined"></v-text-field>
+            <v-text-field v-model="store.packageTitle" label="Nama Paket Layanan" variant="outlined"></v-text-field>
             <v-text-field v-model="store.packageSubTitle" label="Deskripsi singkat" variant="outlined"></v-text-field>
             <v-textarea
                 v-model="store.packageDescription"
@@ -59,6 +78,7 @@ const store = useAdminMasterPackage()
                 v-model="store.packagePrice"
                 label="Harga"
                 prefix="Rp"
+                variant="outlined"
             ></v-text-field>
             <v-row>
               <v-col cols="12" md="4" sm="6" lg="4" xl="4">
@@ -68,7 +88,7 @@ const store = useAdminMasterPackage()
                 ></v-img>
               </v-col>
               <v-col cols="12" md="6" sm="6" lg="8" xl="8">
-                <v-file-input  v-model="store.packageImage" label="Gambar" variant="outlined"></v-file-input>
+                <v-file-input v-model="store.packageImage" label="Gambar" variant="outlined"></v-file-input>
               </v-col>
             </v-row>
             <v-row>
@@ -79,7 +99,7 @@ const store = useAdminMasterPackage()
                 ></v-img>
               </v-col>
               <v-col cols="12" md="4" sm="6" lg="8" xl="8">
-                <v-file-input  v-model="store.packageIcon" label="Icon" variant="outlined"></v-file-input>
+                <v-file-input v-model="store.packageIcon" label="Icon" variant="outlined"></v-file-input>
               </v-col>
             </v-row>
           </v-card-text>
@@ -90,24 +110,36 @@ const store = useAdminMasterPackage()
             <v-btn
                 class="text-none"
                 rounded="xl"
-                text="Cancel"
-                @click="isActive.value = false"
-            ></v-btn>
+                :disabled="store.loadingSubmit"
+                @click="()=>{
+                  store.resetForm()
+                  isActive.value = false
+                }"
+            >Batal
+            </v-btn>
 
             <v-btn
-                class="text-none"
-                color="primary"
-                rounded="xl"
-                text="Send"
                 variant="flat"
-                @click="store.createPackages"
-            ></v-btn>
+                :loading="store.loadingSubmit"
+                @click="()=>{
+                  if(store.isEdit) {
+                    store.updatePackages()
+                  } else {
+                    store.createPackages()
+                  }
+                }"
+            >
+              <template v-slot:loader>
+                <v-progress-circular indeterminate></v-progress-circular>
+              </template>
+              Simpan
+            </v-btn>
           </v-card-actions>
         </v-card>
       </template>
     </v-dialog>
-<!--    end create -->
-<!--  dialog delete  -->
+    <!--    end create -->
+    <!--  dialog delete  -->
     <v-dialog
         v-model="store.showDelete"
         max-width="400"
@@ -122,7 +154,7 @@ const store = useAdminMasterPackage()
         <template v-slot:actions>
           <v-spacer></v-spacer>
 
-          <v-btn :loading="store.showDeleteLoading"  @click="()=>{
+          <v-btn :loading="store.showDeleteLoading" @click="()=>{
             store.showDelete = false
             store.selectedPackage = null
           }">
@@ -133,7 +165,7 @@ const store = useAdminMasterPackage()
           </v-btn>
 
           <v-btn :loading="store.showDeleteLoading"
-              @click="()=>{
+                 @click="()=>{
             store.deletePackage()
           }">
             <template v-slot:loader>
@@ -144,11 +176,12 @@ const store = useAdminMasterPackage()
         </template>
       </v-card>
     </v-dialog>
-<!--  end dialog delete  -->
+    <!--  end dialog delete  -->
     <v-btn variant="flat" @click="()=>{
       store.showForm = true
       store.isEdit=false
-    }">Tambah</v-btn>
+    }">Tambah
+    </v-btn>
     <v-data-table-server
         v-model:items-per-page="store.size"
         :headers="header"
@@ -162,10 +195,13 @@ const store = useAdminMasterPackage()
         <div class="text-end">Aksi</div>
       </template>
       <template v-slot:[`item.feature`]="{ item }">
-        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/admin/master/package-feature/${item.id}`">Atur Benefit</NuxtLink>
+        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/admin/master/package-feature/${item.id}`">Atur
+          Benefit
+        </NuxtLink>
       </template>
       <template v-slot:[`item.slug`]="{ item }">
-        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/packages/${item.slug}`">/{{item.slug}}</NuxtLink>
+        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/packages/${item.slug}`">/{{ item.slug }}
+        </NuxtLink>
       </template>
       <template v-slot:[`item.image`]="{ item }">
         <v-card class="my-2" elevation="2" rounded>
@@ -187,6 +223,11 @@ const store = useAdminMasterPackage()
       </template>
       <template v-slot:[`item.action`]="{ item }">
         <div class="d-flex justify-space-around">
+          <v-btn @click="()=>{
+            showEdit(item)
+          }" icon="mdi-pencil" variant="flat">
+          </v-btn>
+
           <v-btn @click="()=>{
             store.showDelete = true
             store.selectedPackage = item

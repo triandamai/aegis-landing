@@ -16,6 +16,7 @@ export const useAdminMasterPackage = defineStore("master-package", {
         packagePrice: 0 as number | null,
         isEdit: false,
         showForm: false,
+        loadingSubmit: false,
 
         // data
         search: "",
@@ -34,15 +35,40 @@ export const useAdminMasterPackage = defineStore("master-package", {
     }),
     getters: {
         getImagePreview(): string {
-            if (this.packageImage == null) return "https://placehold.co/600x400"
-            return URL.createObjectURL(this.packageImage)
+            if (this.isEdit) {
+                const {publicServiceUrl} = useFile()
+                if (this.packageImage == null) return publicServiceUrl(this.packageImageUrl)
+                return URL.createObjectURL(this.packageImage)
+            } else {
+                if (this.packageImage == null) return "https://placehold.co/600x400"
+                return URL.createObjectURL(this.packageImage)
+            }
         },
         getImageIconPreview(): string {
-            if (this.packageIcon == null) return "https://placehold.co/600x400"
-            return URL.createObjectURL(this.packageIcon)
+            if (this.isEdit) {
+                const {publicServiceUrl} = useFile()
+                if (this.packageIcon == null) return publicServiceUrl(this.packageIconUrl)
+                return URL.createObjectURL(this.packageIcon)
+            } else {
+                if (this.packageIcon == null) return "https://placehold.co/600x400"
+                return URL.createObjectURL(this.packageIcon)
+            }
         }
     },
     actions: {
+        resetForm() {
+            this.packageId = null
+            this.packageTitle = ""
+            this.packageSubTitle = ""
+            this.packageDescription = ""
+            this.packageBenefitTitle = ""
+            this.packageBenefitDescription = ""
+            this.packageImage = null
+            this.packageImageUrl = null
+            this.packageIcon = null
+            this.packageIconUrl = null
+            this.packagePrice = null
+        },
         async onPageChange(page: number) {
             if ((page - 1) > this.page) {
                 this.nextPage()
@@ -87,13 +113,23 @@ export const useAdminMasterPackage = defineStore("master-package", {
         },
         async createPackages() {
             const client = useSupabaseClient<Database>()
+            this.loadingSubmit = true
             const {getExt} = useFile()
-            if (this.packageImage === null) return false
-            if (this.packageIcon === null) return false
+            if (this.packageImage === null) {
+                this.loadingSubmit = false
+                return false
+            }
+            if (this.packageIcon === null) {
+                this.loadingSubmit = false
+                return false
+            }
             const currentDate = new Date().getTime()
 
             const getFileExtension = getExt(this.packageImage)
-            if (getFileExtension === "") return false
+            if (getFileExtension === "") {
+                this.loadingSubmit = false
+                return false
+            }
 
             const upload = await client
                 .storage
@@ -101,11 +137,15 @@ export const useAdminMasterPackage = defineStore("master-package", {
                 .upload(`${currentDate}.${getFileExtension}`, this.packageImage)
 
             if (upload.error) {
+                this.loadingSubmit = false
                 return false
             }
 
             const getExtIcon = getExt(this.packageIcon)
-            if (getExtIcon == "") return false
+            if (getExtIcon == "") {
+                this.loadingSubmit = false
+                return false
+            }
 
             const uploadIcon = await client
                 .storage
@@ -113,6 +153,7 @@ export const useAdminMasterPackage = defineStore("master-package", {
                 .upload(`icon-${currentDate}.${getFileExtension}`, this.packageIcon)
 
             if (uploadIcon.error) {
+                this.loadingSubmit = false
                 return false
             }
 
@@ -131,21 +172,82 @@ export const useAdminMasterPackage = defineStore("master-package", {
                     slug: slugify(this.packageTitle)
                 })
 
+            this.loadingSubmit = false
             if (savedService.error) {
                 return false
             }
             this.showForm = false
-            this.packageId = null
-            this.packageTitle = ""
-            this.packageSubTitle = ""
-            this.packageDescription = ""
-            this.packageBenefitTitle = ""
-            this.packageBenefitDescription = ""
-            this.packageImage = null
-            this.packageImageUrl = null
-            this.packageIcon = null
-            this.packageIconUrl = null
-            this.packagePrice = null
+            this.resetForm()
+            this.getPackages()
+            return true
+        },
+        async updatePackages() {
+            const client = useSupabaseClient<Database>()
+            this.loadingSubmit = true
+            const data = await client.from('packages')
+                .select("*")
+                .eq('id',this.packageId)
+                .limit(1)
+
+            if(data.error){
+                //failed
+                this.loadingSubmit = false
+                return false
+            }
+
+            if(data.data.length <= 0){
+                //failed
+                this.loadingSubmit = false
+                return false
+            }
+
+            let imageUrl:string=data.data[0].image
+            let iconUrl:string=data.data[0].icon
+
+            if (this.packageImage !== null){
+                const upload = await client.storage.from("package")
+                    .update(`${imageUrl.split('package/')[1]}`, this.packageImage)
+
+                if (upload.error) {
+                    this.loadingSubmit = false
+                    return false
+                }
+                imageUrl = upload.data.fullPath
+            }
+
+            if (this.packageIcon !== null){
+                const upload = await client.storage.from("package")
+                    .update(`${iconUrl.split('package/')[1]}`, this.packageIcon)
+
+                if (upload.error) {
+                    this.loadingSubmit = false
+                    return false
+                }
+                iconUrl = upload.data.fullPath
+            }
+
+
+            const {slugify} = useSlug()
+
+            const savedService = await client.from("packages")
+                .update({
+                    title: this.packageTitle,
+                    subtitle: this.packageSubTitle,
+                    description: this.packageDescription,
+                    feature_title: this.packageBenefitTitle,
+                    feature_sub_title: this.packageBenefitDescription,
+                    price: this.packagePrice,
+                    image: imageUrl,
+                    icon: iconUrl,
+                    slug: slugify(this.packageTitle)
+                }).eq('id',this.packageId)
+
+            this.loadingSubmit = false
+            if (savedService.error) {
+                return false
+            }
+            this.showForm = false
+            this.resetForm()
             this.getPackages()
             return true
         },
@@ -170,7 +272,7 @@ export const useAdminMasterPackage = defineStore("master-package", {
             }
 
             const deleteImage = await client.storage.from('package')
-                .remove([getData.data[0].image ?? '', getData.data[0].icon ?? ''])
+                .remove([getData.data[0].image.split("package/")[1] ?? '', getData.data[0].icon.split("package/")[1]  ?? ''])
 
             if (deleteImage.error) {
                 this.showDeleteLoading = false

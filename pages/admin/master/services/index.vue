@@ -11,18 +11,33 @@ const header = [
 ]
 const {publicServiceUrl} = useFile()
 const store = useAdminMasterService()
+
+function showEdit(data: DataService) {
+  store.isEdit = true
+  store.serviceId = data.id
+  store.serviceImageUrl = data.image
+  store.serviceIconUrl = data.icon
+  store.serviceName = data.name
+  store.serviceDescription = data.description
+  store.servicePrice = data.price
+  store.showForm = true
+}
 </script>
 
 <template>
   <NuxtLayout name="admin">
 
-<!--    create new -->
-    <v-dialog v-model="store.showForm" max-width="500">
+    <!--    create new/update existing -->
+    <v-dialog
+        v-model="store.showForm"
+        max-width="700"
+        scrollable
+    >
       <template v-slot:default="{ isActive }">
         <v-card rounded="lg">
           <v-card-title class="d-flex justify-space-between align-center">
             <div class="text-h5 text-medium-emphasis ps-2">
-              Tambah layanan baru
+              {{ store.isEdit ? 'Ubah layanan' : 'Tambah layanan baru' }}
             </div>
 
             <v-btn
@@ -49,6 +64,7 @@ const store = useAdminMasterService()
                 v-model="store.servicePrice"
                 label="Harga"
                 prefix="Rp"
+                variant="outlined"
             ></v-text-field>
             <v-row>
               <v-col cols="12" md="4" sm="6" lg="4" xl="4">
@@ -58,18 +74,18 @@ const store = useAdminMasterService()
                 ></v-img>
               </v-col>
               <v-col cols="12" md="6" sm="6" lg="8" xl="8">
-                <v-file-input  v-model="store.serviceImage" label="Gambar" variant="outlined"></v-file-input>
+                <v-file-input v-model="store.serviceImage" label="Gambar" variant="outlined"></v-file-input>
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="12" md="6" sm="6" lg="4" xl="4">
+              <v-col cols="12" md="4" sm="6" lg="4" xl="4">
                 <v-img
                     :src="store.getIconPreview"
                     contain
                 ></v-img>
               </v-col>
-              <v-col cols="12" md="4" sm="6" lg="8" xl="8">
-                <v-file-input  v-model="store.serviceIcon" label="Icon" variant="outlined"></v-file-input>
+              <v-col cols="12" md="6" sm="6" lg="8" xl="8">
+                <v-file-input v-model="store.serviceIcon" label="Icon" variant="outlined"></v-file-input>
               </v-col>
             </v-row>
           </v-card-text>
@@ -80,23 +96,34 @@ const store = useAdminMasterService()
             <v-btn
                 class="text-none"
                 rounded="xl"
-                text="Cancel"
-                @click="isActive.value = false"
-            ></v-btn>
+                :disabled="store.loadingSubmit"
+                @click="()=>{
+                  store.resetForm()
+                  isActive.value = false
+                }"
+            >Batal</v-btn>
 
             <v-btn
-                class="text-none"
-                color="primary"
-                rounded="xl"
-                text="Send"
                 variant="flat"
-                @click="store.createServices"
-            ></v-btn>
+                :loading="store.loadingSubmit"
+                @click="()=>{
+                  if(store.isEdit) {
+                    store.updateServices()
+                  } else {
+                    store.createServices()
+                  }
+                }"
+            >
+              <template v-slot:loader>
+                <v-progress-circular indeterminate></v-progress-circular>
+              </template>
+              Simpan
+            </v-btn>
           </v-card-actions>
         </v-card>
       </template>
     </v-dialog>
-<!--    end create -->
+    <!--    end create -->
     <!--  dialog delete  -->
     <v-dialog
         v-model="store.showDelete"
@@ -112,13 +139,10 @@ const store = useAdminMasterService()
         <template v-slot:actions>
           <v-spacer></v-spacer>
 
-          <v-btn :loading="store.showDeleteLoading"  @click="()=>{
+          <v-btn :disabled="store.showDeleteLoading" @click="()=>{
             store.showDelete = false
             store.selectedService = null
           }">
-            <template v-slot:loader>
-              <v-progress-circular indeterminate></v-progress-circular>
-            </template>
             Batal
           </v-btn>
 
@@ -136,7 +160,8 @@ const store = useAdminMasterService()
     <v-btn variant="flat" @click="()=>{
       store.showForm = true
       store.isEdit=false
-    }">Tambah</v-btn>
+    }">Tambah
+    </v-btn>
     <v-data-table-server
         v-model:items-per-page="store.size"
         :headers="header"
@@ -151,10 +176,13 @@ const store = useAdminMasterService()
       </template>
 
       <template v-slot:[`item.feature`]="{ item }">
-        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/admin/master/services-feature/${item.id}`">Atur Benefit</NuxtLink>
+        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/admin/master/services-feature/${item.id}`">Atur
+          Benefit
+        </NuxtLink>
       </template>
       <template v-slot:[`item.slug`]="{ item }">
-        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/services/${item.slug}`">/{{item.slug}}</NuxtLink>
+        <NuxtLink class="underline text-blue-600 cursor-pointer" :to="`/services/${item.slug}`">/{{ item.slug }}
+        </NuxtLink>
       </template>
       <template v-slot:[`item.image`]="{ item }">
         <v-card class="my-2" elevation="0" rounded flat>
@@ -176,6 +204,10 @@ const store = useAdminMasterService()
       </template>
       <template v-slot:[`item.action`]="{ item }">
         <div class="d-flex justify-space-around">
+          <v-btn @click="()=>{
+            showEdit(item)
+          }" icon="mdi-pencil" variant="flat">
+          </v-btn>
           <v-btn @click="()=>{
             store.showDelete = true
             store.selectedService = item

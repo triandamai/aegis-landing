@@ -22,7 +22,7 @@
         </div>
         <div
             class="w-[50vw] md:w-[46vw] md:h-[15vh] xl:w-[50vw] bg-blue-800 rounded-bl-2xl flex flex-row justify-start items-center">
-          <p class="text-hero pr-5 pl-5 py-5 overflow-ellipsis line-clamp-1">Pertumbuhan Bisnis</p>
+          <p class="text-hero w-full text-center pr-5 pl-5 py-5 overflow-ellipsis line-clamp-1">Pertumbuhan Bisnis</p>
         </div>
         <div class="w-[5vw] flex flex-row justify-start relative">
           <div class="h-4 w-4 bg-blue-800 absolute bottom-0"></div>
@@ -99,7 +99,7 @@
 
 <style scoped>
 .text-hero {
-  @apply sm:text-6xl md:text-5xl lg:text-5xl xl:text-7xl text-white;
+  @apply sm:text-6xl md:text-5xl lg:text-5xl xl:text-6xl text-white;
 }
 
 .image-left {

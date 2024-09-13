@@ -54,8 +54,8 @@ useAsyncData(async ()=> store.getServiceFeature())
               <template v-slot:item="{ props, item }">
                 <v-list-item
                     v-bind="props"
-                    :subtitle="item.raw.name ?? ''"
-                    :title="item.raw.services?.name ?? ''"
+                    :subtitle="item.raw.services?.name  ?? ''"
+                    :title="item.raw.name ?? ''"
                 ></v-list-item>
               </template>
             </v-autocomplete>

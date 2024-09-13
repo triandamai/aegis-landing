@@ -8,6 +8,15 @@ const header = [
 ]
 const {publicServiceUrl} = useFile()
 const store = useAdminMasterServiceFeature()
+
+function showEdit(data: DataFeatureService) {
+  store.isEdit = true
+  store.featureId = data.id
+  store.featureName = data.name
+  store.featureDescription = data.description
+  store.featureImageUrl = data.image
+  store.showForm=true
+}
 </script>
 
 <template>
@@ -19,7 +28,7 @@ const store = useAdminMasterServiceFeature()
         <v-card rounded="lg">
           <v-card-title class="d-flex justify-space-between align-center">
             <div class="text-h5 text-medium-emphasis ps-2">
-              Tambah layanan baru
+              {{ store.isEdit ? 'Ubah Benefit' : 'Tambah Benefit' }}
             </div>
 
             <v-btn
@@ -50,7 +59,7 @@ const store = useAdminMasterServiceFeature()
                 ></v-img>
               </v-col>
               <v-col cols="12" md="6" sm="6" lg="10" xl="10">
-                <v-file-input  v-model="store.featureImage" label="Icon" variant="outlined"></v-file-input>
+                <v-file-input v-model="store.featureImage" label="Icon" variant="outlined"></v-file-input>
               </v-col>
             </v-row>
           </v-card-text>
@@ -61,18 +70,32 @@ const store = useAdminMasterServiceFeature()
             <v-btn
                 class="text-none"
                 rounded="xl"
-                text="Cancel"
-                @click="isActive.value = false"
-            ></v-btn>
+                :disabled="store.loadingSubmit"
+                @click="()=>{
+                  store.resetForm()
+                  isActive.value = false
+                }"
+            >Batal
+            </v-btn>
 
             <v-btn
                 class="text-none"
                 color="primary"
-                rounded="xl"
-                text="Send"
                 variant="flat"
-                @click="store.createFeature"
-            ></v-btn>
+                :loading="store.loadingSubmit"
+                @click="()=>{
+                  if(store.isEdit){
+                   store.updateFeature()
+                  }else{
+                    store.createFeature()
+                  }
+                }"
+            >
+              <template v-slot:loader>
+                <v-progress-circular indeterminate></v-progress-circular>
+              </template>
+              Simpan
+            </v-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -93,7 +116,7 @@ const store = useAdminMasterServiceFeature()
         <template v-slot:actions>
           <v-spacer></v-spacer>
 
-          <v-btn :loading="store.showDeleteLoading"  @click="()=>{
+          <v-btn :loading="store.showDeleteLoading" @click="()=>{
             store.showDelete = false
             store.selectedService = null
           }">
@@ -117,7 +140,8 @@ const store = useAdminMasterServiceFeature()
     <v-btn variant="flat" @click="()=>{
       store.showForm = true
       store.isEdit=false
-    }">Tambah</v-btn>
+    }">Tambah
+    </v-btn>
     <v-data-table-server
         v-model:items-per-page="store.size"
         :headers="header"
@@ -141,6 +165,10 @@ const store = useAdminMasterServiceFeature()
       </template>
       <template v-slot:[`item.action`]="{ item }">
         <div class="d-flex justify-space-around">
+          <v-btn @click="()=>{
+            showEdit(item)
+          }" icon="mdi-pencil" variant="flat">
+          </v-btn>
           <v-btn @click="()=>{
             store.showDelete = true
             store.selectedService = item
