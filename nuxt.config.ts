@@ -24,7 +24,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/supabase',
     'vuetify-nuxt-module',
-    'nuxt-mail'
+    'nuxt-mail',
+    '@formkit/auto-animate'
   ],
   imports:{
     autoImport:true,

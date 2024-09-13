@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import Desktop from "~/components/main/second/Desktop.vue";
-import Mobile from "~/components/main/second/Mobile.vue";
-
 defineProps<{
-  services:Array<DataService>
+  services: Array<DataService>
 }>()
-const head = ref<HTMLDivElement | null>()
-const line = ref<HTMLDivElement | null>()
 
 const headMobile = ref<HTMLDivElement | null>()
 const lineMobile = ref<HTMLDivElement | null>()
@@ -14,78 +9,44 @@ const lineMobile = ref<HTMLDivElement | null>()
 const isDown = ref(false)
 const top = ref(0)
 const screenY = ref(0)
-const scale = computed(()=>{
-  if(line.value?.clientHeight){
-    if(top.value == 0) return 0.8
-    const divide = (top.value / (line.value?.clientHeight))
-    if(divide < 0.4) return 0.8
-    return divide + 0.8
-  }else{
-    return 0.8
-  }
-})
-
-const scaleMobile = computed(()=>{
-  if(lineMobile.value?.clientHeight){
-    if(top.value == 0) return 0.8
+const scale = computed(() => {
+  if (lineMobile.value?.clientHeight) {
+    if (top.value == 0) return 0.8
     const divide = (top.value / (lineMobile.value?.clientHeight))
-    if(divide < 0.4) return 0.8
+    if (divide < 0.4) return 0.8
     return divide + 0.8
-  }else{
+  } else {
     return 0.8
   }
 })
 
-const showDetailServices = computed(()=>{
-  if(line.value?.clientHeight){
-    let divide = line.value?.clientHeight/3
-    if(top.value < divide) return 0
-    if(top.value < (divide*2)) return 1
+const showDetailServicesMobile = computed(() => {
+  if (lineMobile.value?.clientHeight) {
+    let divide = lineMobile.value?.clientHeight / 3
+    if (top.value < divide) return 0
+    if (top.value < (divide * 2)) return 1
     return 2
   }
   return 0
 })
 
-const showDetailServicesMobile = computed(()=>{
-  if(lineMobile.value?.clientHeight){
-    let divide = lineMobile.value?.clientHeight/3
-    if(top.value < divide) return 0
-    if(top.value < (divide*2)) return 1
-    return 2
-  }
-  return 0
-})
-
-function onMove(e:MouseEvent,el:HTMLDivElement){
+function onMove(e: MouseEvent, el: HTMLDivElement) {
   if (isDown.value) {
     if (e.pageY > screenY.value) {
       if (top.value <= el.clientHeight) {
         top.value += e.movementY
       }
-    } else if(e.pageY < screenY.value) {
+    } else if (e.pageY < screenY.value) {
 
-      if(top.value >= 0) {
+      if (top.value >= 0) {
         top.value += e.movementY
       }
     }
     screenY.value = e.pageY
   }
 }
+
 onMounted(() => {
-  head.value?.addEventListener("mousedown", () => {
-    isDown.value = true
-  })
-  head.value?.addEventListener('mouseup', () => {
-    isDown.value = false
-  })
-
-  head.value?.addEventListener('mouseleave', () => {
-    isDown.value = false
-  })
-  head.value?.addEventListener('mousemove', (e) => {
-    onMove(e,line.value)
-  })
-
   //mobile
   headMobile.value?.addEventListener("mousedown", () => {
     isDown.value = true
@@ -98,30 +59,45 @@ onMounted(() => {
     isDown.value = false
   })
   headMobile.value?.addEventListener('mousemove', (e) => {
-    console.log(e)
-    onMove(e,lineMobile.value)
+    onMove(e, lineMobile.value)
   })
 })
 </script>
 
 <template>
-  <section id="second" class="w-screen min-h-screen relative bg-white">
-    <Desktop :services="services"/>
-    <Mobile :services="services"/>
-    <div class="title">
-      <p class="my-2">Platform All-in-One&nbsp;<span class="rounded-2xl bg-blue-800 px-1 text-white">Terintegrasi</span>
-      </p>
-      <p class="my-2">Untuk UMKN seluruh Indonesia</p>
+  <div class="container-mobile">
+    <div class="container-right-mobile bg-gradient-to-t from-blue-100">
+      <div class="map" :style="`background-size: 100% 100%;transform:scale(${scale});transition: 0.5s;`">
+
+      </div>
     </div>
-  </section>
+    <div class="container-left-mobile bg-white">
+      <div class="container-left-mobile bg-gradient-to-b from-blue-100">
+        <div class="w-[10vw] h-1/2 flex flex-col justify-start px-2 ml-[6vw] relative">
+          <!--  line  -->
+          <div ref="lineMobile" class="body-line absolute">
+
+          </div>
+          <div ref="headMobile" :style="{top:`${top}px`}" class="head-line absolute cursor-pointer">
+
+          </div>
+
+        </div>
+        <div class="content-left-mobile">
+          <div v-for="(service,idx) in services" :key="idx">
+            <div class="mt-0" v-show="idx < 3">
+              <h1 :class="{'text-3xl text-gray-500': idx != showDetailServicesMobile,'text-2xl text-gray-950':idx == showDetailServicesMobile}">
+                {{ service.name }}</h1>
+              <p v-show="idx == showDetailServicesMobile">{{ service.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.title {
-  z-index: 2;
-  @apply hidden md:block lg:block xl:block absolute w-full top-0 text-5xl font-semibold ml-[6vw];
-}
-
 .container-second {
   @apply w-screen h-[80vh] hidden md:flex lg:flex xl:flex flex-row justify-evenly;
 }

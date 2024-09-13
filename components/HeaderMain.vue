@@ -153,7 +153,7 @@ onMounted(() => {
   </header>
   <!-- MEGA MENU -->
   <div v-show="showMegaMenu"
-       class="fixed z-50 top-0 w-screen h-max flex flex-row justify-center items-center mt-[10vh]">
+       class="fixed top-0 w-screen h-max flex flex-row justify-center items-center mt-[10vh]" style="z-index: 20;">
     <div id="container-mega-menu" class="bg-white w-2/3 h-full rounded-2xl shadow-lg shadow-gray-500/40 px-4 py-4">
       <div class="w-full h-2/3 mt-2">
         <h1>PAKET UMKM</h1>

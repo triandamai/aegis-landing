@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section id="third" class="w-svw md:px-[6vw] lg:px-[6vw] xl:px-[6vw] mt-10 relative">
+  <section id="third" class="w-svw md:px-[6vw] lg:px-[6vw] xl:px-[6vw] mt-10 relative bg-white">
     <div class="w-full">
       <div class="w-full md:w-[84vw] flex justify-evenly">
         <div class="w-full text-2xl md:text-5xl lg:text-5xl font-semibold">
