@@ -47,7 +47,6 @@ function onMove(e: MouseEvent, el: HTMLDivElement) {
 }
 
 onMounted(() => {
-  //mobile
   headMobile.value?.addEventListener("mousedown", () => {
     isDown.value = true
   })
@@ -75,10 +74,10 @@ onMounted(() => {
       <div class="container-left-mobile bg-gradient-to-b from-blue-100">
         <div class="w-[10vw] h-1/2 flex flex-col justify-start px-2 ml-[6vw] relative">
           <!--  line  -->
-          <div ref="lineMobile" class="body-line absolute">
+          <div id="line" ref="lineMobile" class="body-line absolute">
 
           </div>
-          <div ref="headMobile" :style="{top:`${top}px`}" class="head-line absolute cursor-pointer">
+          <div id="head" ref="headMobile" :style="{top:`${top}px`}" class="head-line absolute cursor-pointer">
 
           </div>
 

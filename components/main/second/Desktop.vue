@@ -17,6 +17,8 @@ const scale = computed(() => {
   } else {
     return 0.8
   }
+
+
 })
 
 const showDetailServices = computed(() => {
