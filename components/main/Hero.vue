@@ -43,24 +43,28 @@
       </div>
     </div>
     <!--  image left and right  -->
-    <div class="w-[88vw] h-[30vh] md:h-full absolute md:top-0 flex flex-col justify-evenly">
-      <div class="h-1/2 w-full flex flex-row justify-start relative">
-        <div class="image-left"></div>
-        <div class="text-left">
-          <div class="w-full">
-            <p>AEGIS hadir dari validasi ide awal, pengurusan legalitas, akses pendanaan untuk membantu UMKM mencapai
-              potensi maksimalnya dengan layanan terpadu yang terpercaya.</p>
-            <div class="mt-8 hidden md:block">
-              <NuxtLink to="/services" class="bg-blue-800 border border-blue-800 rounded-lg px-8 py-3 text-white hover:cursor-pointer hover:bg-blue-600 hover:border-blue-600">
-                Gabung AEGIS
-              </NuxtLink>
-              <span class="mx-4"></span>
-              <NuxtLink to="/about" class="border border-blue-800 rounded-lg px-8 py-3 text-blue-800 hover:bg-blue-400 hover:border-blue-400 hover:text-white">
-                Tentang kami
-              </NuxtLink>
-            </div>
-          </div>
+    <div class="w-[88vw] h-[30vh] md:h-full absolute md:top-0 xl:top-0 flex flex-col justify-evenly">
+      <div class="h-full w-svw flex flex-row flex-nowrap justify-start relative">
+        <div class="container-image-left">
+          <div class="image-left"></div>
         </div>
+       <div class="container-text-left">
+         <div class="text-left pt-[50vh]">
+           <div class="w-full h-min">
+             <p>AEGIS hadir dari validasi ide awal, pengurusan legalitas, akses pendanaan untuk membantu UMKM mencapai
+               potensi maksimalnya dengan layanan terpadu yang terpercaya.</p>
+             <div class="mt-8 hidden md:block">
+               <NuxtLink to="/services" class="bg-blue-800 border border-blue-800 rounded-lg px-8 py-3 text-white hover:cursor-pointer hover:bg-blue-600 hover:border-blue-600">
+                 Gabung AEGIS
+               </NuxtLink>
+               <span class="mx-4"></span>
+               <NuxtLink to="/about" class="border border-blue-800 rounded-lg px-8 py-3 text-blue-800 hover:bg-blue-400 hover:border-blue-400 hover:text-white">
+                 Tentang kami
+               </NuxtLink>
+             </div>
+           </div>
+         </div>
+       </div>
       </div>
     </div>
     <div class="w-[88vw] absolute top-0 right-0 flex flex-row justify-end items-start lg:pr-[3vw] xl:pr-[6vw]">
@@ -102,15 +106,21 @@
   @apply sm:text-6xl md:text-5xl lg:text-5xl xl:text-6xl text-white;
 }
 
+.container-image-left{
+  @apply relative rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-max lg:w-[45vw] lg:h-[50vh] xl:w-[45vw] xl:h-full;
+}
 .image-left {
   background-image: url("/images/hero-left.svg");
-  background-size: 100% 100%;
+  background-size: contain;
   background-repeat: no-repeat;
-  @apply mt-8 mr-[4vw] rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-max lg:w-[50vw] lg:h-[50vh] xl:w-[40vw] xl:h-[50vh];
-}
+  @apply h-[50vh] mt-[20vh] w-full absolute left-0 top-0;
+ }
 
+.container-text-left{
+  @apply relative w-[40vw] h-full flex flex-col justify-end ml-4;
+}
 .text-left {
-  @apply w-[38vw] h-full flex flex-col justify-end;
+  @apply absolute top-0 w-[40vw] flex flex-col justify-end;
 }
 
 .image-right {
