@@ -1,6 +1,6 @@
 import type {Database} from "~/types/database.types";
 
-export const useAdminServices = defineStore("book", {
+export const useAdminReservation = defineStore("reservation", {
     state: () => ({
         search: "",
         totalPage: 0,
@@ -31,6 +31,7 @@ export const useAdminServices = defineStore("book", {
             const client = useSupabaseClient<Database>()
             const count = await client.from("reservation")
                 .select("id")
+                .not('business_id','is','null')
 
             if (count.error) {
                 return
@@ -41,6 +42,7 @@ export const useAdminServices = defineStore("book", {
             const data = await client.from('reservation')
                 .select("*,business:business!business_id(*),service:services!service_id(*),package:packages!package_id(*)()")
                 .limit(this.size)
+                .not('business_id','is','null')
                 .range(this.page, (this.page + this.size))
                 .order('created_at',{ascending:false})
 

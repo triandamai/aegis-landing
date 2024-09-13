@@ -70,8 +70,8 @@ onMounted(() => {
       >
         <v-list>
           <v-list-subheader title="Layanan"></v-list-subheader>
-          <v-list-item href="/admin/services" title="Resevasi"></v-list-item>
-          <v-list-item href="/admin/contact" title="Pesan"></v-list-item>
+          <v-list-item href="/admin/reservation" title="Resevasi"></v-list-item>
+          <v-list-item href="/admin/inbox" title="Pesan"></v-list-item>
           <v-divider></v-divider>
           <v-list-subheader title="Master"></v-list-subheader>
           <v-list-item href="/admin/master/services" title="Layanan"></v-list-item>

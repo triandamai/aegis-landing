@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const reservation = useAdminServices()
+const reservation = useAdminReservation()
 const headers = [
   {key: 'email', title: 'Reservasi Layanan'}
 ]
