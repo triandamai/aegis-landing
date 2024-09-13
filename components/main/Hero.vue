@@ -107,7 +107,7 @@
 }
 
 .container-image-left{
-  @apply relative rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-max lg:w-[45vw] lg:h-[50vh] xl:w-[45vw] xl:h-full;
+  @apply relative rounded-b-2xl w-[38vw] h-[25vh] md:w-[46vw] md:h-max lg:w-[44vw] lg:h-[50vh] xl:w-[44vw] xl:h-full ;
 }
 .image-left {
   background-image: url("/images/hero-left.svg");
