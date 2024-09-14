@@ -8,7 +8,7 @@ defineEmits(['click'])
 </script>
 
 <template>
-  <div class="w-full sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 h-1/2 sm:h1/2 md:h-2/3 lg:h-full xl:h-full px-4 sm:px-2 md:px-2 lg:px-2 xl:px-4 mt-8 mb-8 flex flex-row justify-center">
+  <div class="w-full sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/3 h-1/2 sm:h1/2 md:h-2/3 lg:h-full xl:h-[90vh] px-4 sm:px-2 md:px-2 lg:px-2 xl:px-4 mt-8 mb-8 flex flex-row justify-center">
     <div class="bg relative w-full h-full sm:w-full sm:h-full md:w-full md:h-full lg:w-full lg:h-full xl:w-full xl:h-full flex flex-col justify-between items-center rounded-lg border border-gray-400 px-4 py-4">
       <div class="w-full">
         <NuxtImg class="w-full h-1/3" src="/images/main/img-product-1.webp"/>

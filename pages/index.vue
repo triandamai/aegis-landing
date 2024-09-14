@@ -9,6 +9,7 @@ definePageMeta({
   <NuxtLayout name="landing">
     <template #default="{services,callback}">
       <MainHero/>
+      <MainHeroMobile/>
       <MainSecondSection :services="services"/>
       <MainThirdSection/>
       <MainForthSection :services="services" @create-reservation="(value)=>callback.onBookService(value)" />

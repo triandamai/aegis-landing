@@ -9,26 +9,34 @@ const lineMobile = ref<HTMLDivElement | null>()
 const isDown = ref(false)
 const top = ref(0)
 const screenY = ref(0)
-const scale = computed(() => {
-  if (lineMobile.value?.clientHeight) {
-    if (top.value == 0) return 0.8
-    const divide = (top.value / (lineMobile.value?.clientHeight))
-    if (divide < 0.4) return 0.8
-    return divide + 0.8
-  } else {
-    return 0.8
+const scale = ref(0.8)
+const showDetailServices = ref(0)
+function scaling(){
+  const calc = ()=> {
+    if (lineMobile.value?.clientHeight) {
+      if (top.value == 0) return 0.8
+      const divide = (top.value / (lineMobile.value?.clientHeight))
+      if (divide < 0.4) return 0.8
+      return divide + 0.8
+    } else {
+      return 0.8
+    }
   }
-})
+  scale.value = calc()
+}
 
-const showDetailServicesMobile = computed(() => {
-  if (lineMobile.value?.clientHeight) {
-    let divide = lineMobile.value?.clientHeight / 3
-    if (top.value < divide) return 0
-    if (top.value < (divide * 2)) return 1
-    return 2
+function detailServices() {
+  const calc = ()=>{
+    if (lineMobile.value?.clientHeight) {
+      let divide = lineMobile.value?.clientHeight / 3
+      if (top.value < divide) return 0
+      if (top.value < (divide * 2)) return 1
+      return 2
+    }
+    return 0
   }
-  return 0
-})
+  showDetailServices.value = calc()
+}
 
 function onMove(e: MouseEvent, el: HTMLDivElement) {
   if (isDown.value) {
@@ -43,6 +51,8 @@ function onMove(e: MouseEvent, el: HTMLDivElement) {
       }
     }
     screenY.value = e.pageY
+    scaling()
+    detailServices()
   }
 }
 
@@ -82,12 +92,12 @@ onMounted(() => {
           </div>
 
         </div>
-        <div class="content-left-mobile">
+        <div class="content-left-mobile select-none">
           <div v-for="(service,idx) in services" :key="idx">
             <div class="mt-0" v-show="idx < 3">
-              <h1 :class="{'text-3xl text-gray-500': idx != showDetailServicesMobile,'text-2xl text-gray-950':idx == showDetailServicesMobile}">
+              <h1 :class="{'text-3xl text-gray-500': idx != showDetailServices,'text-2xl text-gray-950':idx == showDetailServices}">
                 {{ service.name }}</h1>
-              <p v-show="idx == showDetailServicesMobile">{{ service.description }}</p>
+              <p v-show="idx == showDetailServices">{{ service.description }}</p>
             </div>
           </div>
         </div>

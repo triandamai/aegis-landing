@@ -8,28 +8,35 @@ const line = ref<HTMLDivElement | null>()
 const isDown = ref(false)
 const top = ref(0)
 const screenY = ref(0)
-const scale = computed(() => {
-  if (line.value?.clientHeight) {
-    if (top.value == 0) return 0.8
-    const divide = (top.value / (line.value?.clientHeight))
-    if (divide < 0.4) return 0.8
-    return divide + 0.8
-  } else {
-    return 0.8
+const scale = ref(0.8)
+const showDetailServices = ref(0)
+
+function scaling() {
+  const calc = () => {
+    if (line.value?.clientHeight) {
+      if (top.value == 0) return 0.8
+      const divide = (top.value / (line.value?.clientHeight))
+      if (divide < 0.4) return 0.8
+      return divide + 0.8
+    } else {
+      return 0.8
+    }
   }
+  scale.value = calc()
+}
 
-
-})
-
-const showDetailServices = computed(() => {
-  if (line.value?.clientHeight) {
-    let divide = line.value?.clientHeight / 3
-    if (top.value < divide) return 0
-    if (top.value < (divide * 2)) return 1
-    return 2
+function detailServices() {
+  const calc = ()=> {
+    if (line.value?.clientHeight) {
+      let divide = line.value?.clientHeight / 3
+      if (top.value < divide) return 0
+      if (top.value < (divide * 2)) return 1
+      return 2
+    }
+    return 0
   }
-  return 0
-})
+  showDetailServices.value = calc()
+}
 
 
 function onMove(e: MouseEvent, el: HTMLDivElement) {
@@ -45,6 +52,8 @@ function onMove(e: MouseEvent, el: HTMLDivElement) {
       }
     }
     screenY.value = e.pageY
+    scaling()
+    detailServices()
   }
 }
 
@@ -80,7 +89,7 @@ onMounted(() => {
           </div>
 
         </div>
-        <div class="h-full flex flex-col justify-start pr-30 sm:pr-0 md:pr-0 lg:pr-0 xl:pr-60">
+        <div class="h-full flex flex-col justify-start pr-30 sm:pr-0 md:pr-0 lg:pr-0 xl:pr-60 select-none">
           <div v-for="(service,idx) in services" :key="idx">
             <div class="mt-4" v-show="idx < 3">
               <h1 :class="{'text-3xl text-gray-500': idx != showDetailServices,'text-2xl text-gray-950':idx == showDetailServices}">

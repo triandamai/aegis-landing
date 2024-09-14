@@ -115,7 +115,7 @@ onMounted(() => {
   </header>
   <!-- MOBILE -->
   <header class="w-full bg-white fixed z-10 block md:hidden lg:hidden xl:hidden">
-    <div class="w-full flex flex-row justify-between px-[2vw] py-[1vw]">
+    <div class="w-full flex flex-row justify-between px-[2vw] py-[0vw]">
       <NuxtLink to="/">
         <NuxtImg src="/images/logo.png" class="h-[5vh] w-[15vh]" width="100%" height="50%"/>
       </NuxtLink>
