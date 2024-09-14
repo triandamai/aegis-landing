@@ -8,7 +8,7 @@ defineProps<{
   style: string,
   parent: string,
   services: Array<DataService>,
-  package: Array<DataPackage>
+  packages: Array<DataPackage>
 }>()
 
 defineEmits(['refresh'])
@@ -18,6 +18,10 @@ const session = ref<User | null>(null)
 const name = ref("")
 const showMenuMobile = ref(false)
 const showMegaMenu = ref(false)
+
+const showSubMenu = ref(false)
+const showServices = ref(false)
+const showPackages = ref(false)
 
 async function init() {
   const user = await client.auth.getUser();
@@ -84,8 +88,8 @@ onMounted(() => {
             :active-class="'text-blue-800'"
             id="services">
           Layanan&nbsp;
-          <IconArrowDown v-show="!showMegaMenu"/>
-          <IconArrowUp v-show="showMegaMenu"/>
+          <IconArrowDown v-show="!showSubMenu"/>
+          <IconArrowUp v-show="showSubMenu"/>
         </NuxtLink>
         <NuxtLink
             to="/contact"
@@ -127,7 +131,29 @@ onMounted(() => {
     <div v-show="showMenuMobile" class="fixed z-30 block h-screen w-screen bg-white flex-col">
       <div class="w-full flex flex-col px-4 py-2">
         <NuxtLink to="/about" class="border-b border-gray-200 py-4">Tentang Kami</NuxtLink>
-        <NuxtLink to="/services" class="border-b border-gray-200 py-4">Layanan</NuxtLink>
+        <button class="border-b border-gray-200 py-4 text-start flex flex-row justify-between items-center">
+          Layanan
+          <IconArrowDown v-show="!showMegaMenu"/>
+          <IconArrowUp v-show="showMegaMenu"/>
+        </button>
+        <!--        START -->
+        <button class="text-start flex flex-row justify-between">
+          Paket UMKM
+          <IconArrowDown v-show="!showServices"/>
+          <IconArrowUp v-show="showServices"/>
+        </button>
+        <NuxtLink v-for="service in packages">
+          <span><li>{{ service.title }}</li></span>
+        </NuxtLink>
+        <button class="text-start flex flex-row justify-between">
+          Layanan Khusus
+          <IconArrowDown v-show="!showPackages"/>
+          <IconArrowUp v-show="showPackages"/>
+        </button>
+        <NuxtLink v-for="p in services">
+          <span><li>{{ p.name }}</li></span>
+        </NuxtLink>
+        <!--     END   -->
         <NuxtLink to="/contact" class="border-b border-gray-200 py-4">Kontak</NuxtLink>
         <div v-show="session === null" class="mt-10 w-full flex flex-col">
           <NuxtLink to="/login"
@@ -160,7 +186,7 @@ onMounted(() => {
         <div class="w-full h-[1px] bg-gray-300"/>
         <div class="w-full flex flex-row my-2">
           <NavPackage
-              v-for="p in package"
+              v-for="p in packages"
               :title="p.title ?? ''"
               :text="p.subtitle ?? ''"
               :icon="p.icon ?? ''"

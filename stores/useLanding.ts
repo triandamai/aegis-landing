@@ -5,7 +5,7 @@ export const useLanding = defineStore("landing", {
     state: () => ({
         locations: [] as Array<{id:string,text:string}>,
         services: [] as Array<DataDetailService>,
-        package: [] as Array<DataDetailPackage>,
+        packages: [] as Array<DataDetailPackage>,
         detailPackage: null as DataDetailPackage | null,
         detailService: null as DataDetailService | null,
         loadingDetailPackage: false as boolean,
@@ -55,12 +55,20 @@ export const useLanding = defineStore("landing", {
         },
         async getServices() {
             const client = useSupabaseClient<Database>()
+            const route = useRoute('packages-slug')
+            const {showLoading,hideLoading} = useLoading()
+            if (!route.params.slug) {
+               showLoading()
+            }
             const data = await client
                 .from("services")
                 .select("*,features:service_feature(*)")
                 .order('id', {
                     ascending: true
                 })
+            if (!route.params.slug) {
+                hideLoading()
+            }
             if (data.data) {
                 this.services = data.data as any
             }
@@ -80,7 +88,6 @@ export const useLanding = defineStore("landing", {
         },
         async getDetailPackage() {
             const route = useRoute('packages-slug')
-
             if (route.params.slug) {
                 if (route.params.slug.length > 1) {
                     const {showLoading,hideLoading} = useLoading()

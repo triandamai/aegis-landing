@@ -17,8 +17,8 @@ const contact = useContact()
           </div>
         </div>
         <div class="w-full h-[40vh] sm:h-[57vh] md:h-[57vh] lg:h-[57vh] xl:h-[57vh] bg-gradient-to-b from-blue-800 to-blue-600 rounded-b-2xl rounded-tr-2xl px-10 pb-10 text-white relative">
-          <h1 class="text-3xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-6xl mb-10"><span class="text-white">Hubungi&nbsp;</span><span class="bg-white text-blue-800 rounded-lg px-1">Kami</span></h1>
-          <p class="text-lg sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl">Kami senang mendengar dari Anda! Meskipun kami menghargai semua cara komunikasi, ada cara yang lebih mudah untuk terhubung. Kirimkan pesan Anda dan kami akan segera merespons</p>
+          <h1 class="text-3xl sm:text-2xl md:text-4xl lg:text-4xl xl:text-6xl mb-10"><span class="text-white">Hubungi&nbsp;</span><span class="bg-white text-blue-800 rounded-lg px-1">Kami</span></h1>
+          <p class="text-lg sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl">Kami senang mendengar dari Anda! Meskipun kami menghargai semua cara komunikasi, ada cara yang lebih mudah untuk terhubung. Kirimkan pesan Anda dan kami akan segera merespons</p>
           <div class="absolute bottom-0 right-0 flex flex-row px-10 py-6">
             <NuxtLink to="https://www.facebook.com/profile.php?id=61565034420965" target="_blank"> <NuxtImg
                 class="mx-2" src="/images/ic-linkedin.svg"/></NuxtLink>

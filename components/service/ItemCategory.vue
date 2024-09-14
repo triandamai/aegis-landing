@@ -12,7 +12,7 @@ defineEmits(['select'])
 </script>
 
 <template>
-  <div class="w-full h-[75vh] sm:w-[50vw] sm:h-[72vh] md:w-[40vw] md:h-[72vh] lg:w-[30vw] lg:h-[72vh] xl:w-[20vw] xl:h-[80vh] mx-4 my-4 flex flex-row justify-center">
+  <div class="w-2/3 h-[75vh] sm:w-2/3 sm:h-[72vh] md:w-[40vw] md:h-[72vh] lg:w-[25vw] lg:h-[80vh] xl:w-[20vw] xl:h-[80vh] mx-4 my-4 flex flex-row justify-center">
     <div class="relative w-full">
       <div class="container-inner">
         <div :class="{'primary':primary, 'normal':!primary}" class="container-inner-child">
@@ -84,11 +84,11 @@ defineEmits(['select'])
 }
 
 .container-inner{
-  @apply absolute bottom-0 flex flex-row justify-center w-full h-[74vh] sm:w-[50vw] sm:h-[70vh] md:w-[40vw] md:h-[70vh] lg:w-[30vw] lg:h-[70vh] xl:w-[20vw] xl:h-[79vh] px-1;
+  @apply absolute bottom-0 flex flex-row justify-center w-full h-[74vh] sm:w-[50vw] sm:h-[70vh] md:w-[40vw] md:h-[70vh] lg:w-[30vw] lg:h-[79vh] xl:w-[20vw] xl:h-[79vh] px-1;
 }
 
 .container-inner-child{
-  @apply w-full h-[75vh] sm:w-full sm:h-[70vh]  md:w-full md:h-[70vh]  lg:w-full lg:h-[70vh]  xl:w-full xl:h-[79vh] flex flex-row justify-center rounded-2xl border border-gray-300;
+  @apply w-full h-[75vh] sm:w-full sm:h-[70vh]  md:w-full md:h-[70vh]  lg:w-full lg:h-[79vh]  xl:w-full xl:h-[79vh] flex flex-row justify-center rounded-2xl border border-gray-300;
 }
 
 </style>

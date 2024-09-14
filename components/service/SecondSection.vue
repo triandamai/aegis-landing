@@ -60,7 +60,7 @@ function onSelectedTab(pos: number) {
     </div>
   </section>
   <!-- MOBILE -->
-  <section id="second-mobile" class="block sm:hidden md:hidden lg:hidden w-svw">
+  <section id="second-mobile" class="block sm:hidden md:hidden lg:hidden w-svw h-max">
     <div class="w-full">
       <div class="mt-8 mb-8">
         <h1 class="w-full text-3xl font-semibold text-center"><span
@@ -73,8 +73,8 @@ function onSelectedTab(pos: number) {
           {{item.name ?? ''}}
         </button>
       </div>
-      <div class="mt-2 w-full h-[55vh] bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 px-8 py-4">
-        <NuxtImg :src="publicServiceUrl(services[selected]?.image ?? '')" width="100%" height="100%" class="w-full h-1/2"/>
+      <div class="mt-2 w-full h-max bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 px-8 py-4">
+        <NuxtImg :src="publicServiceUrl(services[selected]?.image ?? '')" width="100%" height="100%" class="w-full h-max sm:h-2/3"/>
         <div class="w-full">
           <h1 class="text-white text-3xl my-2 text-center">{{services[selected]?.name ?? ''}}</h1>
           <p class="text-white text-center">{{services[selected]?.description}}</p>

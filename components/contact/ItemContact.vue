@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="w-[92vw] h-[30vh] sm:w-[92vw] sm:h-[25vh] md:w-[44vw] md:h-[35vh] lg:w-[44vw] lg:h-[30vh] xl:w-[44vw] xl:h-[30vh] flex flex-row justify-center relative cursor-pointer my-2">
+  <div class="w-[92vw] h-[30vh] sm:w-[92vw] sm:h-[25vh] md:w-[40vw] md:h-max lg:w-[44vw] lg:h-[30vh] xl:w-[44vw] xl:h-[30vh] flex flex-row justify-center relative cursor-pointer my-2">
     <div class="w-[80vw] h-[25vh] min-h-full sm:w-[80vw] sm:h-[25vh] md:w-[35vw] md:h-max lg:w-[35vw] lg:h-[30vh] xl:w-[35vw] xl:h-[30vh] bg-white rounded-l-2xl rounded-br-2xl px-10 py-5">
       <h1 class="w-full text-2xl mb-6">{{ name }}</h1>
       <p>

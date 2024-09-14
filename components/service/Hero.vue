@@ -21,9 +21,9 @@ defineEmits(['create-reservation'])
     </div>
     <!--    MOBILE-->
     <div class="block sm:block md:hidden lg:hidden relative w-svh">
-      <div class="w-full h-[70vh]">
+      <div class="w-full h-[70vh] ">
         <div class="bg-hero-mobile"></div>
-        <div class="w-full h-[60vh] absolute bottom-0">
+        <div class="w-full h-[70vh] absolute bottom-0">
           <div class="w-full h-full bg-gradient-to-t from-blue-800 via-blue-600 pt-[25vh] px-[6vw]">
             <h1 class="text-3xl text-center text-white font-semibold mb-8">Ubah Bisnis Anda dengan Layanan Kami</h1>
             <p class="text-center text-white">Ubah cara Anda menjalankan bisnis dengan bantuan AEGIS.ID. Kami
@@ -43,7 +43,7 @@ defineEmits(['create-reservation'])
   background-image: url("/images/services/bg-hero-services-mobile.png");
   background-repeat: no-repeat;
   background-size: cover;
-  @apply h-[30vh] w-full rounded-2xl absolute top-0;
+  @apply h-[40vh] w-full rounded-2xl absolute top-0;
 }
 
 .bg-hero {

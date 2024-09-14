@@ -24,7 +24,7 @@ defineEmits(['create-reservation'])
         berkembang dengan cara yang efektif.</p>
     </div>
     <!-- Content-->
-    <div class="w-full h-max flex flex-row flex-wrap justify-center">
+    <div class="w-full h-max flex flex-row flex-wrap justify-center items-center">
       <ItemCategory
           v-for="(item,idx) in packages"
           :name="item.title ?? ''"

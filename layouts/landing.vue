@@ -135,13 +135,13 @@ const callback = {
         :style="style"
         :parent="styleParent"
         :services="landing.services"
-        :package="landing.package"
+        :packages="landing.packages"
         @refresh="() => {data.refresh()}"
     />
     <div class="pt-[10vh] sm:pt-[10vh] md:pt-[15vh] lg:pt-[15vh] xl:pt-[15vh]"></div>
    <slot
         :services="landing.services"
-        :packages="landing.package"
+        :packages="landing.packages"
         :detail-packages="landing.detailPackage"
         :detail-services="landing.detailService"
         :loading-packages="landing.loadingDetailPackage"
