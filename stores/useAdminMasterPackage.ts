@@ -14,6 +14,7 @@ export const useAdminMasterPackage = defineStore("master-package", {
         packageIcon: null as File | null,
         packageIconUrl: "" as string | ArrayBuffer | null,
         packagePrice: 0 as number | null,
+        packageRecommendation: false as boolean,
         isEdit: false,
         showForm: false,
         loadingSubmit: false,
@@ -159,7 +160,7 @@ export const useAdminMasterPackage = defineStore("master-package", {
 
             const {slugify} = useSlug()
 
-            const savedService = await client.from("packages")
+            const savedPackage = await client.from("packages")
                 .insert({
                     title: this.packageTitle,
                     subtitle: this.packageSubTitle,
@@ -169,11 +170,12 @@ export const useAdminMasterPackage = defineStore("master-package", {
                     price: this.packagePrice,
                     image: upload.data.fullPath,
                     icon: uploadIcon.data.fullPath,
-                    slug: slugify(this.packageTitle)
+                    slug: slugify(this.packageTitle),
+                    recommendation:this.packageRecommendation,
                 })
 
             this.loadingSubmit = false
-            if (savedService.error) {
+            if (savedPackage.error) {
                 return false
             }
             this.showForm = false

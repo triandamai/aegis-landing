@@ -102,6 +102,7 @@ function showEdit(data: DataPackage) {
                 <v-file-input v-model="store.packageIcon" label="Icon" variant="outlined"></v-file-input>
               </v-col>
             </v-row>
+            <v-checkbox v-model="store.packageRecommendation" label="Rekomendasi ?"></v-checkbox>
           </v-card-text>
 
           <v-divider class="mt-2"></v-divider>
