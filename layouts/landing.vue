@@ -84,7 +84,7 @@ const callback = {
 
       :locations="landing.locations"
       :services="landing.services"
-      :packages="landing.package"
+      :packages="landing.packages"
       :is-package-reservation="landing.isPackageReservation"
       :business="landing.business"
       @dismiss="landing.showDialogCreateReservation = false"

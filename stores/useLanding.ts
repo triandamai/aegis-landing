@@ -83,7 +83,7 @@ export const useLanding = defineStore("landing", {
                 })
 
             if (data.data) {
-                this.package = data.data as any
+                this.packages = data.data as any
             }
         },
         async getDetailPackage() {

@@ -4,12 +4,16 @@ import type {User} from "@supabase/auth-js";
 import NavPackage from "~/components/header/NavItemPackage.vue";
 import NavService from "~/components/header/NavItemServices.vue";
 
-defineProps<{
+const props = defineProps<{
   style: string,
   parent: string,
   services: Array<DataService>,
   packages: Array<DataPackage>
 }>()
+
+watch(()=>props.packages,(newV,OldV)=>{
+  console.log(newV,OldV)
+})
 
 defineEmits(['refresh'])
 

@@ -99,6 +99,6 @@
   background-image: url("/images/main/hero-right.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @apply w-[20vw] md:w-[15vw] md:h-[13vw] lg:w-[12vw] lg:h-[23vh] xl:w-[10vw] xl:h-[28vh] md:mr-[4vw]  lg:mr-[3vw] xl:mr-0;
+  @apply w-[20vw] md:w-[15vw] md:h-[13vw] lg:w-[12vw] lg:h-[23vh] xl:w-[10vw] xl:h-[28vh] md:mr-[4vw]  lg:mr-[3vw] 2xl:h-[20vh] xl:mr-0;
 }
 </style>
